@@ -1,6 +1,6 @@
 # Folder Structure
 
-<img align="right" width="100" height="100" src="folder.svg">
+<img align="right" width="150" height="400" src="folder.svg">
 sdasdsajlkdhaslkdjhdsflkajsdfhlekjfh
 <br clear="right"/>
 
