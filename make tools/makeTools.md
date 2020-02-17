@@ -9,71 +9,242 @@ sdasdsajlkdhaslkdjhdsflkajsdfhlekjfh
 ## API Reference
 
 
-#### Initialize the Javacript Library
-Include the open hybrid functionality by instancing as following in your Java Script code:
+#### Initialize the Javacript Library within your Spatial Tool
+Include the Spatial Toolbox functionality by instancing as following in your Java Script code:
 
 ```javascript
-var toolbox = new Toolbox();
+var spatialTool = new SpatialTool();
 ```
 
-Every communication with the object is happening passively. This means that the object is not pushing data. If a user interface wants to read data from a Hybrid Object it first needs to send a read request.
+### Communication with other Spatial Tools
+
+
+##### sendGlobalMessage
+Send broadcast messages to all other spatial tools currently visible in the Spatial Toolbox.
 
 ```javascript
-toolbox.addReadListener("led", function(e){
-  input = e*255;
-});
+spatialTool.sendGlobalMessage("Hello World");
 ```
-You can write to the Hybrid Object with write(). The scale of your values should be between 0.0 and 1.0.
+##### sendMessageToFrame
+##### sendEnvelopeMessage
+##### sendCreateNode
+##### sendMoveNode
+##### sendResetNodes
+
+##### addGlobalMessageListener
+Allows you to listen to messages send to all other spatial tools currently visible in the Spatial Toolbox.
 
 ```javascript
-toolbox.write("led", output);
-```
-Send broadcast messages to all other objects currently visible in the Reality Editor.
-
-```javascript
-toolbox.sendGlobalMessage("Hello World");
-```
-Allows you to listen to messages send to all other objects currently visible in the Reality Editor.
-
-```javascript
-toolbox.addGlobalMessageListener(function(e){
+spatialTool.addGlobalMessageListener(function(e){
   console.log(e);
 });
 ```
-Allows you to listen to updates 3D-transformations. It only works once subscribeToMatrix() has been called. This listener is synchronized with the video update rate.
+##### addFrameMessageListener
+
+
+
+### Subscribe to Matrices
+
+
+##### subscribeToMatrix
+##### subscribeToScreenPosition
+##### subscribeToDevicePoseMatrix
+##### subscribeToAllMatrices
+##### subscribeToGroundPlaneMatrix
+##### subscribeToAcceleration
+
+##### addMatrixListener
+Listen to 3D-transformations updates. It only works once subscribeToMatrix() has been called. This listener is synchronized with the video update rate.
 
 ```javascript
-toolbox.addMatrixListener(function(e,f){
+spatialTool.addMatrixListener(function(e,f){
   modelview = e;
   projection = f;
 });
 ```
-Forces the Reality Editor to show your content full screen without 3d transformation. This comes in handy for when you want to use the transformation matrices directly.
+
+##### addAllObjectMatricesListener
+##### addDevicePoseMatrixListener
+##### addScreenPositionListener
+##### cancelScreenPositionListener
+// deprecated or unimplemented methods
+##### addAccelerationListener
+
+##### getPosition
+
+Returns a number for translation distance and position between the iOS device and the marker.
 ```javascript
-toolbox.setFullScreenOn();
+x =  spatialTool.getPositionX();
+y =  spatialTool.getPositionY();
+z =  spatialTool.getPositionZ();
 ```
 
-Does the oposit from setFullScreenOn. 🙂
+##### getProjectionMatrix
+##### getModelViewMatrix
+##### getGroundPlaneMatrix
+##### getDevicePoseMatrix
+##### getAllObjectMatrices
+
+### Control AR Screen Position
+
+##### setFullScreenOn
+Forces the Reality Editor to show your content full screen without 3d transformation. This comes in handy for when you want to use the transformation matrices directly.
 ```javascript
-toolbox.setFullScreenOff();
+spatialTool.setFullScreenOn();
 ```
+##### setFullScreenOff
+Does the opposite from setFullScreenOn.
+```javascript
+spatialTool.setFullScreenOff();
+```
+##### setStickyFullScreenOn
+##### setStickinessOff
+##### setExclusiveFullScreenOn
+##### setExclusiveFullScreenOff
+
+### Media Content
+
+##### startVideoRecording
+##### stopVideoRecording
+##### getScreenshotBase64
+##### openKeyboard
+##### closeKeyboard
+##### onKeyboardClosed
+##### onKeyUp
+
+### Tool Behavour 
+
+##### setMoveDelay
+##### setVisibilityDistance
+##### activateScreenObject
+##### enableCustomInteractionMode
+##### enableCustomInteractionModeInverted
+##### setInteractableDivs
+##### subscribeToFrameCreatedEvents
+##### subscribeToFrameDeletedEvents
+##### announceVideoPlay
+##### subscribeToVideoPauseEvents
+##### ignoreAllTouches
+##### changeFrameSize
+// deprecated methods
+##### sendToBackground
+
+##### addVisibilityListener
 Allows you read if the interface is visible or not. The interface stays active for 3 seconds after it becomes invisible.
 ```javascript
-toolbox.addVisibilityListener(function(e){
+spatialTool.addVisibilityListener(function(e){
   visible = e;
 });
 ```
-Returns a number for translation distance and position between the iOS device and the marker.
+
+##### addInterfaceListener
+##### addIsMovingListener
+
+##### getVisibility
+
+
+##### getInterface         
+      
+##### getUnitValue
+##### getScreenDimensions
+##### getMoveDelay
+// deprecated getters
+##### search
+
+##### registerTouchDecider
+##### unregisterTouchDecider
+          
+
+### Spatial Edge Server Communication 
+
+
+##### write
+
+You can write to the Hybrid Object with write(). The scale of your values should be between 0.0 and 1.0.
 
 ```javascript
-x =  toolbox.getPositionX();
-y =  toolbox.getPositionY();
-z =  toolbox.getPositionZ();
+spatialTool.write("led", output);
 ```
+##### spatial.addReadListener
+
+Every communication with the object is happening passively. This means that the object is not pushing data. If a user interface wants to read data from a Hybrid Object it first needs to send a read request.
+
+```javascript
+spatialTool.addReadListener("led", function(e){
+  input = e*255;
+});
+```
+
+##### readPublicData 
+##### addReadPublicDataListener 
+##### writePublicData 
+##### reloadPublicData 
+##### addScreenObjectListener
+##### addScreenObjectReadListener
+// deprecated or unimplemented methods
+##### read
+##### readRequest
+##### writePrivateData
+##### initNode
+
+    
+
+
 
 ## Create new Interfaces
 
 ### API Reference
+
+
+##### write
+##### writePublicData
+##### clearObject
+##### removeAllNodes
+##### reloadNodeUI
+##### getAllObjects
+##### getKnownObjects
+##### getAllFrames
+##### getAllNodes
+##### getAllLinksToNodes
+##### subscribeToNewFramesAdded
+##### runFrameAddedCallbacks
+##### subscribeToReset
+##### runResetCallbacks
+##### subscribeToMatrixStream
+##### triggerMatrixCallbacks
+##### subscribeToUDPMessages
+##### triggerUDPCallbacks
+##### addNode
+##### renameNode
+##### moveNode
+##### removeNode
+##### attachNodeToGroundPlane
+##### pushUpdatesToDevices
+##### activate
+##### deactivate
+##### getObjectIdFromObjectName
+##### getMarkerSize
+##### enableDeveloperUI
+##### getDebug
+##### setup
+##### reset
+##### readPublicDataCall
+##### screenObjectCall
+##### screenObjectServerCallBack
+##### addScreenObjectListener
+##### writeScreenObjects
+##### activateScreen
+##### getScreenPort
+##### addReadListener
+##### addPublicDataListener
+##### connectCall
+##### addConnectionListener
+##### removeReadListeners
+##### map
+##### addEventListener
+##### advertiseConnection
+##### shutdown
+##### loadHardwareInterface
 
 
 ## Create new Nodes
