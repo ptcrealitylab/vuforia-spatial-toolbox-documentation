@@ -81,5 +81,3 @@ A block link is analagous to a link between nodes, except it connects a start bl
 
 Block links are stored in the `links` property of a logic node.
 
-
-
