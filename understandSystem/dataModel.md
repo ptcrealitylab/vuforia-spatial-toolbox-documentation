@@ -17,15 +17,15 @@ An Object (sometimes referred to as a Reality Object) corresponds to exactly one
 
 Objects are identified by a human readable *name*, as well as a unique *objectId* (`{object name}+{random 12 character string}`). Objects are stored in the user's local `~/Documents/realityobjects` directory, which is loaded when an edge server is started on the machine. The full properties of an Object are stored in `~Documents/realityobjects/{object name}/.identity/object.json`.
 
-There is also a certain type of Object called a **World Object**, which doesn't require a target, and instead remains visible as you move around a space.
+There is also a certain type of Object called a **World Object** which doesn't require a target and instead remains visible as you move around a space.
 
-Objects are stored in the `objects` global variable.
+Objects are stored in the userinterface in the `objects` global variable. Objects are stored on edge servers in the `objects` variable in the server.js file.
 
 - Each object can have 0, 1, or many frames...
 
 ### Frame (Tool)
 
-The data model for a single piece of AR content, which can be attached to an object. A frame has an iframe element that is rendered while its object's Vuforia target is visible. A frame has 3D position data that can be modified by the client, and a src to load into the iframe. iFrame content can interact with AR capabilities using a JavaScript API. A frame can be *local* (permanently designed for, and tied to, its object) or *global* (able to be moved from one object to another).
+The data model for a single piece of AR content, which can be attached to an object. A frame has an iframe element that is rendered while its object's Vuforia target is visible. A frame has 3D position data that can be modified by the client and a src to load into the iframe. iFrame content can interact with AR capabilities using a JavaScript API. A frame can be *local* (permanently designed for, and tied to, its object) or *global* (able to be moved from one object to another).
 
 Like objects, frames also have a *name* and a unique *frameId*. Each local frame has a directory located at `realityobjects/{object name}/{frame name}`, which contains an index.html that is loaded into the frame. Each global frame is stored by name in the object.json file, and its name is resolved into an index.html src by the edge server it belongs to.
 
@@ -40,7 +40,7 @@ Frames are stored in the `frames` property of an object.
 
 A node represents a specific input and/or output of a frame, which can be logically connected to nodes of other frames by *linking* them together.
 
-A node stores a data value, and has a visual AR representation that will be rendered relative to its frame's position when a user looks at the frame in programming mode. When nodes are linked together, and a new data value arrives at a node, the data value will propagate to any nodes linked downstream from it.
+A node stores a data value and has a visual AR representation that will be rendered relative to its frame's position when a user looks at the frame in programming mode. When nodes are linked together, and a new data value arrives at a node, the data value will propagate to any nodes linked downstream from it.
 
 Data can be written to or read from a node, either from a frame's iframe (using the JavaScript API), or from connected hardware (using an edge server's *hardware interface*).
 
@@ -54,13 +54,13 @@ Links are stored in the `links` property of a frame.
 
 ### Data
 
-A data packet that is sent between nodes that are linked together. It contains a `value`, which by default should be formatted as a floating point number within the range of 0 to 1, inclusive. 0 means off, while 1 means on. A data packet can optionally set its `unitMin` and `unitMax` if it is using a different range than [0, 1], so that the value can be normalized and will still be compatible with other nodes. A data packet can also optionally set a `unit` string to tag the data with a unit (such as meters or kg), which certain frames can visualize or convert between.
+A data packet that is sent between nodes that are linked together. It contains a `value` which by default should be formatted as a floating point number within the range of 0 to 1, inclusive. 0 means off, while 1 means on. A data packet can optionally set its `unitMin` and `unitMax` if it is using a different range than [0, 1], so that the value can be normalized and will still be compatible with other nodes. A data packet can also optionally set a `unit` string to tag the data with a unit (such as meters or kg), which certain frames can visualize or convert between.
 
 Exactly one data packet is stored in the `data` property of a node. This is the data that was most recently sent to this node.
 
 ### Logic Node
 
-A logic node is a special type of node that can contain a customized program that affects the data flowing through it. The program is assembled out of *blocks* and *block links*. Tapping on a logic node opens up a grid-based visual programming interface where the user can construct such a program. Logic nodes can be linked with regular nodes, with the small difference that logic nodes have four color-coded inputs and four color-coded outputs to choose from. Data enters the logic node through one of its inputs, and can pass through multiple logic blocks before exiting one of its outputs. Any of the blocks it passes through will affect the data value that gets outputted.
+A logic node is a special type of node that can contain a customized program that affects the data flowing through it. The program is assembled out of *blocks* and *block links*. Tapping on a logic node opens up a grid-based visual programming interface where the user can construct such a program. Logic nodes can be linked with regular nodes, with the small difference that logic nodes have four color-coded inputs and four color-coded outputs to choose from. Data enters the logic node through one of its inputs and can pass through multiple logic blocks before exiting one of its outputs. Any of the blocks it passes through will affect the data value that gets outputted.
 
 Logic Nodes are stored in the `nodes` property of a frame, along with the regular nodes. They just have a `{type: "logic"}` property rather than `{type: "node"}`.
 
