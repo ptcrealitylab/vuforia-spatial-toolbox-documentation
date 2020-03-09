@@ -283,7 +283,7 @@ The callback provides the video URL.
 
 ```javascript
 spatialTool.startVideoRecording(function(e){
-var videoURL = e;
+	var videoURL = e;
 });
 ```
 
@@ -299,7 +299,7 @@ Use this event to programm your video player to pause when other videos are play
 
 ```javascript
 spatialTool.subscribeToVideoPauseEvents(function(){
-// called when pause is requested.
+	// called when pause is requested.
 });
 ```
 
@@ -308,7 +308,7 @@ Screenshot of the Vuforia Camera. A single frame returned as a base64 string.
 
 ```javascript
 spatialTool.getScreenshotBase64(function(e){
-var imageBase64String = e;
+	var imageBase64String = e;
 });
 ```
 
@@ -332,7 +332,7 @@ Check if the keyboard is closed.
 
 ```javascript
 spatialTool.onKeyboardClosed(function(){
-// called on keyboard closed
+	// called on keyboard closed
 });
 ```
 
@@ -342,41 +342,61 @@ Use this to listen to keyboard entries. The callback returns the entire keyboard
 
 ```javascript
 spatialTool.onKeyUp(function(e){
-var keyBoardEvent = e;
+	var keyboardEvent = e;
 });
 ```
 
 ### Tool Behavour 
 
 
-##### setMoveDelay
-Set how long it takes for a person to tap until a tool becomes moveable.
-(delay in ms)
-
-##### addIsMovingListener
-
-callback (currently tragging frame around) boolean 
-
-
 ##### setVisibilityDistance
-(meters of visiblity)
-Set how far away something is visible
+Define the distance (in meter) your spatial Tool is visible in the Spatial Toolbox. A user can change this number via the Spatial Toolbox UI.
 
+```javascript
+spatialTool.setVisibilityDistance(2);
+```
 
 ##### addVisibilityListener
-Allows you read if the interface is visible or not. The interface stays active for 3 seconds after it becomes invisible.
+Callback to read the visibility of a spatial tool. The interface stays active for 3 seconds after it becomes invisible.
+
 ```javascript
 spatialTool.addVisibilityListener(function(e){
   visible = e;
 });
 ```
 
-
 ##### getVisibility
-tell if visible boolean 
+Returns true or false if the spatial tool is visible.
+
+```javascript
+spatialTool.getVisibility();
+```
+
+##### setMoveDelay
+Set how long it takes (in ms) for a user to tap and hold a spatial tool until it becomes moveable. 
+
+```javascript
+spatialTool.setMoveDelay(10);
+```
+
+##### addIsMovingListener
+Returns true if a tool is moved and false once it is released.
+
+```javascript
+spatialTool.addIsMovingListener(function(e){
+  isMoving = e;
+});
+```
 
 
 ##### enableCustomInteractionMode
+One way to define when a Tool becomes moveable is the moveDelay described above. Another way is to define specific areas that are interactive elements and as a consequence touching all other areas makes the tool instantly movable. Call this function to envoke this functionality. Asign all your interactive elements the class "spatial interaction" to make them interactive elements.
+
+```javascript
+spatialTool.enableCustomInteractionMode();
+```
+
+
 YOu call this function to specify what becomes interactable and what moves the tool
 Touches emediatly move frame around
 unless you touch on a div that has a specific class called "spatial interaction"
@@ -459,63 +479,73 @@ valueAndUnitObject = spatialTool.getUnitValue(flowDataPackage)
 ```
 
 ##### spatial.addReadListener
-
 Add a readlistzener to read value changes from a node. These changes are synchronized with the Edge Server for as long as the Spatial Tool active. The tool becomes inactive 3 seconds after its not visible anymore. 
 
 ```javascript
 spatialTool.addReadListener("nodeName", function(e){
-var package = spatialTool.getUnitValue(e);
-value = package.value;
-unit = package.unit;
+	var package = spatialTool.getUnitValue(e);
+	value = package.value;
+	unit = package.unit;
 });
 ```
 
-##### writePublicData 
-PublicData is a json object that contains data objects specified by the node definition. You need to finetune your Tool to a specific node type. publicData is the API that allows you to handle complex data among the server side node programm and thr Spatial Tool.
+##### readRequest
+This forces the server to send the latest value, so that the readListener can pick it up. You can use this in combination with addReadListener to initialize your spatial Tool if needed.
 
 ```javascript
+spatialTool.readRequest("nodeName");
+
 spatialTool.addReadListener("nodeName", function(e){
-var package = spatialTool.getUnitValue(e);
-value = package.value;
-unit = package.unit;
+	var package = spatialTool.getUnitValue(e);
+	value = package.value;
+	unit = package.unit;
 });
 ```
 
+()
 
-(node, valueName, value) (realTimeonly (optional)) but no write to server just in time realtime
-content of that specific item within the data
+##### writePublicData 
+PublicData is a json object that contains data objects specified by the server side node definition. You need to finetune your Tool via specific node types. publicData allows you to handle complex data among the server side node programm and thr Spatial Tool. The value can contain any JSON encoded data. The last parameter is optional and if set to true, forces the server not to store the data but handle it as realtime flow.
+
+```javascript
+spatialTool. writePublicData("nodeName", "key", value, false);
+```
+
+##### writePrivateData
+Unlike publicData, privateData is write only and its content is only read accessable to the edge server. Spatial Tools and the Spatial Toolbox will never have read access.
+
+```javascript
+spatialTool.writePublicData("nodeName", "key", value);
+```
 
 
 ##### readPublicData 
- 
+Read data from publicData once. Use this function if you need to fill your spatial Tool with all current publicData values. The last parameter is optional and defines a default value in case the key does not jet exist in the publicData.
 
-Read the public data object 
-(node, valueName, callback)
-content of that specific item within the data
+```javascript
+value = spatialTool.readPublicData("nodeName", "key", value);
+```
 
 ##### addReadPublicDataListener 
-when ever public data changes 
-(node, valueName, callback)
-content of that specific item within the data
+Add a a readlistener for publicData to read value changes for a defined Key. These changes are synchronized with the Edge Server for as long as the Spatial Tool active. The tool becomes inactive 3 seconds after its not visible anymore. 
 
-
+```javascript
+spatialTool.addReadPublicDataListener("nodeName", "key", function(e){
+var value = e;
+});
+```
 
 ##### reloadPublicData 
-emits a message to the server to request to send most recent
-()
 
-##### readRequest
-force to send data
-()
+Sends a message to the edge server to send the most recent state of publicData. You can use this to initialize your spatial Tool, since the publicDataListener only reacts to updates. 
 
-##### writePrivateData
-write private Data 
+```javascript
+value = spatialTool.reloadPublicData();
 
-node, valueName, Value
-
-    
-
-
+spatialTool.addReadPublicDataListener("nodeName", "key", function(e){
+	var value = e;
+});
+```
 
 ## Create new Interfaces
 
