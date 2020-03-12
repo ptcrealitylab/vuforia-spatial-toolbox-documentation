@@ -29,7 +29,7 @@ dashboard, and edit the default files that get generated in your realityobjects 
 
 A **global** tool is a definition of an AR interface that can be added to the scene multiple
 times. Global tools exist in a tools directory of an addon, e.g.
-`vuforia-spatial-edge-server/addons/[addon name]/tools/[global-frame-name]/index.html`. This
+`vuforia-spatial-edge-server/addons/[addon name]/tools/[global-tool-name]/index.html`. This
 piece of AR content will appear in the client's pocket menu, if the client is connected to the
 edge server which contains the global tool. If the edge server disconnects, the tool will no
 longer appear in the client's pocket. The client can add as many copies of the tool to the scene

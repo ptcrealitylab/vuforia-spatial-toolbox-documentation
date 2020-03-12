@@ -5,7 +5,7 @@ in response to other tools:
 
 ![randomColor-tool-demo-568px](./images/randomColor-tool-demo-568px.gif)
 
-You will learn to create a **global tool**, which means this frame will appear in your pocket so
+You will learn to create a **global tool**, which means this tool will appear in your pocket so
 you can add as many of them to the scene as you want. A follow-up tutorial will show you how to
 create this as a **local tool** instead.
 
@@ -93,14 +93,14 @@ Edit the index.html file and replace its contents with the following. I'll expla
 3. Because we have included the `object.js` script, we can access the APIs it provides by
    creating a new RealityInterface instance. We aren't using it for anything yet (we will by the
    end of this tutorial), but you should instantiate it anyways so that the tool properly loads.
-4. Here we can add any behavior to this frame, as if it were an ordinary HTML page. We add a
+4. Here we can add any behavior to this tool, as if it were an ordinary HTML page. We add a
    pointerup event so that if the user taps on the tool, it will pick a random color and change its
    background to that. Note that we have to use pointerevents (pointerup, pointerdown, pointermove,
    and pointercancel) – regular mouse or click events won't work.
 
 ### Create the icon.gif file
 
-You then have to give your frame an icon image, which is what it will look like in the pocket.
+You then have to give your tool an icon image, which is what it will look like in the pocket.
 For now, download and use this placeholder image:
 
 ![icon.gif is the placeholder icon for your tool](./images/icon.gif)
@@ -138,9 +138,9 @@ network:
 
 ![dashboard of listing all available spatial tools](./images/spatial-tools-list.png)
 
-If you scroll down all the way, you should see an entry for your randomColor frame:
+If you scroll down all the way, you should see an entry for your randomColor tool:
 
-![spatial tools entry for randomColor frame on dashboard](./images/spatial-tool-entry-for-randomColor.png)
+![spatial tools entry for randomColor tool on dashboard](./images/spatial-tool-entry-for-randomColor.png)
 
 If you don't see this, try restarting your server. If you still don't see it, go back to the
 steps on setting up your addon to make sure everything is in the right place.
