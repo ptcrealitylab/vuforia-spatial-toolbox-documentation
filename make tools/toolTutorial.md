@@ -131,9 +131,9 @@ the right edge says "On", you should be all set. You can ignore the other button
 
 ![dashboard with world object](./images/edge-server-dashboard-world-object.png)
 
-We can check that your server can successfully found your tool from the adddon you built by
+We can check that your server has successfully found your tool from the adddon you built by
 clicking on the "Spatial Tools" tab near the top center of the dashboard. This will bring you to
-a different view which lists all of the tools that this server can provide to clients in the
+a different view that lists all of the tools that this server can provide to clients in the
 network:
 
 ![dashboard of listing all available spatial tools](./images/spatial-tools-list.png)

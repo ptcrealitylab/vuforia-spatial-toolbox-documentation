@@ -1,10 +1,9 @@
 ## Different Options For Building Tools
 
-There are a few different ways to create custom AR content and add it to the system.
+There are a two distinct ways to create custom AR content and add it to the system.
 
 1. Create a custom-designed **Local Tool** for a specific object, which will only ever have one instance (it appears when you look at that object) and has some special capabilities.
-2. Create a **Private Global Tool** on the Local Edge Server of your iOS client, which will appear in the Pocket of the user interface, and which you can add multiple instances of to your Local World Object.
-3. Create a **Public Global Tool** on a non-local Edge Server that you can run from any computer in the network, which will appear in the Pocket of the user interfaces of all clients that connect to that network.
+2. Create a **Global Tool** as an addon of an Edge Server, which will appear in the pocket menu of apps connected to the same WiFi network as that server, and which you can add multiple instances of to your scene.
 
 *Note:  Tools have previously been known as Frames. Any references to Frames or Tools in other code or documentation are referring to the same thing.*
 
