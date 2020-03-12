@@ -12,7 +12,7 @@ There are a few different ways to create custom AR content and add it to the sys
 
 A **local** tool is an AR interface for a specific object. A tool with a specific name can be created for a specific object through the web dashboard, which will create the `realityobjects/[object-name]/[local-tool-name]/index.html` directories and default HTML contents. This piece of AR content will appear when a client looks at the object. Local tools cannot be deleted by clients. They can only be deleted through the web dashboard. They also cannot be moved by clients from one object to another; they are tied to the object they were written for. Local tools can be accessed by hardware interface APIs, for instance to connect nodes of a tool to a stream of data from connected hardware.
 
-> To create a new **local** tool, you need to click on the "Add Frame" button on the web dashboard, and edit the default index.html file that gets generated in your realityobjects directory.
+> To create a new **local** tool, you need to click on the "Add Frame" button on the web dashboard, and edit the default files that get generated in your realityobjects directory.
 
 ### Global Tools
 
@@ -32,6 +32,6 @@ A private global tool is a global tool that runs on the local edge server that w
 
 > To create a new **private** global tool, you need to add an addon to the bin/data/vuforia-spatial-edge-server within the mobile app directory, and recompile the app.
 
-A non-private (**public**) global tool is a global tool that runs on any edge server outside of the client. Global tools are considered non-private by default. Clients will discover all the global tools from all the edge servers in the network. Public global tools have none of the restrictions of private global tools.
+A non-private (**public**) global tool is a global tool that runs on any edge server outside of the client. Global tools are considered non-private by default. Clients will discover all these tools from all the edge servers in the network. Public global tools have none of the restrictions of private global tools.
 
 > To create a new **public** global tool, you need to add an addon to any edge server, and run that edge server from your computer.
