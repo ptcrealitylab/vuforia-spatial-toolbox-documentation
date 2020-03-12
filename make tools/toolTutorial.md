@@ -25,7 +25,7 @@ new tool to the core-addon, create a new directory next to it called `my-addon`.
 -addon`, create a new directory called `tools`. This will hold all of the new tools you develop
 that will get added to this edge server.
 
-#### Create the index.html file
+### Create the index.html file
 
 and then within that create a directory with the name of the tool you want to create, which in
 this case will be called `randomColor`. Finally, inside that directory create a new HTML file
@@ -98,33 +98,68 @@ Edit the index.html file and replace its contents with the following. I'll expla
    background to that. Note that we have to use pointerevents (pointerup, pointerdown, pointermove,
    and pointercancel) – regular mouse or click events won't work.
 
-#### Create the icon.gif file
+### Create the icon.gif file
 
 You then have to give your frame an icon image, which is what it will look like in the pocket.
-For now, use this placeholder image:
+For now, download and use this placeholder image:
 
 ![icon.gif is the placeholder icon for your tool](./images/icon.gif)
 
 Place it in the same directory as the index.html file. Make sure it is named icon.gif.
 
-If you run your app now, and your server has at least one world object in the space, you should
-see this icon in your pocket:
+### Ensure your server is set up correctly
+
+If your server doesn't have a world object yet, you won't see this tool in your app.
+Why does it need a world object? This global tool that you built only exists on this edge server,
+so it only knows how to "stick" to objects on this edge server. Creating a world object on this
+server sort of "blankets" your space with an invisible object that your custom tools will know
+how to attach to.
+
+To add a world object to your server, run your server (`node server.js` in the terminal in your
+vuforia-spatial-edge-server directory), and then visit http://localhost:8080 in a web browser.
+If you've added objects before, you'll see them listed. If you haven't it'll be empty and look
+something like this:
+
+![dashboard empty](./images/edge-server-dashboard-empty.png)
+
+Now click on the "Add World Object" button and type in a name, such as "test":
+
+![dashboard typing in world object named test](./images/edge-server-dashboard-add-world-object.png)
+
+Click the big green "Add" button and you'll see your new world object pop up. If the button on
+the right edge says "On", you should be all set. You can ignore the other buttons for now:
+
+![dashboard with world object](./images/edge-server-dashboard-world-object.png)
+
+We can check that your server can successfully found your tool from the adddon you built by
+clicking on the "Spatial Tools" tab near the top center of the dashboard. This will bring you to
+a different view which lists all of the tools that this server can provide to clients in the
+network:
+
+![dashboard of listing all available spatial tools](./images/spatial-tools-list.png)
+
+If you scroll down all the way, you should see an entry for your randomColor frame:
+
+![spatial tools entry for randomColor frame on dashboard](./images/spatial-tool-entry-for-randomColor.png)
+
+If you don't see this, try restarting your server. If you still don't see it, go back to the
+steps on setting up your addon to make sure everything is in the right place.
+
+Now that you have your world object set up, and you've verified that your server knows about the
+tool that you built, you should see the tool icon in the pocket of you app if you're connected
+to the same WiFi network as the computer running the edge server. (Scroll down to the bottom
+row of the pocket)
 
 ![screenshot of pocket with placeholder icon for randomColor tool](./images/screenshot-of-pocket-with-placeholder.png)
 
-If your server doesn't have a world object yet, you won't see this icon in your pocket, so
-*follow these instructions to create one*. Why does it need a world object? This global tool
-that you built only exists on this edge server, so it only knows how to "stick" to objects on
-this edge server. Creating a world object on this server sort of "blankets" your space with an
-invisible object that your custom tools will know how to attach to.
-
 If you tap on the placeholder icon in the pocket, it will add an instance of your tool to the
-scene. Tapping on it will randomly change its color. You can add as many of these to your scene
-as you want.
+scene. Tapping on it will randomly change its color.
 
 ![screenshot of randomColor tool placed into space](./images/screenshot-of-randomColor-tool-in-space.png)
 
-#### Make it programmable
+Ta-da! You've just built your first tool! You can add as many of these to your scene as you want.
+
+### Make it programmable
 
 Right now, if you switch to programming mode in the app, you won't be able to link this tool to
 any other tools, because we haven't created a **node** for the tool in the index.html file. Let's
