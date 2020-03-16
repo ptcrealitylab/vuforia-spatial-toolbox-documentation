@@ -43,6 +43,11 @@ start for developers above in your terminal of choice.
 
 ### iOS App Store
 
+Right now the easiest option is to email `vheun` at `ptc` dot `com` for access
+to our Testflight beta. You could also compile the app from source using [the
+instructions on the iOS App's
+repo](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-ios/).
+
 ### Google Play Store
 
 Coming soon!
