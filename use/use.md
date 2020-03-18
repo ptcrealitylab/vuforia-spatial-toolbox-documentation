@@ -2,9 +2,7 @@
 
 ## An illustrated guide to using the Vuforia Spatial Toolbox
 
-The best way to get started is to...
-
-You are now ready to use the Vuforia Spatial Toolbox. Open the iOS app and follow along to learn how to operate the user interface.
+Open the Vuforia Spatial Toolbox app and follow along to learn how to operate the user interface.
 
 ## Navigating the Menus
 
