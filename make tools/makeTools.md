@@ -452,91 +452,112 @@ spatialTool.addIsMovingListener(function(move){
 
 
 ##### enableCustomInteractionMode()
-One way to define when a Tool becomes moveable is the moveDelay described above. Another way is to define specific areas that are interactive elements and as a consequence touching all other areas makes the tool instantly movable. Call this function to envoke this functionality. Asign all your interactive elements the class "spatial interaction" to make them interactive elements.
+One way to define when a Tool becomes moveable is the moveDelay described above. Another way is to define specific areas that are interactive elements and as a consequence touching all other areas makes the tool instantly movable. Call this function to envoke this functionality. Asign all your interactive elements the class `spatial interaction` to make them interactive elements.
 
 ```javascript
 spatialTool.enableCustomInteractionMode();
 ```
 
-
-You call this function to specify what becomes interactable and what moves the tool
-Touches emediatly move frame around
-unless you touch on a div that has a specific class called "spatial interaction"
-
-##### enableCustomInteractionModeInverted
-If you want nothing but one thing to move the frame around
+##### enableCustomInteractionModeInverted()
+This does the invert to the function above. In this case the elements defined by the next function become the item that allows the spatial moving.
 
 ```javascript
-spatialTool.
+spatialTool.enableCustomInteractionModeInverted()
 ```
 
-##### setInteractableDivs
-once the one before is set, you can give this the IDs of the divs that are interactable.
+##### setInteractableDivs(divList)
+- `divList ` _(String[])_ Array of interactive html elements
 
-(divList [array of actual div])
+Once `enableCustomInteractionMode`or `enableCustomInteractionModeInverted`use this function to define the interactive elements.
+
+
 
 ```javascript
-spatialTool.
+  realityInterface.enableCustomInteractionMode();
+  realityInterface.setInteractableDivs([touchInteractiveElement]);
 ```
 
-##### subscribeToFrameCreatedEvents
+##### subscribeToFrameCreatedEvents(callback)
+- `callback ` _(Function)_
+- **Returns** frameUuid _(String)_ The Uuid of the frame created
+- **Returns** type _(String)_ the type of the frame (e.g. graph, slider, etc)
 
-callback anytime the user creates a new frame while this frame is visible
-frameID, frame type inside object
+
+Triggers a callback anytime another new frame is created while this frame is loaded in the DOM.
 
 ```javascript
-spatialTool.
+spatialTool.subscribeToFrameCreatedEvents(function(frameUuid, type){
+var thisFrameIsNew = frameUuid;
+var itsTypeIs = type;
+});
 ```
 
 ##### subscribeToFrameDeletedEvents
-same callback but if deleted
+- `callback ` _(Function)_
+- **Returns** frameUuid _(String)_ The Uuid of the frame deleted
+- **Returns** type _(String)_ the type of the frame (e.g. graph, slider, etc)
+
+Triggers a callback anytime a frame is deleted while this frame is loaded in the DOM.
 
 ```javascript
-spatialTool.
+spatialTool.subscribeToFrameDeletedEvents(function(frameUuid, type){
+var thisFrameIsDeleted= frameUuid;
+var itsTypeWas = type;
+});
 ```
 
-##### ignoreAllTouches
+##### ignoreAllTouches(newValue)
+- `newValue` _(Boolean)_
 
-Tells Tools to do pointer events none you can not do anything with it.
-(true/false)
+Pass in true (or omit the argument) to make the tool set pointer-events none so all touches pass through un-altered
 
 ```javascript
-spatialTool.
+spatialTool.ignoreAllTouches(false);
 ```
 
-##### registerTouchDecider
+##### registerTouchDecider(callback)
+- `callback ` _(Function)_ A callback function that decides if our tool is touched or not. 
+- **Returns** eventData _(Object)_ touch event includes x and y of screen touch.
+- **Returns** _(Boolean)_ Your callback should return a boolean to decide if a touch is inside an element or outside.
 
-For threejs to know if you tap something that should count as touched. 
-
-You hand over a function whos job is to return true or falls in case something is hit or not.
-
-(hand over function) In fullscreen frames
+Use this function in a fullscreen tool for when you use for example uses threejs or similar. You need to pass a function that decides if a touch event is consumed with your experiance.
 
 ```javascript
-spatialTool.
+spatialTool.registerTouchDecider(function(eventData){
+  return doSomethingThatDecides(eventData.x, eventData.y);
+});
 ```
 
-##### unregisterTouchDecider
- cancel the touch decider. switch between fullscreen and not full screen
- ()
+##### unregisterTouchDecider()
+ Cancel the touch decider callback.
  
 ```javascript
-spatialTool.
+spatialTool.unregisterTouchDecider();
 ```
 
-##### changeFrameSize
+##### changeFrameSize(newWidth, newHeight)
+- `newWidth` _(Number)_ A new touch overlay width
+- `newHeight ` _(Number)_ A new touch overlay height
 
-Updating the tools knowlage of the size of an object
-(with, height)
+Adjust the size of the tool's touch overlay element to match the current size of this frame.
 
 ```javascript
-spatialTool.
+spatialTool.changeFrameSize(640, 480);
 ```
 
-##### getScreenDimensions
-get screen dimensions of the actual device. threejs needs it to set aspect
+##### getScreenDimensions(callback)
+- `callback ` _(Function)_
+- **Returns** _(Number)_ screen dimension width
+- **Returns** _(Number)_ screen dimension height
 
-callback (with, heigh)
+Asynchronously query the screen width and height from the parent application, as the iframe itself can't access that.
+
+```javascript
+spatialTool.registerTouchDecider(function(width, height){
+	screenDimensionWidth = width;
+	screenDimensionHeight = height;
+});
+```
 
 <!---
 ##### addInterfaceListener
@@ -552,34 +573,51 @@ returns what interface is activated
 ### Spatial Edge Server Communication 
 The previous function handle the communication and behavour within the Spatial Toolbox. The following functions handle the communication with the Spatial Edge Server that owns the Object in which the Spatial Tool is registered.
 
-##### write
+##### write(node, value, mode, unit, unitMin, unitMax, forceWrite)
+- `node ` _(String)_ Name of node
+- `value ` _(Number)_ The new value for the node. The range <u>must</u> be between 0.0 and 1.0.
+- `mode ` _(String)_ [optional] Data mode. Currently `f` for float is the only supported choice.
+- `unit ` _(String)_ [optional] The unit of your data such as 'kg', 'minutes', 'liter', .. 
+- `unitMin ` _(String)_ [optional] value range minimum
+- `unitMax ` _(String)_ [optional] dara range maximum
+- `forceWrite ` _(Boolean)_ [optional] Sends the value even if it hasn't changed since the last write.
+
+
 Write flow data to a node owned by the Spatial Tool. This flow data is of a simple floating data type with values between 0.0 and 1.0.
-The example below, writes 0.5 to the node "nodeName", unit =kg, min = 0kg, max = 10kg and the last entry tells that the value is only updated on change. All values exept nodeName and the Value are optional.
+The example below, writes 0.5 to the `node` = "nodeName", `unit` = kg, `min` = 0, `max` = 10 and the last entry tells that the value is only updated on change. The resulting value will be 5 kg. 
 
 ```javascript
 spatialTool.write("nodeName", 0.5, "f", "kg", 0, 10, false);
 ```
 
-##### getUnitValue
+##### getUnitValue(flowDataObject)
+- `flowDataObject ` _(String)_ flow data object
+- **Returns** _(Object)_ real value (mapped 0 - 1 to min - max) and unit
 
-Returns the real Value and Unit of a node flow data package. The Value is mapped to the minimum and maximum. For example a data package with a value of 0.5, a min = 0, max = 10 and unit = "kg" will return a alue of 5 and the unit "kg".
+Returns the real Value and Unit of a node flow data object. The Value is mapped to the minimum and maximum. For example a data package with a value of 0.5, a min = 0, max = 10 and unit = "kg" will return a alue of 5 and the unit "kg".
 
 ```javascript
-valueAndUnitObject = spatialTool.getUnitValue(flowDataPackage)
+valueAndUnitObject = spatialTool.getUnitValue(flowDataObject)
 ```
 
-##### spatial.addReadListener
-Add a readlistzener to read value changes from a node. These changes are synchronized with the Edge Server for as long as the Spatial Tool active. The tool becomes inactive 3 seconds after its not visible anymore. 
+##### spatial.addReadListener(node, callback)
+- `node ` _(String)_ name of Node
+- - `callback ` _(Function)_ is called anytime the server provides a new data object for the node.
+- **Returns** flowDataObject _(Object)_ flow data object for the node
+
+Add a readlistener to read value changes from a node. These changes are synchronized with the Edge Server for as long as the Spatial Tool active. The tool becomes inactive 3 seconds after its not visible anymore. 
 
 ```javascript
-spatialTool.addReadListener("nodeName", function(e){
-	var package = spatialTool.getUnitValue(e);
-	value = package.value;
-	unit = package.unit;
+spatialTool.addReadListener("nodeName", function(flowDataObject){
+	var realValues = spatialTool.getUnitValue(flowDataObject);
+	value = realValues.value;
+	unit = realValues.unit;
 });
 ```
 
-##### readRequest
+##### readRequest(node)
+- `node ` _(String)_ name of Node
+
 This forces the server to send the latest value, so that the readListener can pick it up. You can use this in combination with addReadListener to initialize your spatial Tool if needed.
 
 ```javascript
@@ -592,103 +630,266 @@ spatialTool.addReadListener("nodeName", function(e){
 });
 ```
 
-()
 
-##### writePublicData 
+##### writePublicData(node, valueName, value, realtimeOnly) 
+- `node ` _(String)_ name of Node
+- `valueName ` _(String)_ publicData is defined by the node it self. This is a key to select an object within public Data.
+- `value ` _(Object/String/Number)_ Data you want to store with key.
+- `realtimeOnly ` _(Boolean)_ doesn't send a post message to reload object, allows rapid stream.
+
+
 PublicData is a json object that contains data objects specified by the server side node definition. You need to finetune your Tool via specific node types. publicData allows you to handle complex data among the server side node programm and thr Spatial Tool. The value can contain any JSON encoded data. The last parameter is optional and if set to true, forces the server not to store the data but handle it as realtime flow.
 
 ```javascript
-spatialTool. writePublicData("nodeName", "key", value, false);
+spatialTool. writePublicData("nodeName", "key", anyValue, false);
 ```
 
-##### writePrivateData
+##### writePrivateData(node, valueName, value)
+- `node ` _(String)_ name of Node
+- `valueName ` _(String)_ writePrivateData is defined by the node it self. This is a key to select an object within private Data.
+- `value ` _(Object/String/Number)_ Data you want to store with key.
+
 Unlike publicData, privateData is write only and its content is only read accessable to the edge server. Spatial Tools and the Spatial Toolbox will never have read access.
 
 ```javascript
-spatialTool.writePublicData("nodeName", "key", value);
+spatialTool.writePublicData("nodeName", "key", anyValue);
 ```
 
+##### readPublicData(node, valueName, value)
+- `node ` _(String)_ name of Node
+- `valueName ` _(String)_ This is a key to select an object within publicData.
+- `value ` _(Number)_ [Optional] If value is undefined this default value is used.
+- **Returns** _(Object/String/Number)_ returns the stored data.
 
-##### readPublicData 
 Read data from publicData once. Use this function if you need to fill your spatial Tool with all current publicData values. The last parameter is optional and defines a default value in case the key does not jet exist in the publicData.
 
 ```javascript
 value = spatialTool.readPublicData("nodeName", "key", value);
 ```
 
-##### addReadPublicDataListener 
+##### addReadPublicDataListener(node, valueName, callback)
+- `node ` _(String)_ name of Node
+- `valueName ` _(String)_ This is a key to select an object within publicData.
+- `callback ` _(Function)_
+- **Returns** value _(Object/String/Number)_ returns the stored data.
+
+
 Add a a readlistener for publicData to read value changes for a defined Key. These changes are synchronized with the Edge Server for as long as the Spatial Tool active. The tool becomes inactive 3 seconds after its not visible anymore. 
 
 ```javascript
-spatialTool.addReadPublicDataListener("nodeName", "key", function(e){
-var value = e;
+spatialTool.addReadPublicDataListener("nodeName", "key", function(value){
+var publicDataValue = value;
 });
 ```
 
-##### reloadPublicData 
+##### reloadPublicData()
 
 Sends a message to the edge server to send the most recent state of publicData. You can use this to initialize your spatial Tool, since the publicDataListener only reacts to updates. 
 
 ```javascript
-value = spatialTool.reloadPublicData();
-
-spatialTool.addReadPublicDataListener("nodeName", "key", function(e){
-	var value = e;
+spatialTool.reloadPublicData();
+spatialTool.addReadPublicDataListener("nodeName", "key", function(value){
+	var publicDataValue = value;
 });
 ```
 
 ## Create new Interfaces
 
+Interfaces are plugins that allows to connect any hardware or build out any service and connect it with the Spatial Toolbox. The Spatial Toolbox processes data via spatial nodes. They are the central data storing and data processing element within the Spatial Toolbox. Therefore most of the API in this chaptor focuses how to handle nodes and therefore how to connect your interface to the server.
+
+#### Folder Structure
+Your interface-addon should be stored in the addons/interfaces/[yourInterfaceAddon]/ folder and it requires the following file file:
+
+- `index.js` this file defines the entry point for your spatial edge server interface.
+
+
 ### API Reference
 
+##### Initialize the interface
 
-##### write
-write data to a specific object frame node
+```js
+//Enable this hardware interface
+var server = require('@libraries/hardwareInterfaces');
+var settings = server.loadHardwareInterface(__dirname);
 
-objectName, frameName, nodeName, value, mode, unit, min, max
+exports.enabled = settings('enabled');
+exports.configurable = true; // can be turned on/off/adjusted from the web frontend
 
-```javascript
-spatialTool.
+if (exports.enabled) {
+
+// plase your interface code here
+
+}
+
+
 ```
 
-##### writePublicData
-objectName, frameName, nodeName, dataObject (value name), data
+
+##### addNode(object, tool, node, type, position) 
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of node
+- `type ` _(String)_ Name of the node Type. The server need to have a node of this type otherwise it will use a default type.
+- `position ` _(Object)_ [Optional] {x: float, y: float} object for the node's starting position. otherwise random.
+
+Adds a new node to a Tool. If the Tool does not exist, it automatically generates a default tool with the `tool`-name. If the Object does not exist, it automatically generates a default object with the `object`-name. This function should be the first you call to initialize all required nodes.
 
 ```javascript
-spatialTool.
+server.addNode("feederStation", "scale", "scaleValue", "node", {x: 1, y: 1})
 ```
 
-##### clearObject
-Older APIS remove IO points which are no longer needed. 
-Deletes all nodes 
 
-ObjectID, Frame ID
+##### renameNode(object, tool, oldNode, newNode)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `oldNode ` _(String)_ Name of existing node
+- `newNode ` _(String)_ new name for the existing node
+
+Rename an existing node
+
 
 ```javascript
-spatialTool.
+server.renameNode("feederStation", "scale", "scaleValue", "measurement");
 ```
 
-##### removeAllNodes
-Remove all nodes via Name and frame name 
+##### moveNode(object, tool, node, x, y, scale, matrix, loyalty) 
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of node
+- `x` _(String)_ new x coordinate relative to the node matrix transform
+- `y` _(String)_ new y coordinate relative to the node matrix transform
+- `scale` _(String)_ new scale relative to the node matrix transform
+- `matrix` _(Number[16])_ new matrix transform
+- `loyalty` _(String)_ define loyalty of object (grounPlane, object, world, ...)
+
+
+objectNmae, frameName, NodeName, x,y,scale, matrix, loyalty (optional)
 
 ```javascript
-spatialTool.
+server.moveNode("feederStation", "scale", "measurement", 1, 1, 1, identityMatrix, "object"); 
 ```
 
-##### reloadNodeUI
-reload this object within all open editors... important to refresh the tool in the toolbox
-(objectName)
+##### removeNode(object, tool, node)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of node
 
 ```javascript
-spatialTool.
+server.removeNode("feederStation", "scale", "measurement");
 ```
 
+##### attachNodeToGroundPlane(object, frame, node, shouldAttachToGroundPlane)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of node
+- `shouldAttachToGroundPlane ` _(Boolean)_ Define if node is attached to the grounPlane
+
+Lets you attach your node to the ground plane. This is similar to loyalty and eventually an API around loyalty will replace this functionality.
+
+```javascript
+server.attachNodeToGroundPlane("feederStation", "scale", "measurement", true)
+```
+
+
+##### clearObject(object, tool)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+
+In case your object handles a lot of changes to the nodes, use this function to clear the memory of unused nodes. You must call this function after you have initialized all your nodes, otherwise you lose data.
+
+
+```javascript
+server.clearObject("feederStation", "scale");
+```
+
+##### removeAllNodes(objectName, tool)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+
+Remove all nodes from your tool
+
+```javascript
+server.removeAllNodes("feederStation", "scale");
+```
+
+##### reloadNodeUI(objectName)
+- `object` _(String)_ Name of Object
+
+Force every Spatial Toolbox that has access to your spatial Tool to refresh its data about your Spatial Tool.
+
+```javascript
+server.reloadNodeUI("feederStation");
+```
+
+
+##### write(object, tool, node, value, mode, unit, unitMin, unitMax)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of node
+- `value ` _(Number)_ The new value for the node. The range <u>must</u> be between 0.0 and 1.0.
+- `mode ` _(String)_ [optional] Data mode. Currently `f` for float is the only supported choice.
+- `unit ` _(String)_ [optional] The unit of your data such as 'kg', 'minutes', 'liter', .. 
+- `unitMin ` _(String)_ [optional] value range minimum
+- `unitMax ` _(String)_ [optional] dara range maximum
+
+Write flow data to a node owned by the Spatial Tool within your Object. This flow data is of a simple floating data type with values between 0.0 and 1.0. The example below, writes 0.5 to the `node` = "nodeName", `unit` = kg, `min` = 0, `max` = 10 and the last entry tells that the value is only updated on change. The resulting value will be 5 kg.
+ 
+```javascript
+server.write("feederStation", "scale", "measurement", 0.5, "f", "kg", 0, 10);
+```
+
+##### addReadListener
+objectNmae, frameName, NodeName, callback (dataObject)
+
+```javascript
+server.
+```
+##### removeReadListeners
+objectNmae, frameName, NodeName,
+() remove a read listner 
+
+##### map
+value, in min, in max, out min, out max
+
+```javascript
+server.
+```
+
+##### writePublicData(object, tool, node, dataObject, data) 
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of node
+- `dataObject` _(String)_ Key to select a dataObject within public Data
+- `data ` _(Object/String/Number)_ Data you want to store with the key
+
+PublicData is a json object that contains data objects specified by the node definition. You need to finetune your Tool via specific node types. publicData allows you to handle complex data among the server side node programm and the Spatial Tool. The value can contain any JSON encoded data.
+
+```javascript
+spatialTool. writePublicData("feederStation", "scale", "measurement", "lastMeasurements", [0, 1, 0.1, 0, 2]);
+```
+
+##### addPublicDataListener
+objectNmae, frameName, NodeName, dataObject(valueListen for), callback (publicData)
+what ever public data is
+
+```javascript
+server.
+```
+
+##### addConnectionListener
+objectNmae, frameName, NodeName, callback (whole link structure constructor)
+ 
+ subscribe if link is created
+ 
+```javascript
+server.
+```
 
 ##### getAllObjects
 returns all objects object
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### getKnownObjects
@@ -698,7 +899,7 @@ object of objects IDs
 {uuid {version, protocol, ip}}
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### getAllFrames
@@ -706,7 +907,7 @@ spatialTool.
 return all frames that this object has 
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### getAllNodes
@@ -715,7 +916,7 @@ spatialTool.
 just the nodes
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### getAllLinksToNodes
@@ -723,7 +924,7 @@ objectname, framename
 returns all links known to frame
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### subscribeToNewFramesAdded
@@ -732,7 +933,7 @@ it will triger tallback anytime frame gets added to object.
 callback(frame)
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### subscribeToReset
@@ -742,7 +943,7 @@ if git reset commit is pushed this can help to reinit
 callback();
 
 ```javascript
-spatialTool.
+server.
 ```
 
 
@@ -755,53 +956,14 @@ msgContent
 action messages for example
 
 ```javascript
-spatialTool.
-```
-
-
-##### addNode
-adds a node
-
-objectNmae, frameName, NodeName, type, possition (){x,y}
-
-```javascript
-spatialTool.
-```
-
-
-##### renameNode
-objectNmae, frameName, old nodeName, newNodeName
-
-```javascript
-spatialTool.
-```
-
-##### moveNode
-objectNmae, frameName, NodeName, x,y,scale, matrix, loyalty (optional)
-
-```javascript
-spatialTool.
-```
-
-##### removeNode
-objectNmae, frameName, NodeName,
-
-```javascript
-spatialTool.
-```
-
-##### attachNodeToGroundPlane
-objectNmae, frameName, NodeName, boolean
-
-```javascript
-spatialTool.
+server.
 ```
 
 ##### pushUpdatesToDevices
 objectName forces the toolboxes to reload
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### activate
@@ -809,7 +971,7 @@ activates an object
 ()
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### deactivate
@@ -817,7 +979,7 @@ deactivates an object
 ()
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### getObjectIdFromObjectName
@@ -826,53 +988,19 @@ Get UUID of Object via Name
 Name return UUID
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### getMarkerSize
 objectName return getMarkerSize
 
 ```javascript
-spatialTool.
+server.
 ```
 
-##### addReadListener
-objectNmae, frameName, NodeName, callback (dataObject)
 
 ```javascript
-spatialTool.
-```
-
-##### addPublicDataListener
-objectNmae, frameName, NodeName, dataObject(valueListen for), callback (publicData)
-what ever public data is
-
-```javascript
-spatialTool.
-```
-
-##### addConnectionListener
-objectNmae, frameName, NodeName, callback (whole link structure constructor)
- 
- subscribe if link is created
- 
-```javascript
-spatialTool.
-```
-
-##### removeReadListeners
-objectNmae, frameName, NodeName,
-() remove a read listner 
-
-```javascript
-spatialTool.
-```
-
-##### map
-value, in min, in max, out min, out max
-
-```javascript
-spatialTool.
+server.
 ```
 
 ##### addEventListener
@@ -883,14 +1011,14 @@ reset and shutdown
 Closing serial ports and stuff to 
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### advertiseConnection
 (describe this later on.) Cool functionality but maybe overwelming for now
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ##### loadHardwareInterface
@@ -899,7 +1027,7 @@ HardwareInterfaceName
 settings.json file and return json content 
 
 ```javascript
-spatialTool.
+server.
 ```
 
 ## Create new Nodes
