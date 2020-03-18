@@ -137,7 +137,8 @@ load into the view.
 
 ![UI for step one of configurable settings tutorial](./images/test-interface-settings-ui-step-1.png)
 
-You'll see the default values it reads from each of the settings we set up in the index.js file (they default to 0).
+You'll see the default values it reads from each of the settings we set up in the index.js file
+(they default to 0).
 
 Now lets add some UI so we can change these values and write the new values back to the server.
 You can make you UI as fancy as you want, but here's the simplest example. Update your config.html
