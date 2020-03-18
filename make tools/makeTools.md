@@ -838,8 +838,24 @@ Write flow data to a node owned by the Spatial Tool within your Object. This flo
 server.write("feederStation", "scale", "measurement", 0.5, "f", "kg", 0, 10);
 ```
 
-##### addReadListener
+##### addReadListener(objectName, frameName, nodeName, callBack) 
 objectNmae, frameName, NodeName, callback (dataObject)
+
+
+
+
+- `node ` _(String)_ name of Node
+- - `callback ` _(Function)_ is called anytime the server provides a new data object for the node.
+- **Returns** flowDataObject _(Object)_ flow data object for the node
+
+Add a readlistener to read value changes from a node. These changes are synchronized with the Edge Server for as long as the Spatial Tool active. The tool becomes inactive 3 seconds after its not visible anymore. 
+
+```javascript
+spatialTool.addReadListener("nodeName", function(flowDataObject){
+	var realValues = spatialTool.getUnitValue(flowDataObject);
+	value = realValues.value;
+	unit = realValues.unit;
+});
 
 ```javascript
 server.
