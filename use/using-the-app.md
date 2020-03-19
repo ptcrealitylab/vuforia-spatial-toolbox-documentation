@@ -4,6 +4,8 @@
 
 Open the Vuforia Spatial Toolbox app and follow along to learn how to operate the user interface.
 
+The examples here have a blank background for simplicity, but you will see all of these with a live camera stream in the background.
+
 ## Navigating the Menus
 
 ![intro to the menus](./images/ui-tutorial-gifs/01-intro-to-the-menus.gif)
@@ -72,7 +74,7 @@ Instead of tapping on a tool's icon in the pocket, if you tap-and-hold and *drag
 
 ![string together three tools](./images/ui-tutorial-gifs/20-fixed-linking-tools.gif)
 
-You can each node functions both as an input and an output, so you can string together tools' nodes into longer programs.
+Each node functions both as an input and an output, so you can string together tools' nodes into longer programs.
 
 In this example, the value from the slider is visualized first by a simple meter, and then gets passed to a time-series graph to be visualized in a different way.
 
@@ -181,3 +183,95 @@ When moving a block around, a trash icon will appear on the right edge of the sc
 ![delete logic node by dragging to trash](./images/ui-tutorial-gifs/15-delete-logic-nodes.gif)
 
 Logic nodes can be moved around by tapping and holding on them, just like regaular nodes. Regular logic nodes cannot be deleted, but logic nodes can. Drag a logic node onto the trash icon on the right edge of the screen to delete it and the links connected to it.
+
+## Additional Services
+
+The Vuforia Spatial Toolbox supports a variety of additional services that you can use to view and spatially interact with content in a variety of ways.
+
+### Visibility Distance
+
+One service included in your app is the ability to set from how far away a tool will be visible before it fades away. By default, tools will hide when you are more than 2 meters away from them, but this can be adjusted.
+
+![adjust visibility distance](./images/ui-tutorial-gifs/27-adjust-visibility-distance.gif)
+
+When holding on a tool so it can be repositioned, if you press and hold another finger on the green distance icon in the bottom right a blue sphere and dotted line will appear to show you how far this tool can be seen. As you walked towards or away from the tool, the size of the sphere will match your current distance. When you let go, it will set the visibility distance to your current distance. As you step further away, the tool will fade away, but it will reappear as you walk closer.
+
+### Grouping
+
+One service that isn't enabled by default, but can be useful, is grouping. If you're a developer, you can build new services like grouping and add them to the app using the addon system.
+
+### Turning on Grouping Mode
+
+![turn on grouping in settings](./images/ui-tutorial-gifs/22-enable-grouping.gif)
+
+To enable the grouping service, open the settings menu and turn on the toggle switch for *Grouping*.
+
+Grouping mode lets you form groups of tools that you can move together in space.
+
+### Using the Grouping Lasso
+
+![draw an empty grouping lasso on the background](./images/ui-tutorial-gifs/23-grouping-lasso.gif)
+
+If grouping mode is turned on, double-tap on the background and draw a circle. This is your grouping lasso. Any tools inside this lasso will be grouped together when you let go.
+
+### Grouping and Moving Tools
+
+![group two tools together and move them](./images/ui-tutorial-gifs/24-group-and-move.gif)
+
+In this example, we draw a circle around two tools to group them together. Now when we move one of them around it will also move the other relative to it.
+
+To ungroup tools, draw a lasso around them again.
+
+### Deleting a Group
+
+![drag a group of tools to the trash](./images/ui-tutorial-gifs/25-delete-group.gif)
+
+If you delete a tool in a group it will also delete all other tools in the same group. This can be a useful way to delete a lot of tools at once.
+
+### Envelopes
+
+Envelopes are a special type of tool that can contain other tools. They help us organize the space. Think of them as a way to put your other tools into boxes that you can open and close.
+
+If you're a developer, you can build your own types of envelopes, but by default there is one envelope tool that you can use.
+
+### Adding an Envelope
+
+![add an envelope from the pocket](./images/ui-tutorial-gifs/28-adding-and-opening-envelope.gif)
+
+This blue icon represents the envelope tool. Add one to your space and tap on it to open it. When it is open, you'll see a blue [X] icon in the top left corner.
+
+### Adding Tools to an Envelope
+
+![add two tools to an open envelope](./images/ui-tutorial-gifs/29-adding-frames-to-envelope.gif)
+
+While you have an envelope open (you can see the [X] in the corner), all compatible tools that you add from the pocket will get added to that envelope. Here, we add two buttons to this envelope. When we press the [X] button, it closes the envelope. This hides all the tools that we put into it.
+
+### Reopening an Envelope
+
+![tap on envelope to show the tools inside it](./images/ui-tutorial-gifs/30-reopening-envelope.gif)
+
+Tapping on an envelope reopens it, displaying all of the tools we put inside it.
+
+### Multiple Envelopes
+
+![tap on envelope to show the tools inside it](./images/ui-tutorial-gifs/31-opening-multiple-envelopes.gif)
+
+You can only have one envelope open at a time. Tapping on another envelope when one is already open will close the first one before opening the second.
+
+In this example, you can see how we use two envelopes to better organize a space with many tools.
+
+Tools inside an envelope are not "grouped" like those using the grouping lasso – they do not move relative to one another. Grouping and envelopes are two different examples of services you can use to form different kinds of spatial relationships between the tools in your space.
+
+## Developer Features
+
+### Viewing Found Objects
+
+![view list of found objects in settings](./images/ui-tutorial-gifs/26-found-objects.gif)
+
+You may wish to see or debug which objects have been discovered by this client. To do so, open the settings menu and tap on the *Found Objects* button. It will open a page that shows an entry for each object discovered by this app.
+
+You should always see an entry called "_WORLD_local", representing a local world object that your AR content will attach to by default. Additional entries will only appear if you are running additional Vuforia Spatial Edge Servers in your network.
+
+Each object will display the IP address of the Edge Server it is being hosted by, and the list of tools that have been attached to it.
+
+If an object name appears in red, that means that the Vuforia Engine was unable to initialize an AR target for that object using the data hosted by the Edge Server, so you won't be able to recognize that object in your space and see its AR content. Object names appearing in black have been successfully added to the AR tracker.
