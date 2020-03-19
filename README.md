@@ -1,2 +1,1 @@
 # Vuforia Spatial Toolbox Documentation
-
