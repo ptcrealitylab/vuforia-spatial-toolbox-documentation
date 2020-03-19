@@ -721,9 +721,17 @@ if (exports.enabled) {
 
 }
 
-
 ```
 
+##### loadHardwareInterface(`_dirName`)
+- `_dirName` _(String)_ Must use string `_dirName` and returns the path to executed file
+- **Returns** _(Object)_ Returns content of the settings json file stored for this interface
+
+Returns access to the stored settings for this Inteface
+
+```javascript
+var settings = server.loadHardwareInterface(__dirname);
+```
 
 ##### addNode(object, tool, node, type, position) 
 - `object` _(String)_ Name of Object
@@ -838,37 +846,47 @@ Write flow data to a node owned by the Spatial Tool within your Object. This flo
 server.write("feederStation", "scale", "measurement", 0.5, "f", "kg", 0, 10);
 ```
 
-##### addReadListener(objectName, frameName, nodeName, callBack) 
-objectNmae, frameName, NodeName, callback (dataObject)
-
-
-
-
-- `node ` _(String)_ name of Node
-- - `callback ` _(Function)_ is called anytime the server provides a new data object for the node.
+##### addReadListener(object, frame, node, callBack)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of node
+- `callback ` _(Function)_ 
 - **Returns** flowDataObject _(Object)_ flow data object for the node
 
-Add a readlistener to read value changes from a node. These changes are synchronized with the Edge Server for as long as the Spatial Tool active. The tool becomes inactive 3 seconds after its not visible anymore. 
+Add a readlistener to read value changes from a node.
 
 ```javascript
-spatialTool.addReadListener("nodeName", function(flowDataObject){
-	var realValues = spatialTool.getUnitValue(flowDataObject);
-	value = realValues.value;
-	unit = realValues.unit;
+server.addReadListener("feederStation", "scale", "measurement", function(flowDataObject){
+	var value = flowDataObject.value;
+	var unit = flowDataObject.unit;
 });
 
-```javascript
-server.
 ```
-##### removeReadListeners
-objectNmae, frameName, NodeName,
-() remove a read listner 
 
-##### map
-value, in min, in max, out min, out max
+##### removeReadListeners(object, tool)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+
+Removes all ReadListeners currently running for a tool.
 
 ```javascript
-server.
+server.addReadListener("feederStation", "scale");
+
+```
+
+##### map(x, in_min, in_max, out_min, out_max)
+- `x` _(Number)_ Input Value
+- `in_min` _(Number)_ Input Minimum
+- `in_max` _(Number)_ Input Maximum
+- `out_min` _(Number)_ Output Minimum
+- `out_max` _(Number)_ Output Maximum
+- **Returns** _(Object)_ Result
+
+Scales an input value to the scope of an output value. Use this function to scale the data flow scale of 0.0 - 1.0 to the scale of your units.
+
+```javascript
+var scaleValue = 0.5
+var outputValue = server.addReadListener(scaleValue, 0.0, 1.0, 0.0, 10.0);
 ```
 
 ##### writePublicData(object, tool, node, dataObject, data) 
@@ -884,130 +902,164 @@ PublicData is a json object that contains data objects specified by the node def
 spatialTool. writePublicData("feederStation", "scale", "measurement", "lastMeasurements", [0, 1, 0.1, 0, 2]);
 ```
 
-##### addPublicDataListener
-objectNmae, frameName, NodeName, dataObject(valueListen for), callback (publicData)
-what ever public data is
+##### addPublicDataListener(object, tool, node, dataObject, callBack) 
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of Node
+- `dataObject ` _(String)_ This is a key to select an object within publicData.
+- `callback ` _(Function)_
+- **Returns** value _(Object/String/Number)_ returns the stored data.
+
+Add a a readlistener for publicData to read value changes for a defined Key. These changes are synchronized with the Edge Server and any Spatial Toolbox interacting with the tool.
 
 ```javascript
-server.
+spatialTool.addReadPublicDataListener("feederStation", "scale", "measurement", "lastMeasurements", function(value){
+	var publicDataValue = value;
+});
 ```
 
-##### addConnectionListener
-objectNmae, frameName, NodeName, callback (whole link structure constructor)
+##### addConnectionListener(object, tool, node, callBack)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- `node ` _(String)_ Name of Node
+- `callback ` _(Function)_
+- **Returns** link _(Object)_ returns a link object
+
+Listen for when there is a new link assosiated with the node.
  
- subscribe if link is created
- 
 ```javascript
-server.
+server.addConnectionListener("feederStation", "scale", "measurement", function(link){
+	var newLink = link;
+});
 ```
 
-##### getAllObjects
-returns all objects object
+##### getAllObjects()
+- **Returns** _(Object)_ returns all objects.
+
+Returns a pointer to all known objects
 
 ```javascript
-server.
+server.getAllObjects();
 ```
 
-##### getKnownObjects
-get all known object among the entire network
-object of objects IDs 
+##### getKnownObjects()
+- **Returns** _(Object)_ returns all known objects in the format `{uuid : {version:"", protocol:"", ip:""}, ...}`
 
-{uuid {version, protocol, ip}}
+Get all known objects among the entire known network
 
 ```javascript
-server.
+var knownObjects = server.getKnownObjects();
 ```
 
-##### getAllFrames
-(objectName)
-return all frames that this object has 
+##### getAllFrames(object) // should be renamed to getAllTools
+- `object` _(String)_ Name of Object
+- **Returns** _(Object)_ returns an object with all tools for a single object
+
+Return all tools attached to an object. 
 
 ```javascript
-server.
+var allTools = server.getAllFrames("feederStation");
 ```
 
-##### getAllNodes
-{objectName, frameName)
+##### getAllNodes(object, tool)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- **Returns** _(Object)_ returns an object with all nodes for a single tool
 
-just the nodes
+Return all nodes attached to a tool. 
 
 ```javascript
-server.
+var allNodesForTool = server.getAllNodes("feederStation", "scale");
 ```
 
-##### getAllLinksToNodes
-objectname, framename
-returns all links known to frame
+##### getAllLinksToNodes(object, tool)
+- `object` _(String)_ Name of Object
+- `tool` _(String)_ Name of Tool
+- **Returns** _(Object)_ returns an object with all links stored with a single tool
+
+Return all nodes attached to a tool. 
 
 ```javascript
-server.
+var allLinksStoredWithTool = server.getAllLinksToNodes("feederStation", "scale");
 ```
 
-##### subscribeToNewFramesAdded
-object name, callback 
-it will triger tallback anytime frame gets added to object. 
-callback(frame)
+##### subscribeToNewFramesAdded(objectName, callback) 
+- `object` _(String)_ Name of Object
+- `callback` _(Function)_
+- **Returns** tool _(Object)_ returns reference to frame added
+
+It will triger a callback anytime a new tool gets added to object. 
 
 ```javascript
-server.
+server.subscribeToNewFramesAdded("feederStation", function(tool){
+	var newtool = tool;
+});
 ```
 
-##### subscribeToReset
-Screen hardware interface 
-if git reset commit is pushed this can help to reinit
+##### subscribeToReset(objectName, callback)
+- `object` _(String)_ Name of Object
+- `callback` _(Function)_
 
-callback();
+Callback is triggered when the System is reset or Git is resetting the system.
 
 ```javascript
-server.
+server.subscribeToNewFramesAdded("feederStation", function(){
+	// called when system is reset
+});
 ```
 
 
-##### subscribeToUDPMessages
+##### subscribeToUDPMessages(callback)
+- `callback` _(String)_
+- **Returns** _(Object)_ UDP messages
 
-you can listen to action events trough this
+Subscribe to UDP messages. You can use this for listening to action messages that are used to keep the overall system updated. 
 
-msgContent 
-
-action messages for example
 
 ```javascript
-server.
+server.subscribeToNewFramesAdded("feederStation", function(udpMsg){
+	var aMessage = udpMsg;
+});
 ```
 
-##### pushUpdatesToDevices
-objectName forces the toolboxes to reload
+##### pushUpdatesToDevices(object)
+- `object` _(String)_ Name of Object
+
+Force all Spatial Toolbox Applications to reload this Object.
 
 ```javascript
-server.
+server.pushUpdatesToDevices("feederStation");
 ```
 
-##### activate
-activates an object
-()
+##### activate(object)
+- `object` _(String)_ Name of Object
+
+Activate an Object. It will be visible to the Spatial Toolbox. By default all new Objects are active.
 
 ```javascript
-server.
+server.activate("feederStation");
 ```
 
-##### deactivate
-deactivates an object
-()
+##### deactivate(object)
+- `object` _(String)_ Name of Object
+
+Deactivate an Object. It will be visible to the Spatial Toolbox. By default all new Objects are active.
 
 ```javascript
-server.
+server.deactivate("feederStation");
 ```
 
-##### getObjectIdFromObjectName
+##### getObjectIdFromObjectName(object)
+- `object` _(String)_ Name of Object
+- **Returns** _(Object)_ Object UUID
+
 Get UUID of Object via Name
 
-Name return UUID
-
 ```javascript
-server.
+var ObjectUuid = server.getObjectIdFromObjectName("feederStation");
 ```
 
-##### getMarkerSize
+<!--- ##### getMarkerSize
 objectName return getMarkerSize
 
 ```javascript
@@ -1018,33 +1070,32 @@ server.
 ```javascript
 server.
 ```
+--->
 
-##### addEventListener
-reset and shutdown
+##### addEventListener(option, callBack)
+- `option` _(String)_ Options for System. Use any of these strings `reset`, `shutdown`, `initialize`
+- `callback` _(Function)_
 
-(option string (callback))
+Callback for all kinds of system events. Currently supported: `reset`, `shutdown`, `initialize`.
 
-Closing serial ports and stuff to 
+```javascript
+server.addEventListener("reset", function(){
+	// place code here for when the system executes a reset
+});
+
 
 ```javascript
 server.
 ```
-
+<!---
 ##### advertiseConnection
 (describe this later on.) Cool functionality but maybe overwelming for now
 
 ```javascript
 server.
-```
+```--->
 
-##### loadHardwareInterface
-(_dirName)
-HardwareInterfaceName
-settings.json file and return json content 
 
-```javascript
-server.
-```
 
 ## Create new Nodes
 The node is the center data storing and data processing element within the Spatial Toolbox. You can define new nodes that your hardware Interface and your spatial tool can use. Each node needs to have a specific structure to function.
