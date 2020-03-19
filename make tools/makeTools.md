@@ -2,6 +2,13 @@
 *  [Introduction](#intro)
 *  [Create new Tools](#newTool)
 	- [API Reference](#toolApi)
+		- [Initialize the Javascript Library within your Spatial Tool](#init)
+		- [Communication with other Spatial Tools](#comm)
+		- [Subscribe to Matrices](#subscribe)
+		- [Control AR Screen Position](#control)
+		- [Media Content](#media)
+		- [Tool Behavior](#behavior)
+		- [Spatial Edge Server Communication](#edgeComm)
 *  [Create new Interfaces](#newInterface)
 	- [API Reference](#interfaceApi)
 *  [Create new Nodes](#newNode)
@@ -42,14 +49,14 @@ The following APIs will help you to configure your spatial Tool, allow the right
 <a name="toolApi"></a>
 ## API Reference
 
-
+<a name="init"></a>
 ### Initialize the Javascript Library within your Spatial Tool
 Include the Spatial Toolbox functionality by instancing as following in your JavaScript code:
 
 ```javascript
 var spatialTool = new SpatialTool();
 ```
-
+<a name="comm"></a>
 ### Communication with other Spatial Tools
 The Vuforia Toolbox allows each Tool to communicate with other tools that are currently visible in the Spatial Toolbox.
 
@@ -119,7 +126,7 @@ spatialTool.addFrameMessageListener(function(message){
   console.log(message);
 });
 ```
-
+<a name="subscribe"></a>
 ### Subscribe to Matrices
 The Spatial Toolbox allows every spatial Tool to subscribe to a variety of matrices. These matrices can be used, for example, to calculate the distance to other spatial tools, or they allow the use of webGL for spatial tools that require 3D content.
 
@@ -278,7 +285,7 @@ Returns all current modelView Matrices in the format `{"objectUuid": number[16],
 ```javascript
 allMatrices =  spatialTool. getAllObjectMatrices();
 ```
-
+<a name="control"></a>
 ### Control AR Screen Position
 Spatial Tools can exist of a simple HTML page or webGL content. Some tools require fullscreen modes or persist in space, and even the related Object is not visible. WebGL content always requires a fullscreen mode since the WebGL context takes over the spatial transformations.
 
@@ -321,7 +328,7 @@ Switches the exclusive full-screen mode off and attaches the Tool back to its sp
 ```javascript
 spatialTool.setExclusiveFullScreenOff();
 ```
-
+<a name="media"></a>
 ### Media Content
 These functions help to record videos, images, or use the device build-in keyboard.
 
@@ -411,7 +418,7 @@ spatialTool.onKeyUp(function(key){
     var keyboardEvent = key;
 });
 ```
-
+<a name="behavior"></a>
 ### Tool Behavior 
 
 
@@ -585,7 +592,7 @@ returns what interface is activated
 --->
       
 
-
+<a name="edgeComm"></a>
 ### Spatial Edge Server Communication 
 The previous function handles the communication and behavior within the Spatial Toolbox. The following functions handle the communication with the Spatial Edge Server that owns the Object in which the Spatial Tool is registered.
 
