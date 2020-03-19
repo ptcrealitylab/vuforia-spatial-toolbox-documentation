@@ -1,3 +1,19 @@
+### Index
+- [Introduction](#intro)
+- [Create new Tools](#newTool)
+ - [API Reference](#toolApi)
+- [Create new Interfaces](#newInterface)
+ - [API Reference](#interfaceApi)
+- [Create new Nodes](#newNode)
+ - [index.js](#nodeIndex)
+ - [gui/index.html](#nodeGuiIndex)
+- [Create new Blocks](#newBlock)
+ - [index.js](#blockIndex)
+ - [gui/index.html](#blockGuiIndex)
+ - [gui/icon.svg](#blockGuiIcon)
+ - [gui/label.svg](#blockGuiLabel)
+
+<a name="intro"></a>
 # Introduction
 
 <!---<img align="right" width="150" height="400" src="folder.svg">--->
@@ -12,7 +28,7 @@ To build new tools, you need to know a view basics:
 The following APIs will help you to define how a spatial tool behaves, how it connects to the Edge Server, and how it instantiates the nodes.
 
 <!--- <br clear="right"/> --->
-
+<a name="newTool"></a>
 # Create new Tools
 What is a spatial tool? It is like any other web application, just with a spatial context component to it. This means a plain HTML web application is located hovering in space, and a webGL application uses a full-screen web frame that can handle any webGL framework to position content in physical space.
 
@@ -23,7 +39,7 @@ The following APIs will help you to configure your spatial Tool, allow the right
 
  Your tools will be available to all objects that are hosted from the server they are stored on. This means, if one of your objects is visible in the Spatial Toolbox, the Spatial Toolbox can make use of them.
 
-
+<a name="toolApi"></a>
 ## API Reference
 
 
@@ -692,7 +708,7 @@ spatialTool.addReadPublicDataListener("nodeName", "key", function(value){
     var publicDataValue = value;
 });
 ```
-
+<a name="newInterface"></a>
 ## Create new Interfaces
 
 Interfaces are plugins that allow you to connect any hardware or build out any service and connect it with the Spatial Toolbox. The Spatial Toolbox processes data via spatial nodes. They are the central data storing and data processing elements within the Spatial Toolbox. Therefore most of the API is focused on how to handle nodes and how to connect your Interface to the server.
@@ -702,7 +718,7 @@ Your interface-addon should be stored in the addons/interfaces/[yourInterfaceAdd
 
 - `index.js` this file defines the entry point for your spatial edge server interface.
 
-
+<a name="interfaceApi"></a>
 ### API Reference
 
 ##### Initialize the interface
@@ -1084,7 +1100,7 @@ Callback for all kinds of system events. Currently supported: `reset`, `shutdown
 server.addEventListener("reset", function(){
     // place code here for when the system executes a reset
 });
-
+```
 
 ```javascript
 server.
@@ -1098,7 +1114,7 @@ server.
 ```--->
 
 
-
+<a name="newNode"></a>
 ## Create new Nodes
 The Node is the central data storing and data processing element within the Spatial Toolbox. You can define new nodes that your hardware Interface and your spatial Tool can use. Each Node needs to have a specific structure to function.
 
@@ -1108,7 +1124,7 @@ Your node-addon should be stored in the addons/nodes/[yourNodeAddon]/ folder, an
 - `index.js` stores all the logic for your Node.
 - `gui/index.html` This stores the visible appearance for the Node
 
-
+<a name="nodeIndex"></a>
 ###index.js
 
 #### generalProperties
@@ -1175,10 +1191,10 @@ exports.render = function (object, tool, node, thisNode, callback) {
 
 };
 ```
-
+<a name="nodeGuiIndex"></a>
 ###gui/index.html
 
-
+<a name="newBlock"></a>
 ## Create new Blocks
 The Block is similar to a node. However, there are significant differences:
 
@@ -1195,6 +1211,7 @@ Your block-addon should be stored in the addons/nodes/[yourBlockAddon]/ folder, 
 - `gui/icon.svg` This SVG image will appear as an icon in the Spatial Toolbox block selection UI. 
 - `gui/label.svg` The Label SVG Image will visualize the Block within the Logic Crafting Board.
 
+<a name="blockIndex"></a>
 ###index.js
 
 #### generalProperties
@@ -1273,13 +1290,13 @@ exports.render = function (object, tool, node, block, index, thisBlock, callback
 
 };
 ```
-
+<a name="blockGuiIndex"></a>
 ###gui/index.html
 
-
+<a name="blockGuiIcon"></a>
 ###gui/icon.svg
 
-
+<a name="blockGuiLabel"></a>
 ###gui/label.svg
 
 
