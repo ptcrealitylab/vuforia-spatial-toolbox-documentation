@@ -2,7 +2,7 @@
 
 Reference documentation about the functionality of each block in system.
 
-|   |   |   |
+| Name | Icon | Description |
 |---|---|---|
 |Add|![icon](./images/block-icons/png/add.png)|Outputs the sum of its two inputs.|
 |And|![icon](./images/block-icons/png/and.png)|Outputs a 1 if both inputs are at least 0.5. If either input is less than 0.5 it outputs a 0.|
