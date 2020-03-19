@@ -1,1 +1,1 @@
-# Vuforia-Spatial-Toolbox-Documentation
+# Vuforia Spatial Toolbox Documentation
