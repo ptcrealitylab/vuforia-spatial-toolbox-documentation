@@ -26,120 +26,73 @@ node server.js
 
 ### Mac
 
-#### Install Node
-
-Follow the instructions on Node's website to install `node` and `npm`:
-https://nodejs.org/en/. If installing succeeding, you'll be able to open terminal and run `node --version`:
-
-![Terminal with the command node --version run, it outputs v13.5.0 without errors](./images/terminal-node-version.png)
-
-#### Get the Edge Server
-
-##### Install GitHub Desktop (Optional)
-
-Follow the [instructions on GitHub's website](https://help.github.com/en/desktop/getting-started-with-github-desktop/installing-github-desktop) to install the GitHub desktop app. Open it up and sign in to get started.
-
-##### Download Edge Server
-
-###### With GitHub Desktop
-In GitHub Desktop select Clone Repository (under the "Add" menu if the button isn't immediately visible). Once there, paste the edge server's repository url, https://github.com/ptcrealitylab/vuforia-spatial-edge-server/ and click Clone.
-
-![GitHub desktop with Clone menu open and edge server url filled in](./images/gh-desktop-edge-server-clone.png)
-
-###### With a Browser
-Download the current source code from [this
-link](https://github.com/ptcrealitylab/vuforia-spatial-edge-server/archive/master.zip)
-and unzip it. In the following example I've unzipped it then moved it into my
-Documents directory:
-
-![Finder window with edge server zip downloaded and unzipped](finder-downloads-edge-server-app.png)
-![Finder window with edge server folder moved to Documents](finder-downloads-edge-server-moved.png)
-
-##### Download Core Add-on
-
-###### With GitHub Desktop
-Open GitHub Desktop and use the same Clone Repository dialog to clone
-https://github.com/ptcrealitylab/vuforia-spatial-core-addon/ to the addons
-subdirectory of vuforia-spatial-edge-server. Note that in the "Choose Folder"
-dialog you will have to create a new folder named "addons."
-
-![Clone dialog highlighting choose folder button](./images/gh-desktop-core-addon-choose-folder.png)
-![Choose folder dialog with spatial edge server selected](./images/gh-desktop-core-addon-choose-folder-popup.png)
-![Choose folder dialog with addons subfolder created](./images/gh-desktop-core-addon-choose-folder-addons-created.png)
-![Clone dialog with correct folder chosen](./images/gh-desktop-core-addon-folder-chosen.png)
-
-###### With a Browser
-
-Download the current source code from [this
-link](https://github.com/ptcrealitylab/vuforia-spatial-core-addon/archive/master.zip).
-Unzip it and move it into a new folder named "addons" inside your vuforia-spatial-edge-server directory.
-
-![Finder window with core add-ons zip downloaded and unzipped](./images/finder-downloads-addon-zip.png)
-![Finder window with new folder selected in edge server folder](./images/finder-edge-server-create-addons.png)
-
-
-Once you're done with all the unzipping and directory management, your full
-layout should look like this:
-![Finder window with full directory layout](./images/finder-full-directory-layout.png)
-
-#### Install Dependencies
-
-Track down the Edge Server directory from the previous step in Terminal. If you
-put the edge server in your Documents directory and kept the default name
-`vuforia-spatial-edge-server`, you can get to it with the command `cd
-~/Documents/vuforia-spatial-edge-server`.
-
-Once you're in the correct directory, you can confirm this with the command
-`ls` which should output something close to the following:
-
-![Terminal output with cd to the edge server directory followed by ls](./images/terminal-gh-edge-server-ls.png)
-
-Now that you've confirmed that you're in the right location you can run the
-command `npm install`.
-
-![Terminal containing npm install in the edge server directory](./images/terminal-gh-edge-server-npm-install.png)
-
-We also need to install the dependencies for the core add-on. In the edge
-server directory, run `cd addons/vuforia-spatial-core-addon` to get into the
-core add-on's main directory. Here you can run `npm install` again to install
-the core add-on's specific dependencies.
-
-![Terminal containing cd into addons directory then npm install](./images/terminal-gh-edge-server-addon-install.png)
-
-#### Start the Edge Server
-
-Now, return to the edge server's directory by running `cd ../../`. You can
-confirm you're in the correct directory by running `ls` again. Now you're here,
-you can run `node server.js` to start the server.
-
-![Terminal showing returning to the edge server directory and running node](./images/terminal-gh-edge-server-start-server.png)
+Follow [the platform specific install instructions](./startSystem-mac.md)
 
 ### Windows
 
-#### Install Node
-#### Install GitHub Desktop
-#### Download Edge Server
-#### Download Core Add-on
-#### Install Dependencies
+An in-depth walkthrough is coming soon. The Mac instructions are mostly applicable if you want to use
+GitHub Desktop and Powershell. Alternatively, check out the quick start for
+developers above.
 
 ### Linux
 
-#### Install Node
-#### Install Git
-#### Download Edge Server
-#### Download Core Add-on
-#### Install Dependencies
+An in-depth walkthrough is coming soon. Until then, you can follow the quick
+start for developers above in your terminal of choice.
 
 ## Install Mobile Phone App
-### AppStore
-### PlayStore
+
+### iOS App Store
+
+Right now the easiest option is to email `vheun` at `ptc` dot `com` for access
+to our Testflight beta. You could also compile the app from source using [the
+instructions on the iOS App's
+repo](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-ios/).
+
+### Google Play Store
+
+Coming soon!
+
+## World Objects
+
+Now that you have the app installed you can play around with placing tools in
+your local space. Look at an open space and press the pocket button to view a
+palette containing all available tools. From here you can press on a tool and
+drag it into your space.
+
+![Tap the pocket icon to open the pocket](images/01-enter-the-pocket.jpg)
+![In the pocket tap to scroll and create a tool](images/02-scroll-and-create-in-the-pocket.jpg)
+![A tool is now in the space](images/03-tool-created.jpg)
+
+Try using these steps to drag in a slider and a graph. Next, you can switch to
+programming view by pressing the programming view button. In this view, you can
+see nodes that represent the values of each tool or object in sight. Draw a
+line from the slider's node to the graph to see the slider values over time.
+Switch back to the normal view by pressing the normal view button. Now when you
+move the slider it's reflected on the graph.
+
+![Tap to enter programming view](images/04-into-programming-view.jpg)
+![Draw a connection between the two nodes](images/05-draw-connection.jpg)
+![Tap to return to normal and see the connection's results](images/06-back-to-normal.jpg)
 
 ## Create new Object
 
+Up until now we've been placing tools into the world without interacting with
+any physical objects within the world. We want to be able to place tools in
+relation to actual objects in the space and eventually use hardware interfaces
+to expose each object's inner workings.
+
+Visit http://localhost:8080 and follow the tutorial instructions to create a
+local object.
+
 ### Vuforia Target
+
+The easiest option right now is to upload an image. If you instead want to
+upload a type of Vuforia Target with more customization that is better suited
+to your object, you can create one in the Vuforia Developer Portal. Simply
+download a normal (non-Unity) zip of your target library, making sure to use
+the name provided by your local server.
 
 ### Interfaces
 
 #### Kepware
 
-### World Objects
