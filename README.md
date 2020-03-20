@@ -10,8 +10,10 @@
 
 ## What is Vuforia Spatial Toolbox? (video placeholder)
 
-<div align="center"><iframe width="620" height="315" src="https://www.youtube.com/watch?v=yEWJQ6xQtB0" style = "border:0"></iframe></div>
-
+<video style="width:100%" controls>
+  <source src="img/testVideo.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
 ## What do I use Vuforia Spatial Toolbox for?
 
