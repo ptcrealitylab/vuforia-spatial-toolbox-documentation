@@ -10,11 +10,7 @@
 
 ## What is Vuforia Spatial Toolbox? (video placeholder)
 
-<div align="center">
-    <iframe width="620" height="315"
-        src="https://www.youtube.com/watch?v=yEWJQ6xQtB0" style = "border:0">
-    </iframe>
-</div>
+<div align="center"><iframe width="620" height="315" src="https://www.youtube.com/watch?v=yEWJQ6xQtB0" style = "border:0"></iframe></div>
 
 
 ## What do I use Vuforia Spatial Toolbox for?
