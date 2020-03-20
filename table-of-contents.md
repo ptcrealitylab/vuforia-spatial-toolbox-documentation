@@ -1,5 +1,8 @@
 # Vuforia Spatial Toolbox
 
+## Download
+ - Change Log
+
 ## Use
 
 - Introduction
