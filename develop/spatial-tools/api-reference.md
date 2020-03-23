@@ -1,3 +1,9 @@
+---
+layout: doc
+title: API Reference
+permalink: /docs/spatial-tools/api-reference
+---
+
 <a name="toolApi"></a>
 ## API Reference
 

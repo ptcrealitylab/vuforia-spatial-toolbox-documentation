@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Creating a Simple Tool
+permalink: /docs/spatial-tools/tutorial
+---
+
 ## Creating a Simple Tool
 
 In this tutorial, you will learn how to build a tool that can be placed in space and change color

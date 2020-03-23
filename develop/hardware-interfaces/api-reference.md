@@ -1,3 +1,9 @@
+---
+layout: doc
+title: API Reference
+permalink: /docs/hardware-interfaces/api-reference
+---
+
 <a name="interfaceApi"></a>
 ### API Reference
 

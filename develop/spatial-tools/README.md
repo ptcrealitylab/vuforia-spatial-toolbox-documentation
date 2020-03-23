@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Create New Tools
+permalink: /docs/spatial-tools
+---
+
 <a name="newTool"></a>
 ## Create new Tools
 What is a spatial tool? It is like any other web application, just with a spatial context component to it. This means a plain HTML web application is located hovering in space, and a webGL application uses a full-screen web frame that can handle any webGL framework to position content in physical space.
