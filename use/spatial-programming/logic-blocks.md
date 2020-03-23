@@ -1,6 +1,6 @@
 # Logic Blocks
 
-Reference documentation about the functionality of each block in system.
+Reference documentation about the functionality of each block in the system.
 
 | Name | Icon | Description |
 |---|---|---|
