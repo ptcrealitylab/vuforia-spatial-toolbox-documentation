@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Create New Interfaces
-permalink: /docs/hardware-interfaces
+permalink: /docs/develop/hardware-interfaces
 ---
 
 <a name="newInterface"></a>
