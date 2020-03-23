@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Different Options For Building Tools
+permalink: /docs/dive-deeper/local-vs-global-tools
+---
+
 ## Different Options For Building Tools
 
 There are a two distinct ways to create custom AR content and add it to the system.

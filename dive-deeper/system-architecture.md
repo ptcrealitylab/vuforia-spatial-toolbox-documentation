@@ -1,3 +1,9 @@
+---
+layout: doc
+title: System Architecture
+permalink: /docs/dive-deeper/system-architecture
+---
+
 # System Architecture
 
 This is meant to be a overview of the system architecture that will answer the

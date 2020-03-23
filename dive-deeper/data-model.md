@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Object Data Model
+permalink: /docs/dive-deeper/data-model
+---
+
 ## Object Data Model
 
 You should learn several key vocabulary terms, which correspond to classes or
