@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Starting the Vuforia Spatial Edge Server
+permalink: /docs/use/connect-to-the-physical-world/startSystem
+---
+
 ## Install Edge Server
 
 If you are an experienced Node.js developer and want to get started

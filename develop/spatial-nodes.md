@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Create New Nodes
+permalink: /docs/develop/spatial-nodes
+---
+
 <a name="newNode"></a>
 ## Create new Nodes
 The Node is the central data storing and data processing element within the Spatial Toolbox. You can define new nodes that your hardware Interface and your spatial Tool can use. Each Node needs to have a specific structure to function.

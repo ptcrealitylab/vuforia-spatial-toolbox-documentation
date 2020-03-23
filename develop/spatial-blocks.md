@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Create New Blocks
+permalink: /docs/develop/spatial-blocks
+---
+
 <a name="newBlock"></a>
 ## Create new Blocks
 The Block is similar to a node. However, there are significant differences:

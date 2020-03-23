@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Starting the Vuforia Spatial Edge Server on Mac
+permalink: /docs/use/connect-to-the-physical-world/install-on-mac
+---
+
 # Starting the Vuforia Spatial Edge Server on Mac
 
 ## Install Node

@@ -1,3 +1,9 @@
+---
+layout: doc
+title: How to Add Configurable Settings to Your Hardware Interface
+permalink: /docs/tutorials/adding-settings-to-hardware-interface
+---
+
 # How to add configurable settings to your hardware interface
 
 When you run your server at least once, there will be a settings.json file generated to hold any

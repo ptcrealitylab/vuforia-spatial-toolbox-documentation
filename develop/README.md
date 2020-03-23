@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Develop
+permalink: /docs/develop
+---
+
 <a name="intro"></a>
 # Introduction
 
