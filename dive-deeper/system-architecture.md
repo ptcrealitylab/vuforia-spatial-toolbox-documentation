@@ -4,7 +4,7 @@ title: System Architecture
 permalink: /docs/dive-deeper/system-architecture
 ---
 
-# System Architecture
+## System Architecture
 
 This is meant to be a overview of the system architecture that will answer the
 following questions:

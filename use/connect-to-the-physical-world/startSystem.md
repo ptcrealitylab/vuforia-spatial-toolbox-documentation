@@ -14,19 +14,19 @@ of choice.
 ### Quick Start for Developers
 
 ```bash
-# Clone the edge server
+## Clone the edge server
 git clone https://github.com/ptcrealitylab/vuforia-spatial-edge-server/
 
-# Clone the core add-on
+## Clone the core add-on
 mkdir addons
 cd addons
 git clone https://github.com/ptcrealitylab/vuforia-spatial-core-addon/
 
-# Install the dependencies in core-addon and server
+## Install the dependencies in core-addon and server
 cd addons/vuforia-spatial-core-addon; npm install
 cd ../../; npm install
 
-# Run
+## Run
 node server.js
 ```
 

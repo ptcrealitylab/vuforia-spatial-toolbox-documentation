@@ -1,4 +1,4 @@
-# Vuforia Spatial Toolbox
+## Vuforia Spatial Toolbox
 
 ## Download
  - Change Log

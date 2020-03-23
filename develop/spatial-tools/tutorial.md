@@ -1,4 +1,4 @@
-# Creating a Simple Tool
+## Creating a Simple Tool
 
 In this tutorial, you will learn how to build a tool that can be placed in space and change color
 in response to other tools:

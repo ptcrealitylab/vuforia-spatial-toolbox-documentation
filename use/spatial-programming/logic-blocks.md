@@ -4,7 +4,7 @@ title: Logic Blocks
 permalink: /docs/use/spatial-programming/logic-blocks
 ---
 
-# Logic Blocks
+## Logic Blocks
 
 Reference documentation about the functionality of each block in the system.
 

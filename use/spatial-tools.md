@@ -4,7 +4,7 @@ title: Spatial Tools
 permalink: /docs/use/spatial-tools
 ---
 
-# Spatial Tools
+## Spatial Tools
 
 Reference documentation about the functionality of each default tool in the system.
 
