@@ -1,4 +1,9 @@
-# Vuforia Spatial Toolbox
+---
+layout: home
+permalink: /
+---
+
+## Vuforia Spatial Toolbox
 #### A sandbox for Spatial Computing Interfaces
 > Use Spatial Tools to program machines, robots and digital user interfaces  using Augmented Reality on your environment.
 
@@ -8,28 +13,28 @@
 
 [Get Started](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/startSystem/startSystem.md)
 
-## What is Vuforia Spatial Toolbox? (video placeholder)
+### What is Vuforia Spatial Toolbox? (video placeholder)
 
 <video style="width:100%" controls>
   <source src="resources/testVideo.mp4" type="video/mp4">
 [![Image of Reality Server](resources/what1.jpg)](resources/testVideo.mp4)
 </video>
 
-## What do I use Vuforia Spatial Toolbox for?
+### What do I use Vuforia Spatial Toolbox for?
 
 | ![Image of Reality Server](resources/what1.jpg) | ![Image of Reality Server](resources/what3.jpg) | ![Image of Reality Server](resources/what2.jpg) |
 | ------| -----------| -----------|
 | 1. Generate 2D and 3D AR content around you  | 2. Attach Spatial Tools and AR  Content to any physical object | 3. Program hardware system using AR interfaces |
 
 
-## Access our Tutorials:
+### Access our Tutorials:
 
 | [Make Tools](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/tree/master/make%20tools) | [Use the toolbox](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/tree/master/use) |
 | --------------- | ----------------- |
 | [Understand the system](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/tree/master/understandSystem) | [Make hardware interfaces](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/tree/master/interfaceWithHardware) |
 
 
-## Made with Vuforia Spatial Toolbox
+### Made with Vuforia Spatial Toolbox
 
 | ![Image of Reality Server](resources/feeder.jpg) | ![Image of Reality Server](resources/frida.jpg)| ![Image of Reality Server](resources/loto.jpg)|
 | ------| -----------| -----------|
