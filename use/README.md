@@ -20,4 +20,4 @@ read.
 If you _are_ a developer, you should read this first, and then read the Develop section after you
 feel comfortable using the app and server.
 
-Next: [Using the App](./using-the-app.md)
+Next: [Using the App](./using-the-app)

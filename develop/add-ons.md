@@ -44,7 +44,7 @@ case, the top level of your add-on would only have a `tools` directory.
 The rest of the Develop section will walk you through the concepts and APIs for creating each of
 these kinds of content in an add-on.
 
-- [Spatial Tools](./spatial-tools/README.md)
-- [Hardware Interfaces](./hardware-interfaces/README.md)
-- [Spatial Nodes](./spatial-nodes.md)
-- [Spatial Blocks](./spatial-blocks.md)
+- [Spatial Tools](./spatial-tools)
+- [Hardware Interfaces](./hardware-interfaces)
+- [Spatial Nodes](./spatial-nodes)
+- [Spatial Blocks](./spatial-blocks)
