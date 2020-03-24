@@ -23,8 +23,7 @@ experiments. If you already have an addon, feel free to add this to that one.
 
 First, navigate to your `vuforia-spatial-edge-server/addons` directory. If you don't already have
 a Vuforia Spatial Edge Server installed, refer to the installation instructions
-[here](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/startSystem/startSystem.md)
-before you continue.
+[here](../../use/connect-to-the-physical-world/startSystem) before you continue.
 
 In that directory, you will likely see the `vuforia-spatial-core-addon`, but rather than add our
 new tool to the core-addon, create a new directory next to it called `my-addon`. Inside `my

@@ -15,5 +15,5 @@ either answer your question there or write a new tutorial here.
 
 ## Current List of Tutorials
 
-- [Creating a Simple Tool](../develop/spatial-tools/tutorial.md)
-- [Adding Settings to a Hardware Interface](./adding-settings-to-hardware-interface.md)
+- [Creating a Simple Tool](../develop/spatial-tools/tutorial)
+- [Adding Settings to a Hardware Interface](./adding-settings-to-hardware-interface)
