@@ -4,7 +4,7 @@ title: Use
 permalink: /docs/use
 ---
 
-# Getting Started with the Vuforia Spatial Toolbox
+## Getting Started with the Vuforia Spatial Toolbox
 
 This series of pages will give you an illustrated introduction to using the Vuforia Spatial Toolbox
 app. By the end of this section, you'll know about a wide variety of things you can do in AR
