@@ -16,5 +16,3 @@ material.
 
 If you still have questions about the system after reading this, don't hesitate to ask on our
  [forum](http://forum.spatialtoolbox.vuforia.com).
-
-
