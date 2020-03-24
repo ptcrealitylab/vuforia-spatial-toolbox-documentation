@@ -15,3 +15,5 @@ The following APIs will help you to configure your spatial Tool, allow the right
 
 
  Your tools will be available to all objects that are hosted from the server they are stored on. This means, if one of your objects is visible in the Spatial Toolbox, the Spatial Toolbox can make use of them.
+
+Next: [Spatial Tools API Reference](./api-reference.md) or [Spatial Tools Tutorial](./tutorial.md).

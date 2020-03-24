@@ -13,3 +13,5 @@ Interfaces are plugins that allow you to connect any hardware or build out any s
 Your interface-addon should be stored in the addons/interfaces/[yourInterfaceAddon]/ folder, and it requires the following file:
 
 - `index.js` this file defines the entry point for your spatial edge server interface.
+
+Next: [Hardware Interface API Reference](./api-reference.md) or [Hardware Interface Tutorial](./tutorial.md).
