@@ -30,9 +30,11 @@ cd ../../; npm install
 node server.js
 ```
 
+To learn how to configure this server, read the [Web Interface Manager instructions](./web-interface-manager).
+
 ### Mac
 
-Follow [the platform specific install instructions](./startSystem-mac.md)
+Follow [the platform specific install instructions](./install-on-mac).
 
 ### Windows
 
