@@ -20,7 +20,7 @@ The five types of content that an add-on can contain are:
 5. *Content Scripts* - an advanced feature for new scripts to be injected into your app
 
 Add-ons get stored in the `addons` directory of the `vuforia-spatial-edge-server`. Each directory
- within the `addons` will be loaded as a separate add-on.
+ within `addons` will be loaded as a separate add-on.
 
 By default, each server should have the `vuforia-spatial-core-addon` installed, which provides
 all of the default tools, interfaces, nodes, and blocks necessary for the basic functionality of
