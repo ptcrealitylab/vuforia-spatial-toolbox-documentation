@@ -9,7 +9,8 @@ permalink: /docs/use/connect-to-the-physical-world/install-on-mac
 ## Install Node
 
 Follow the instructions on Node's website to install `node` and `npm`:
-https://nodejs.org/en/. If installing succeeding, you'll be able to open terminal and run `node --version`:
+https://nodejs.org/en/. If installing succeeding, you'll be able to open
+Terminal and run `node --version`:
 
 ![Terminal with the command node --version run, it outputs v13.5.0 without errors](./images/terminal-node-version.png)
 
