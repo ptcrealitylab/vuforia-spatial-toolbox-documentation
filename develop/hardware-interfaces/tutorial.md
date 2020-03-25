@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Tutorial
-permalink: /docs/hardware-interfaces/tutorial
+permalink: /docs/develop/hardware-interfaces/tutorial
 ---
 
 TODO

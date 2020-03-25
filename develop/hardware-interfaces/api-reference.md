@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: API Reference
-permalink: /docs/hardware-interfaces/api-reference
+permalink: /docs/develop/hardware-interfaces/api-reference
 ---
 
 <a name="interfaceApi"></a>
