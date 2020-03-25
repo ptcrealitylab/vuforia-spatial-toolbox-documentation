@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Creating a Simple Tool
-permalink: /docs/spatial-tools/tutorial
+permalink: /docs/develop/spatial-tools/tutorial
 ---
 
 ## Creating a Simple Tool
