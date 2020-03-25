@@ -39,7 +39,7 @@ permalink: /docs/download
 
 ### Vuforia Spatial Edge Server
 
-#### Platform Compatability
+#### Platform Compatibility
 
 |MacOS|Windows|Linux|
 |---|---|---|
