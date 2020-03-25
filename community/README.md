@@ -24,7 +24,9 @@ showing what you've built.
 All of the code is hosted on the [PTC Reality Lab GitHub](https://github.com/ptcrealitylab) in a
 handful of repositories. Clone these to compile customized versions of the software that you can
 modify with new features. Feel free to fork these and make your own changes, which you can share
-back to the community.
+back to the community. If you're a first time contributor,
+[read this guide](https://github.com/firstcontributions/first-contributions/blob/master/README.md)
+to learn how to fork and submit changes with a pull request on GitHub.
 
 - [vuforia-spatial-toolbox-ios](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-ios)
     - This is the main repository for the Vuforia Spatial Toolbox iOS app.
