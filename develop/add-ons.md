@@ -4,7 +4,7 @@ title: Add-ons
 permalink: /docs/develop/add-ons
 ---
 
-# Add-ons
+## Add-ons
 
 As a developer, your main option for contributing to and extending the Vuforia Spatial Toolbox with
 new functionality is using the add-on system. Add-ons let you build your choice of five different

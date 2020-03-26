@@ -4,7 +4,7 @@ title: Web Interface Manager
 permalink: /docs/use/connect-to-the-physical-world/web-interface-manager
 ---
 
-# Web Interface for Managing Edge Servers
+## Web Interface for Managing Edge Servers
 
 If you're just testing the Spatial Toolbox app on your device, you don't need to run any
 additional servers or software. If, however, you want AR content to "stick" to images
