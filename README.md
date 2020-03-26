@@ -3,11 +3,54 @@ layout: home
 permalink: /
 ---
 
-## Vuforia Spatial Toolbox
 #### A sandbox for Spatial Computing Interfaces
 > Use Spatial Tools to program machines, robots and digital user interfaces  using Augmented Reality on your environment.
 
-| ![Image of Reality Server](resources/distance.gif)  | ![Image of Reality Server](resources/mir.gif) |![Image of Reality Server](resources/vst.gif) |
+
+<div class="columns">
+  <div class="column">
+    ![Image of Reality Server](resources/distance.gif)
+  </div>
+  <div class="column">
+    ![Image of Reality Server](resources/mir.gif) 
+  </div>
+  <div class="column">
+    ![Image of Reality Server](resources/vst.gif)
+  </div>
+  <div class="column">
+    Fourth column
+  </div>
+</div>
+
+
+<div class="columns is-vcentered">
+  <div class="column">
+    <h2>Vuforia Spatial Toolbox</h2>
+    <h4>A sandbox for Spatial Computing Interfaces</h4>
+    <p>Program machines, robots and digital user interfaces using Augmented Reality on your environment.</p>
+  </div>
+  <div class="column">
+    <a class="button is-primary is-pulled-right" href="https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/startSystem/startSystem.md">
+      Get Started
+    </a>
+  </div>
+</div>
+
+<div class="columns">
+  <div class="column">
+    <img src="resources/vst.gif" alt="Image of Reality Server"/>
+  </div>
+  <div class="column">
+    <img src="resources/mir.gif" alt="Image of Reality Server"/>
+  </div>
+  <div class="column">
+    <img src="resources/distance.gif" alt="Image of Reality Server"/>
+  </div>
+</div>
+
+
+
+|   | | |
 | ------| -----------| -----------|
 | Spatial Tools | Spatial Programming  | Spatial Robotic UI |
 
