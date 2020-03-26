@@ -4,6 +4,13 @@ title: Starting the Vuforia Spatial Edge Server
 permalink: /docs/use/connect-to-the-physical-world/startSystem
 ---
 
+## Connect to the Physical World
+
+If you're just testing the Spatial Toolbox app on your device, you don't need to run any
+additional servers or software. If, however, you want AR content to "stick" to images
+or objects in the physical world, or if you want to program physical machines with these AR tools,
+you need to run a Vuforia Spatial Edge Server from a computer in your network.
+
 ## Install Edge Server
 
 If you are an experienced Node.js developer and want to get started

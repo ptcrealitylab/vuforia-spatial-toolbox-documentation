@@ -6,14 +6,9 @@ permalink: /docs/use/connect-to-the-physical-world/web-interface-manager
 
 ## Web Interface for Managing Edge Servers
 
-If you're just testing the Spatial Toolbox app on your device, you don't need to run any
-additional servers or software. If, however, you want AR content to "stick" to images
-or objects in the physical world, or if you want to program physical machines with these AR tools,
-you need to run a Vuforia Spatial Edge Server from a computer in your network.
-
-While you're running an edge server on your computer, it hosts a web application on port 8080
-that you can use to configure various elements. Visit [localhost:8080](http://localhost:8080) on
-your computer to view this web dashboard for your system.
+While you're running a Vuforia Spatial Edge Server on your computer, it hosts a web application on
+port 8080 that you can use to configure various elements. Visit
+[localhost:8080](http://localhost:8080) on your computer to view this web dashboard for your system.
 
 ## Managing Objects
 
