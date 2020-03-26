@@ -116,7 +116,7 @@ if (exports.enabled) {
     // 3 - when data arrives at this node, send it to the hardware
     // in this case we're using a REST API but could use bluetooth, serialport, etc
     server.addReadListener(objectName, frameName, 'value', function(data) {
-        var args = {
+        let args = {
             data: [{id: 'value', v: data.value}],
             headers: { 'Content-Type': 'application/json' }
         };
