@@ -6,7 +6,18 @@ permalink: /docs/download/change-log
 
 ## Change Log
 
-All notable changes to this project will be documented in this file.
+###  v0.1.0 - 2020-04-06
 
-### [0.1.0] - 2020-04-01
-- Initial Beta release
+#### Vuforia Spatial Toolbox
+
+|Bugfix / Features | |
+|---|---|
+|iOS |Initial Beta release|
+|Android| N/A|
+
+
+#### Vuforia Spatial Edge Server
+
+|Bugfix / Features | |
+|---|---|
+| All | Initial Beta release|
