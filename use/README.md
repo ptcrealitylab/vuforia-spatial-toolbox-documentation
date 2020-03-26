@@ -17,8 +17,8 @@ app, and how to configure it through a web interface on your computer.
 If you're _not_ a developer, this is the most important (and maybe the only) section for you to
 read.
 
-If you _are_ a developer, you should read this first, and then read the Develop section after you
-feel comfortable using the app and server.
+If you _are_ a developer, you should read this first, and then read the [Develop](./develop) section
+after you feel comfortable using the app and server.
 
 ## Main Concepts
 
