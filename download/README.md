@@ -7,19 +7,24 @@ permalink: /docs/download
 ## Download
 
 ### Vuforia Spatial Toolbox
-  <button class="button is-medium is-light"  
-    onclick="location.href='#todo-add-this-link';">
+<div class="buttons">
+    <button class="button is-medium is-light"
+            onclick="location.href='#todo-add-this-link';">
     <span class="icon is-medium">
       <i class="fab fa-app-store-ios"></i>
     </span>
-    <span>Download on the iOS App Store</span>
-  </button> *or* (for developers only)  <button class="button is-medium is-light"  
-                                           onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-toolbox-ios';">
-                                           <span class="icon is-medium">
-                                             <i class="fab fa-github"></i>
-                                           </span>
-                                           <span>Compile from GitHub</span>
-                                         </button>
+        <span>Download on the iOS App Store</span>
+    </button>
+</div>
+<div class="buttons">
+    <button class="button is-medium is-light"
+            onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-toolbox-ios';">
+    <span class="icon is-medium">
+        <i class="fab fa-github"></i>
+            </span>
+        <span>Compile from GitHub</span>
+    </button>
+</div>
 
 ### Vuforia Spatial Edge Server
 
