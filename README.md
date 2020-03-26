@@ -18,6 +18,13 @@ permalink: /
 <iframe src="https://www.youtube.com/embed/JLP2t7yymnQ?rel=0" frameborder="0" allow="autoplay;" allowfullscreen class="video" style="position: absolute;top: 0; left: 0; width: 100%; height: 100%;"><img src = "resources/toolboxVideoPlaceholder.jpg" border = "0"></iframe>
 </div>
 
+
+<video style="width:100%" controls>
+  <source src="resources/testVideo.mp4" type="video/mp4">
+</video>
+
+ <a href="resources/testVideo.mp4" style="border:0"><img src="resources/what1.jpg"></a>
+
 ### What do I use Vuforia Spatial Toolbox for?
 
 | ![Image of Reality Server](resources/what1.jpg) | ![Image of Reality Server](resources/what3.jpg) | ![Image of Reality Server](resources/what2.jpg) |
