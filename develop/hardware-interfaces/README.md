@@ -14,4 +14,5 @@ Your interface-addon should be stored in the addons/interfaces/[yourInterfaceAdd
 
 - `index.js` this file defines the entry point for your spatial edge server interface.
 
-Next: [Hardware Interface API Reference](./api-reference) or [Hardware Interface Tutorial](./tutorial).
+Next: [Hardware Interface API Reference](./hardware-interfaces/api-reference) or [Hardware Interface
+ Tutorial](./hardware-interfaces/tutorial).
