@@ -157,6 +157,13 @@ Vuforia Spatial Toolbox system, and when that happens we forward the data to the
 changes we write it to the node so that it propagates throughout the Vuforia Spatial Toolbox
 system.
 
+### More APIs
+
+There are a lot more APIs that haven't been explored yet in this tutorial, but you can find them
+all listed on the [API Reference](./api-reference) page. Hardware interfaces are extremely
+flexible with what you can do with them. An advanced hardware interface developer will be able to
+extend the Vuforia Spatial Toolbox in new and unexpected ways.
+
 ### Making it configurable
 
 One big difference between this and the actual Kepware implementation is that we've hard-coded a
