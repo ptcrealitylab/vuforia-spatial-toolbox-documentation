@@ -65,22 +65,22 @@ Each Vuforia Spatial Edge Server is a Node.js application that provides the foll
  2. Hosts an HTTP web server to provide REST and WebSocket interfaces to communicate
     with clients and other edge servers.
  3. Contains a set of
-    [Objects](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/understandSystem/dataModel.md#object)
+    [objects](./data-model#object)
     that map AR content and metadata to Vuforia Targets stored on this server, and provides methods
     to locally persist changes to this data.
  4. Runs an Object Engine, which processes the data for
-    [Nodes](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/understandSystem/dataModel.md#node)
+    [nodes](./data-model#node)
     and
-    [Logic Nodes](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/understandSystem/dataModel.md#logic-node)
+    [logic nodes](./data-model#logicNode)
     and propagates the data across
-    [Links](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/understandSystem/dataModel.md#link)
+    [links](./data-model#link)
     to Objects on this server, or to objects on other known Edge Servers using WebSockets.
  5. Loads an extendable set of modules from its addons directory, including the default
     [core-addon](https://github.com/ptcrealitylab/vuforia-spatial-core-addon),
     which provide different types of nodes,
-    [blocks](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/understandSystem/dataModel.md#block),
+    [blocks](./data-model#block),
     and
-    [tools](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/understandSystem/dataModel.md#frame-tool)
+    [tools](./data-model#tool)
     that the objects on this server can utilize, as well as (hardware) interfaces. Interfaces
     allow the objects on this server to read and write data to external systems, such as using
     kepware to connect to industrial IoT systems.

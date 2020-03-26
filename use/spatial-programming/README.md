@@ -21,7 +21,7 @@ Block.
 ![logic block menu](./images/screenshots/logic-block-menu.png)
 
 For a reference list of what each block does, consult the
-[Logic Blocks Reference List](./logic-blocks).
+[Logic Blocks Reference List](./spatial-programming/logic-blocks).
 
 For some useful example programs constructed out of a set of logic blocks, consult the 
-[Example Logic Node Programs](./example-programs).
+[Example Logic Node Programs](./spatial-programming/example-programs).
