@@ -18,6 +18,7 @@ structures that compose the system's data model.
 7. Block
 8. Block Link
 
+<a id="object"></a>
 ### Object
 
 An Object (sometimes referred to as a Reality Object) corresponds to exactly one AR target. When
@@ -38,6 +39,7 @@ edge servers in the `objects` variable in the server.js file.
 
 - Each object can have 0, 1, or many tools...
 
+<a id="tool"></a>
 ### Tool
 
 The data model for a single piece of AR content, which can be attached to an object. A tool has
@@ -63,6 +65,7 @@ Tools are stored in the `frames` property of an object.
 - Each tool can have 0, 1, or many nodes...
 - Each tool can have 0, 1, or many links...
 
+<a id="node"></a>
 ### Node
 
 A node represents a specific input and/or output of a tool, which can be logically connected to
@@ -78,6 +81,7 @@ or from connected hardware (using an edge server's *hardware interface*).
 
 Nodes are stored in the `nodes` property of a tool.
 
+<a id="link"></a>
 ### Link
 
 Links connect a start node to an end node. When data is written to a node, all nodes that it is
@@ -87,6 +91,7 @@ userinterface by the direction of the flowing dots.
 
 Links are stored in the `links` property of a tool.
 
+<a id="data"></a>
 ### Data
 
 A data packet that is sent between nodes that are linked together. It contains a `value` which by
@@ -99,6 +104,7 @@ data with a unit (such as meters or kg), which certain tools can visualize or co
 Exactly one data packet is stored in the `data` property of a node. This is the data that was
 most recently sent to this node.
 
+<a id="logicNode"></a>
 ### Logic Node
 
 A logic node is a special type of node that can contain a customized program that affects the
@@ -115,6 +121,7 @@ have a `{type: "logic"}` property rather than `{type: "node"}`.
 - Each logic node can have 0, 1, or many blocks...
 - Each logic node can have 0, 1, or many block links...
 
+<a id="block"></a>
 ### Block
 
 A Block (also known as a Logic Block), is a single logical operator that affects data that
@@ -128,6 +135,7 @@ as the [core-addon/blocks](https://github.com/ptcrealitylab/vuforia-spatial-core
 
 Blocks are stored in the `blocks` property of a logic node.
 
+<a id="blockLink"></a>
 ### Block Link
 
 A block link is analagous to a link between nodes, except it connects a start block to an end

@@ -89,7 +89,7 @@ listen to values from your hardware so that you know when to trigger this.
 ### Looking at an example: Kepware Interface
 
 Lets look at a simplified implementation of the
-[Kepware hardware interface](https://github.com/ptcrealitylab/vuforia-spatial-core-addon/blob/master/interface/kepware/index.js)
+[Kepware hardware interface](https://github.com/ptcrealitylab/vuforia-spatial-core-addon/blob/master/interfaces/kepware/index.js)
 as an example. The Kepware interface uses a REST API to the
 [KEPServerEx IoT Gateway](https://www.kepware.com/en-us/products/kepserverex/advanced-plug-ins/iot-gateway/)
 to read and write data to Industrial IoT hardware.
