@@ -26,16 +26,16 @@ a Vuforia Spatial Edge Server installed, refer to the installation instructions
 [here](../../use/connect-to-the-physical-world/startSystem) before you continue.
 
 In that directory, you will likely see the `vuforia-spatial-core-addon`, but rather than add our
-new tool to the core-addon, create a new directory next to it called `my-addon`. Inside `my
--addon`, create a new directory called `tools`. This will hold all of the new tools you develop
-that will get added to this edge server.
+new tool to the core-addon, create a new directory next to it called `my-addon`. Inside `my-addon`,
+create a new directory called `tools`. This will hold all of the new tools you develop that will
+get added to this edge server.
 
 ### Create the index.html file
 
-and then within that create a directory with the name of the tool you want to create, which in
-this case will be called `randomColor`. Finally, inside that directory create a new HTML file
-called `index.html`. The resulting path of that file should be `vuforia-spatial-core-addon
-/addons/my-addon/tools/randomColor/index.html`.
+Now, within the `tools` directory create a directory with the name of the tool you want to create,
+which in this case will be called `randomColor`. Finally, inside that directory create a new HTML
+file called `index.html`. The resulting path of that file should be
+`vuforia-spatial-edge-server/addons/my-addon/tools/randomColor/index.html`.
 
 The resulting directories should look like:
 
