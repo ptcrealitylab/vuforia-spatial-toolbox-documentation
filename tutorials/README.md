@@ -4,7 +4,7 @@ title: Tutorials
 permalink: /docs/tutorials
 ---
 
-# Tutorials
+## Tutorials
 
 Tutorials for various aspects of the Vuforia Spatial Toolbox are included throughout this
 website, but additional tutorials will be listed here as they are written.

@@ -4,7 +4,7 @@ title: Dive Deeper
 permalink: /docs/dive-deeper
 ---
 
-# Dive Deeper
+## Dive Deeper
 
 If you want to more deeply understand the concepts and architecture behind the Vuforia Spatial
 Toolbox, this section offers a series of detailed articles explaining the inner-workings of the
