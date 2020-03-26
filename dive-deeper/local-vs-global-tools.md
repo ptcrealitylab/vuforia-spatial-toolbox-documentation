@@ -28,7 +28,7 @@ by clients from one object to another; they are tied to the object they were wri
 tools can be accessed by hardware interface APIs, for instance to connect nodes of a tool to a
 stream of data from connected hardware.
 
-> To create a new **local** tool, you need to click on the "Add Frame" button on the web
+> To create a new **local** tool, you need to click on the "Add Tool" button on the web
 dashboard, and edit the default files that get generated in your realityobjects directory.
 
 ### Global Tools
