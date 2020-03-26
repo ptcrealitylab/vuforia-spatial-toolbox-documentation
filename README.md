@@ -1,8 +1,3 @@
----
-layout: home
-permalink: /
----
-
 #### A sandbox for Spatial Computing Interfaces
 > Use Spatial Tools to program machines, robots and digital user interfaces  using Augmented Reality on your environment.
 
