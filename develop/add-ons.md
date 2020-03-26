@@ -44,7 +44,14 @@ case, the top level of your add-on would only have a `tools` directory.
 The rest of the Develop section will walk you through the concepts and APIs for creating each of
 these kinds of content in an add-on.
 
-- [Spatial Tools](./spatial-tools)
-- [Hardware Interfaces](./hardware-interfaces)
-- [Spatial Nodes](./spatial-nodes)
-- [Spatial Blocks](./spatial-blocks)
+We suggest following these in order, but if you're only interested in developing a specific type
+of add-on, you can jump to the corresponding section, where we have tutorials and API
+ documentation for each type of content:
+
+1. [Spatial Tools](./spatial-tools)
+2. [Hardware Interfaces](./hardware-interfaces)
+3. [Spatial Nodes](./spatial-nodes)
+4. [Spatial Blocks](./spatial-blocks)
+
+There aren't any tutorials on creating content_scripts yet – if you're curious about them, please
+reach out on the [forum](https://forum.spatialtoolbox.vuforia.com).
