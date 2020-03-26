@@ -21,7 +21,7 @@ permalink: /
 
 <video style="width:100%" controls>
   <source src="https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/raw/master/resources/testVideo.mp4" type="video/mp4">
-   <a href="https://www.youtube.com/embed/JLP2t7yymnQ?rel=0" style="border:0"><img src = "resources/toolboxVideoPlaceholder.jpg" border = "0"></a>
+   <a href="https://www.youtube.com/watch?v=JLP2t7yymnQ?rel=0" style="border:0"><img src = "resources/toolboxVideoPlaceholder.jpg" border = "0"></a>
 </video>
 
 ### What do I use Vuforia Spatial Toolbox for?
