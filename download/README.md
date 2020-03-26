@@ -23,7 +23,7 @@ permalink: /docs/download
 
 |iPhone|iPad|Android|Head Mounted Displays|
 |---|---|---|---|
-|Yes, this is the primary development platform|Yes, but has not been tested|In development, coming soon|No plans yet for supporting|
+|Yes, primary platform|Yes, but not thoroughly tested|In development, coming soon|No plans yet for supporting|
 
 #### OS Version
 
