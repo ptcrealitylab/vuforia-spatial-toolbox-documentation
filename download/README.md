@@ -15,8 +15,6 @@ permalink: /docs/download
     </span>
         <span>Download on the iOS App Store</span>
     </button>
-</div>
-<div class="buttons">
     <button class="button is-medium is-light"
             onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-toolbox-ios';">
     <span class="icon is-medium">
