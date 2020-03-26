@@ -13,8 +13,14 @@ permalink: /docs/download
 
 ### Vuforia Spatial Edge Server
 
-[Download or clone from GitHub](https://github.com/ptcrealitylab/vuforia-spatial-edge-server).
-
+  <button class="button is-medium"  
+    onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server';">
+    <span class="icon">
+      <i class="fab fa-github"></i>
+    </span>
+    <span>Download or clone from GitHub</span>
+  </button>
+  
 ## Compatibility
 
 ### Vuforia Spatial Toolbox
