@@ -79,5 +79,5 @@ set up a Vuforia Spatial Edge Server and learn how to use *Hardware Interfaces*.
 
 ### Read Next:
 
-[Using the App](./using-the-app) – this illustrated guide will teach you everything you need to
+[Using the App](./use/using-the-app) – this illustrated guide will teach you everything you need to
 know to use all the features of the Vuforia Spatial Toolbox app.
