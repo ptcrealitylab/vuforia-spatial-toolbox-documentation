@@ -70,6 +70,13 @@ permalink: /docs/download
 |---|---|---|---|
 |Yes|Yes|Yes|Untested|
 
+#### Kepware (+ IoT Gateway) Version
+
+|6.8.x|6.7.x|6.6.x|Other Versions|
+|---|---|---|---|
+|Yes|Yes|Yes|Untested|
+
+
 ## Terms of Use
 
 Our software is licensed under the
