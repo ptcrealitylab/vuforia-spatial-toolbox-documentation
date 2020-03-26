@@ -21,6 +21,7 @@ permalink: /
 
 <video style="width:100%" controls>
   <source src="resources/testVideo.mp4" type="video/mp4">
+  <img src = "resources/toolboxVideoPlaceholder.jpg" border = "0">
 </video>
 
  <a href="resources/testVideo.mp4" style="border:0"><img src="resources/what1.jpg"></a>
