@@ -25,19 +25,19 @@ Go to [http://localhost:8080](http://localhost:8080) after starting your server.
 
 Click on "Add Object", type in the name `book`, and click the green "Add" button to create a new object with the name "book".
 
-![](./images/create-object/02-add-object-book.png)
+![type book and add object](./images/create-object/02-add-object-book.png)
 
 After clicking "Add," you'll see an entry for your new object, but it isn't initialized yet. Objects become initialized when you attach a Vuforia target to them.
 
 *Note: if you mess up at any point and want to restart, just click the red [X] to delete your object, and start the instructions again from the beginning.*
 
-![](./images/create-object/03-book-not-initialized.png)
+![new entry for book object](./images/create-object/03-book-not-initialized.png)
 
 ### Attaching a Vuforia Target to your object
 
 Now you need to decide which real thing in your physical environment you want to attach AR content to. Rather than posting a JPG for you to download, I encourage you to find something physical that you can use – it's a lot more satisfying to augment your world than reuse my demo project. Some recommendations: book covers or product packages (food labels usually work well). Whatever you choose should be flat, and have a lot of visual detail. The less unique details it has, the worse it will track in AR. I decided to augment some book covers of classics on my shelf.
 
-![](./images/create-object/book-covers.jpg)
+![photo of old book covers](./images/create-object/book-covers.jpg)
 
 I took a photo with my phone of the Fahrenheit 451 cover, cropped it so that none of the background is showing, sent it to my computer, and exported it as a JPG file (it was originally a different format – needs to be JPG).
 
@@ -45,27 +45,27 @@ Take some time to do the same. If you can't find something in your environment, 
 
 Now that you have an image of your object, go back to the web interface and click on the "Add Target" button to show the "Drop Zone". Drag and drop your JPG file on top of the Drop Zone.
 
-![](./images/create-object/04-add-target-drop-zone.png)
+![add target drop zone](./images/create-object/04-add-target-drop-zone.png)
 
 If successful, the page will refresh and the "Add Target" will now say "Edit Target" and show an icon of the image you uploaded. If it fails, make sure your image is an uncorrupted JPG file. Try with a different JPG if it still doesn't work.
 
-![](./images/create-object/05-book-initialized.png)
+![new object entry initialized on server](./images/create-object/05-book-initialized.png)
 
 ### Add a custom tool to your object
 
 At this point, your Vuforia Spatial Toolbox app will recognize this object, but there isn't any AR content on it yet. To give it some default content (that we can edit later) click on the "Add Tool" button, type in the name `interface`, and click the green "Add" button to create a new tool attached to that object.
 
-![](./images/create-object/06-book-add-tool.png)
+![add new tool to object](./images/create-object/06-book-add-tool.png)
 
 This has added a new custom tool to this object. This is a "local" tool that is unique to this object, rather than being a copy of a tool that is in the pocket. We'll explore what we can do with this tool a bit further down.
 
-![](./images/create-object/07-book-with-tool-interface.png)
+![object with tool named interface](./images/create-object/07-book-with-tool-interface.png)
 
 At this point, everything is ready! Make sure your phone is connected to the same WiFi network as the computer whose Edge Server you added the object to. Open the Vuforia Spatial Toolbox app.
 
 Point your camera at whatever you took the photo of (or of the image on your computer screen, if you don't have the physical object on hand). You should see a blue square show up in AR! As you move the object around, the interface will move with it.
 
-![](./images/create-object/08-spatial-toolbox-book-ui.gif)
+![viewing the interface through the app](./images/create-object/08-spatial-toolbox-book-ui.gif)
 
 If you don't see the blue AR square when you look at your object, check out the [trouble-shooting](#troubleShooting) section at the bottom of this page.
 
@@ -73,9 +73,9 @@ If you don't see the blue AR square when you look at your object, check out the 
 
 If you drop new tools into the scene **while this object is visible on the screen** the tools will attach to this object rather than float in the world. Tools will always try to attach to the closest object visible to the camera. If you move the object around after attaching more tools, you'll see all the tools move with it.
 
-![](./images/create-object/09-attach-pocket-tool-to-object.gif)
+![attaching tool to object from pocket](./images/create-object/09-attach-pocket-tool-to-object.gif)
 
-![](./images/create-object/10-move-object-with-pocket-tools.gif)
+![all tools move with object](./images/create-object/10-move-object-with-pocket-tools.gif)
 
 ### Customizing your tool!
 
@@ -114,7 +114,7 @@ The only difference from the default contents is that we added a semi-transparen
 
 Restart your app and look at your object. You should see the new version!
 
-![](./images/create-object/11-customized-tool.jpg)
+![tool has red background in app](./images/create-object/11-customized-tool.jpg)
 
 ### What Next?
 
