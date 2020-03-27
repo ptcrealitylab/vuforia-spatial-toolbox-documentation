@@ -98,7 +98,7 @@ move the object around, the interface will move with it.
 ![viewing the interface through the app](./images/create-object/08-spatial-toolbox-book-ui.gif)
 
 If you don't see the blue AR square when you look at your object, check out the
-[trouble-shooting](#troubleShooting) section at the bottom of this page.
+[troubleshooting](#troubleshooting) section at the bottom of this page.
 
 ### Dropping tools onto your object
 
@@ -178,8 +178,8 @@ if you get past the first tutorial.
 Did you follow along this tutorial to the end? Show us what you made in the
 [forum](https://forum.spatialtoolbox.vuforia.com)!
 
-<a id="troubleShooting"></a>
-### Trouble-shooting
+<a id="troubleshooting"></a>
+### Troubleshooting
 
 If you don't see the blue square pop up when you point the camera at your object, check the
 following:
