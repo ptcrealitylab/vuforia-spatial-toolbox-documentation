@@ -172,3 +172,19 @@ full implementation makes use of configurable settings so that these parameters 
 using the server's web interface. To learn how to add those, you can read the advanced-level
 tutorial:
 [How to add configurable settings to your hardware interface](../../tutorials/adding-settings-to-hardware-interface).
+
+
+### Seeing your object
+
+At this point, the Vuforia Spatial Edge Server knows that your hardware exists
+and will happily propagate changes between the hardware and the object
+representing it. However, the server doesn't know where your object is in the
+physical world. To allow the Spatial Toolbox to orient the object in space,
+it's time to associate it with a visual marker.
+
+Open up the Server's [web
+interface](../../use/connect-to-the-physical-world/web-interface-manager) at
+http://localhost:8080 and click "Add Object." Give this new object the name you
+chose in your hardware interface ("myHardwareObject" above) then drag and drop
+an image to use as a marker. Now if you look at this marker you can see and
+position your object's nodes in space.
