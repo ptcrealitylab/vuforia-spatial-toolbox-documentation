@@ -2,8 +2,8 @@
 
 Pre-req: [Creating a Simple Tool](../develop/spatial-tools/tutorial)
 
-Now that you know the gist of how to create a tool and interact with the RealityInterface APIs,
-we're going to explore some more interesting things you can do with them. This tutorial gets a
+Now that you know how to create a tool and interact with some basic RealityInterface APIs,
+we're going to explore some more interesting things you can do with tools. This tutorial gets a
 bit complicated, but as always please [use the forum](forum.spatialtoolbox.vuforia.com) if you
 have any questions.
 
