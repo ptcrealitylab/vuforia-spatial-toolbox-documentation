@@ -62,9 +62,9 @@
 
 ### What do I use Vuforia Spatial Toolbox for?
 
-| ![Image of Reality Server](resources/what1.jpg) | ![Image of Reality Server](resources/what3.jpg) | ![Image of Reality Server](resources/what2.jpg) |
+| ![Image of Reality Server](resources/what1.jpg) | ![Image of Reality Server](resources/what2.jpg) | ![Image of Reality Server](resources/what3.jpg) |
 | ------| -----------| -----------|
-| 1. Generate 2D and 3D AR content around you  | 2. Attach Spatial Tools and AR  Content to any physical object | 3. Program hardware system using AR interfaces |
+| 1. Attach Spatial Tools to objects tracked with Vuforia Engine  | 2. Program physical machines using Kepware or other supported platforms | 3. Generate your own 2D and 3D Spatial Tools |
 
 
 ### Access our Tutorials:
