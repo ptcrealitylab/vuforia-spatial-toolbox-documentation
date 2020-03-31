@@ -65,6 +65,9 @@ realityInterface.addMatrixListener(function(modelView, _projection) {
 });
 ```
 
+I used the HTML file from the previous tutorial as a starting point, and replaced its method for
+changing colors with this matrix listener:
+
 ![demo of tools changing color based on distance](./images/continuous-color-distance.gif)
 
 You can view and download the full index.html file for Demo 1
@@ -91,7 +94,9 @@ realityInterface.addMatrixListener(function(modelView, _projection) {
 });
 ```
 
-You can see the result, as we move the camera closer to the tool, and then further:
+I modified the HTML from the previous tutorial again, putting a "details" div inside its
+container with some default text that can be made visible or hidden. You can see the result,
+as we move the camera closer to the tool, and then further:
 
 ![demo of details showing up when getting close](./images/detail-threshold-tool.gif)
 
@@ -111,9 +116,9 @@ tools are near them, and the relative location of those tools.
 
 A few examples of things you can do with this:
 
-- When two tools cross a threshold of being "close" to one another, make their contents interact.
-  For example, user interfaces for food packaging might show nutrition information by default,
-  but when another tool gets close to it they could switch to a comparison mode to show
+- When two tools cross a threshold of being "close" to one another, you can make their contents
+  interact. For example, AR user interfaces for food packaging might show nutrition information by
+  default, but when two of them get close together they could switch to a comparison mode to show
   differences in their nutrition info.
 - Continuously adjust the properties of one tool based on how close some other tools are to it.
   For example, you could have a "color density" tool, which is colorless by default, but gets
