@@ -4,7 +4,7 @@ Pre-req: [Creating a Simple Tool](../develop/spatial-tools/tutorial)
 
 Now that you know the gist of how to create a tool and interact with the RealityInterface APIs, we're going to explore some more interesting things you can do with them. This tutorial gets a bit complicated, but as always please [use the forum](forum.spatialtoolbox.vuforia.com) if you have any questions.
 
-#### Setting Up
+##### Setting Up
 
 First up, create a new directory in your edge server's  `addons/my-addon/tools` called `contextDependent`. This will sit alongside the `randomColor` directory from the previous tutorial. Copy-and-paste the same [icon.gif file](./images/icon.gif) as last time, and create an empty index.html file. The resulting directory tree will look like:
 
@@ -19,6 +19,8 @@ In this tutorial, we'll look at a couple different ways that the contents of the
 One way that a tool can be spatially context-dependent is by responding to the relative location between it and its viewer – you!
 
 There are a few APIs that let a tool's contents react to its position. The most powerful one, which lets us extract all possible information about its relative location to the camera, is `addMatrixListener`. This is how a tool can subscribe to its **modelView matrix**. Don't panic – you don't need to know much about this matrix (or matrices in general). Just know that this is an array of 16 numbers (representing a 4x4 matrix of numbers) that fully describes where the tool is positioned in 3D space, relative to the camera. You can extract the scale of the tool from its first entry (`modelView[0]`), and the approximate distance to the camera from its 15th entry (`modelView[14]`).
+
+##### Demo 1: Adjust a continuous property based on distance
 
 In this first example, we continuously adjust the color of the tool as you move from about 0.5 meters away from the tool to about 1 meter away from the tool:
 
@@ -44,7 +46,11 @@ realityInterface.addMatrixListener(function(modelView, _projection) {
 });
 ```
 
-**TODO: Add GIF of continuous color based on distance to camera**
+![](./images/continuous-color-distance.gif)
+
+You can view and download the full index.html file for Demo 1 [on GitHub](https://gist.github.com/benptc/1b7c1d082c543d29256948eaedc9bf37).
+
+##### Demo 2: Using distance as a threshold
 
 In this second example, instead of continuously fading from one to another, we adjust the UI when we cross the "close" threshold. This is a nice way to hide details when you get far away from something, and show them again when you get closer.
 
@@ -63,9 +69,15 @@ realityInterface.addMatrixListener(function(modelView, _projection) {
 });
 ```
 
-**TODO: Add GIF of details appearing when you get close**
+You can see the result, as we move the camera closer to the tool, and then further:
 
-**TODO: link to gist where they can download full HTML for this demo**
+![](./images/detail-threshold-tool.gif)
+
+Because we set the threshold to `500 * scaleFactor` , not just 500, scaling the tool up with a pinch gesture will also make the details show up. If you don't want this behavior, you can leave out the scaleFactor.
+
+![](./images/detail-threshold-tool-scale.gif)
+
+You can view and download the full index.html file for Demo 2 [on GitHub](https://gist.github.com/benptc/f03c905e52f49322dd05e49780001cde).
 
 ### Reacting to the position of another tool
 
@@ -74,7 +86,7 @@ A very interesting aspect of spatial computing is to make tools that are aware o
 A few examples of things you can do with this:
 
 - When two tools cross a threshold of being "close" to one another, make their contents interact. For example, user interfaces for food packaging might show nutrition information by default, but when another tool gets close to it they could switch to a comparison mode to show differences in their nutrition info.
-- Continuously adjust the properties of one tool based on how close some other tools are to it. For example, you could have a "color density" tool, which is colorless by default, but gets more and more colorful based on how many other tools are placed near it.
+- Continuously adjust the properties of one tool based on how close some other tools are to it. For example, you could have a "color density" tool, which is colorless by default, but gets more and more colorful based on how close other tools are placed near it.
 - Draw navigation arrows that point from one tool to another. If one tool knows where the other is in space, it can point an arrow towards the next tool it wants you to look at.
 
 The process of determining which tools are around you and how close they are to one another is a bit more difficult than just reacting to the position of the viewer. It involves a few steps.
@@ -82,6 +94,10 @@ The process of determining which tools are around you and how close they are to 
 1. Each tool needs to determine where it is.
 2. Each tool needs to send that location information to any other tools that might need that information. 
 3. Each tool needs to listen for this location information being sent from other tools, and process it to determine the relative location between the two.
+
+##### Demo 3: Measure the distance between tools
+
+We'll walk through steps 1, 2 and 3 (outlined above) to build a demo that measures the distance between itself and another tool of the same type.
 
 1. ##### Each tool needs to determine where it is.
 
@@ -173,13 +189,17 @@ function receivedToolPosition(otherToolPosition) {
 
 If you test this out and add two of these tools to the world, you'll see it working! Both of them should set their detail text to a number, which is the distance between the two tools. Pretty cool! You could even combine this with the previous tutorial, and emit a value from the tool's node based on how close the other tool is – making the relative locations of tools available as an input to the spatial program.
 
-**TODO: Show GIF of two tools with distance to eachother**
+![](./images/distance-number-two-tools-v2.gif)
+
+This also works if you move around the tools in 3D space, because we're measuring the full 3D distance between the two, not just the apparent 2D distance on the screen.
+
+![](./images/distance-number-two-tools.gif)
 
 ### Reacting to the positions of multiple tools
 
-There's a problem in our current version if there are more than two of these tools visible at the same time – they'll all compete to send eachother their position information, and you'll likely see the values flicker between all of the possible distance combinations.
+There's a problem in our current implementation if there are more than two of these tools visible at the same time – they'll all compete to send eachother their position information, and you'll likely see the values flicker between all of the possible distance combinations.
 
-**TODO: Show GIF of buggy three-tool behavior**
+![](./images/distance-bug-three-tools.gif)
 
 You'll have to decide how to resolve these conflicts, but a few options include: 
 
@@ -201,7 +221,7 @@ let messageToSend = {
 };
 ```
 
-Now we need to define one new variable – an object to hold the current distance to each senderId – and a helper function to calculate the average of them.
+Now we need to define one new variable – an object to hold the current distance to each `senderId` – and a helper function to calculate the average of them.
 
 ```javascript
 let distances = {};
@@ -216,13 +236,13 @@ function average(numbers) {
 }
 ```
 
-Next, we can update the `receivedToolPosition` function. When we call it in the global message listener, send it the senderId in addition to the position:
+Next, we can update the `receivedToolPosition` function. When we call it in the global message listener, send it the `senderId` in addition to the position:
 
 ```javascript
 receivedToolPosition(message.position, message.senderId);
 ```
 
-Now update the body of `receivedToolPosition` with the following:
+Now update `receivedToolPosition` with the following:
 
 ```javascript
 function receivedToolPosition(otherToolPosition, senderId) {
@@ -233,7 +253,7 @@ function receivedToolPosition(otherToolPosition, senderId) {
     };
     let distance = Math.sqrt(diff.x * diff.x + diff.y * diff.y + diff.z * diff.z);
     
-  	// store this distance by its unique ID
+  	// store this distance by its sender's unique ID
     distances[senderId] = distance;
   	
   	// compute the average of all the stored distances
@@ -246,15 +266,13 @@ function receivedToolPosition(otherToolPosition, senderId) {
 
 Now open your app and try to add three or more tools to the space – it should work!
 
-**TODO: Add GIF with three tools coexisting**
+![](./images/average-distance-five-tools.gif)
 
-**TODO: Add GIF with even more tools showing avg relative distance**
-
-**TODO: link to gist where they can download full HTML for this demo**
+You can view and download the full index.html file for Demo 3 [on GitHub](https://gist.github.com/benptc/c2d12cba69ea8b26a9c60b50adc2a19c).
 
 ### What's Next?
 
-I hope this opened you up to some new ideas of how you can leverage the Spatial Toolbox APIs to create spatially context-dependent tools. The previous tutorial showed you how to create programmable tools, but this extends it by making the relative position of the viewer and other tools into parameters that you can work with. Combine the two, and you may come up with a completely novel spatial interaction!
+I hope this inspired you with some new ideas of how you can leverage the Spatial Toolbox APIs to create spatially context-dependent tools. The previous tutorial showed you how to create programmable tools, but this extends it by making the relative position of the viewer and other tools into parameters that you can work with. Combine the two, and you may come up with a completely novel spatial interaction!
 
 Experiment with the tool from this tutorial and try to make it more interesting. Instead of just writing the average distance as a number, can you make it affect the color or size of the graphics? What about writing the average distance to a node, so that you can link it to other tools? Can you figure out how to implement Method 2 and/or 3 that I suggested in the section about resolving conflicting values from multiple tools? Please share your creations in the [forum](forum.spatialtoolbox.vuforia.com).
 
