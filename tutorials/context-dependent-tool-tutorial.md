@@ -1,11 +1,17 @@
+---
+layout: doc
+title: Intermediate Tool Tutorial: Context-dependent Tools
+permalink: /docs/tutorials/context-dependent-tools
+---
+
 ## Intermediate Tool Tutorial: Context-dependent Tools
 
 Pre-req: [Creating a Simple Tool](../develop/spatial-tools/tutorial)
 
 Now that you know how to create a tool and interact with some basic RealityInterface APIs,
 we're going to explore some more interesting things you can do with tools. This tutorial gets a
-bit complicated, but as always please [use the forum](forum.spatialtoolbox.vuforia.com) if you
-have any questions.
+bit complicated, but as always please [use the forum](https://forum.spatialtoolbox.vuforia.com) if
+you have any questions.
 
 ##### Setting Up
 
@@ -45,21 +51,21 @@ meters away from the tool to about 1 meter away from the tool:
 
 ```javascript
 realityInterface.addMatrixListener(function(modelView, _projection) {
-  	// convert the scary matrix into easy-to-use values
+    // convert the scary matrix into easy-to-use values
     let scaleFactor = Math.abs(modelView[0]);
     let zDistance = Math.abs(modelView[14]);
-    
-  	// choose minimum and maximum distances that it should adjust when you move between
-  	// consider it "close" when we're about 0.5 meters away, but increases with tool's scale
+
+    // choose minimum and maximum distances that it should adjust when you move between
+    // consider it "close" when we're about 0.5 meters away, but increases with tool's scale
     let closeDistance = 500 * scaleFactor; 
-  	// consider it "far" when we're about 1 meter away, but increases with tool's scale
+    // consider it "far" when we're about 1 meter away, but increases with tool's scale
     let farDistance = 1000 * scaleFactor;
-    
-  	// 0 if close, 1 if far, and scales linearly between the two
-  	// this is a "linear interpolation" formula
+
+    // 0 if close, 1 if far, and scales linearly between the two
+    // this is a "linear interpolation" formula
     let percentage = Math.max(0, Math.min(1, (zDistance - closeDistance) / (farDistance - closeDistance)));
 
-  	// change color based on how far away we are
+    // change color based on how far away we are
     let newHue = Math.round(percentage * 255);
     setColor(newHue);
 });
@@ -85,7 +91,7 @@ realityInterface.addMatrixListener(function(modelView, _projection) {
     let zDistance = Math.abs(modelView[14]);
 
     let closeDistance = 500 * scaleFactor;
-    
+
     if (zDistance < closeDistance) {
         document.getElementById('details').style.visibility = '';
     } else {
@@ -198,7 +204,7 @@ setInterval(function() {
         messageType: 'contextDependentDemo',
         position: thisToolPosition
     };
-  	// make sure to stringify the message
+    // make sure to stringify the message
     realityInterface.sendGlobalMessage(JSON.stringify(messageToSend));
 }, 100);
 ```
@@ -229,17 +235,17 @@ realityInterface.addGlobalMessageListener(function(messageString) {
 });
 
 function receivedToolPosition(otherToolPosition) {
-  	// find vector between own position and other position
-  	let diff = {
-      	x: otherToolPosition.x - thisToolPosition.x,
-      	y: otherToolPosition.y - thisToolPosition.y,
-      	z: otherToolPosition.z - thisToolPosition.z,
+    // find vector between own position and other position
+    let diff = {
+        x: otherToolPosition.x - thisToolPosition.x,
+        y: otherToolPosition.y - thisToolPosition.y,
+        z: otherToolPosition.z - thisToolPosition.z,
     };
     // distance between tools is the magnitude of this vector: sqrt(dx^2 + dy^2 + dz^2)
     let distance = Math.sqrt(diff.x * diff.x + diff.y * diff.y + diff.z * diff.z);
   
-  	// do something with this information. for now, just display it as a number.
-  	document.getElementById('details').innerText = distance;
+    // do something with this information. for now, just display it as a number.
+    document.getElementById('details').innerText = distance;
 }
 ```
 
@@ -322,13 +328,13 @@ function receivedToolPosition(otherToolPosition, senderId) {
         z: otherToolPosition.z - thisToolPosition.z,
     };
     let distance = Math.sqrt(diff.x * diff.x + diff.y * diff.y + diff.z * diff.z);
-    
-  	// store this distance by its sender's unique ID
+
+    // store this distance by its sender's unique ID
     distances[senderId] = distance;
-  	
-  	// compute the average of all the stored distances
+
+    // compute the average of all the stored distances
     let averageDistance = average(Object.values(distances));
-    
+
     // display the average of all distances
     document.getElementById('details').innerText = Math.round(averageDistance);
 }
@@ -354,7 +360,7 @@ writing the average distance as a number, can you make it affect the color or si
 graphics? What about writing the average distance to a node, so that you can link it to other
 tools? Can you figure out how to implement Method 2 and/or 3 that I suggested in the section
 about resolving conflicting values from multiple tools? Please share your creations in the
-[forum](forum.spatialtoolbox.vuforia.com).
+[forum](https://forum.spatialtoolbox.vuforia.com).
 
 As a recap, we worked with the following APIs in the previous tutorial:
 
@@ -372,4 +378,4 @@ And in this tutorial, we learned how to use:
 - sendGlobalMessage
 - addGlobalMessageListener
 
-For even more APIs, check out the full [reference page]().
+For even more APIs, check out the full [reference page](../develop/spatial-tools/api-reference).
