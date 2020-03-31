@@ -14,7 +14,7 @@ First up, create a new directory in your edge server's  `addons/my-addon/tools` 
 tutorial. Copy-and-paste the same [icon.gif file](./images/icon.gif) as last time, and create an
 empty index.html file. The resulting directory tree will look like:
 
-![](./images/contextDependent-tool-directories.png)
+![directory tree for new tool](./images/contextDependent-tool-directories.png)
 
 You'll need to enable this tool on the server frontend for it to become available to clients in
 the network. Go to the Spatial Tools view on localhost:8080 and click the On/Off button for the
@@ -65,7 +65,7 @@ realityInterface.addMatrixListener(function(modelView, _projection) {
 });
 ```
 
-![](./images/continuous-color-distance.gif)
+![demo of tools changing color based on distance](./images/continuous-color-distance.gif)
 
 You can view and download the full index.html file for Demo 1
 [on GitHub](https://gist.github.com/benptc/1b7c1d082c543d29256948eaedc9bf37).
@@ -93,13 +93,13 @@ realityInterface.addMatrixListener(function(modelView, _projection) {
 
 You can see the result, as we move the camera closer to the tool, and then further:
 
-![](./images/detail-threshold-tool.gif)
+![demo of details showing up when getting close](./images/detail-threshold-tool.gif)
 
 Because we set the threshold to `500 * scaleFactor` , not just 500, scaling the tool up with a
 pinch gesture will also make the details show up. If you don't want this behavior, you can leave
 out the scaleFactor.
 
-![](./images/detail-threshold-tool-scale.gif)
+![demo of details showing up when scaled up](./images/detail-threshold-tool-scale.gif)
 
 You can view and download the full index.html file for Demo 2
 [on GitHub](https://gist.github.com/benptc/f03c905e52f49322dd05e49780001cde).
@@ -160,11 +160,11 @@ realityInterface.subscribeToMatrix();
 
 // create a loop
 setInterval(function() {
-		thisToolPosition = {
-				x: realityInterface.getPositionX(),
-				y: realityInterface.getPositionY(),
-				z: realityInterface.getPositionZ()
-		};
+    thisToolPosition = {
+        x: realityInterface.getPositionX(),
+        y: realityInterface.getPositionY(),
+        z: realityInterface.getPositionZ()
+    };
 }, 100); // update 10 times per second (you can change this for smoother results)
 ```
 
@@ -211,15 +211,15 @@ position with the positions of other tools it hears about.
 ```javascript
 // listen for every global message broadcasted in this scene
 realityInterface.addGlobalMessageListener(function(messageString) {
-		try {
-				let message = JSON.parse(messageString);
-      	// ignore all messages except the 'contextDependentDemo' ones
-				if (typeof message.messageType !== 'undefined' &&
-						message.messageType === 'contextDependentDemo') {
-						receivedToolPosition(message.position);
+    try {
+        let message = JSON.parse(messageString);
+        // ignore all messages except the 'contextDependentDemo' ones
+        if (typeof message.messageType !== 'undefined' &&
+            message.messageType === 'contextDependentDemo') {
+            receivedToolPosition(message.position);
         }
-		} catch(err) {
-      	console.warn('error parsing global message', err);
+    } catch(err) {
+        console.warn('error parsing global message', err);
     }
 });
 
@@ -229,7 +229,7 @@ function receivedToolPosition(otherToolPosition) {
       	x: otherToolPosition.x - thisToolPosition.x,
       	y: otherToolPosition.y - thisToolPosition.y,
       	z: otherToolPosition.z - thisToolPosition.z,
-    }
+    };
     // distance between tools is the magnitude of this vector: sqrt(dx^2 + dy^2 + dz^2)
     let distance = Math.sqrt(diff.x * diff.x + diff.y * diff.y + diff.z * diff.z);
   
@@ -244,12 +244,12 @@ cool! You could even combine this with the previous tutorial, and emit a value f
 node based on how close the other tool is – making the relative locations of tools available
 as an input to the spatial program.
 
-![](./images/distance-number-two-tools-v2.gif)
+![demo of distance between two tools as number](./images/distance-number-two-tools-v2.gif)
 
 This also works if you move around the tools in 3D space, because we're measuring the full 3D
 distance between the two, not just the apparent 2D distance on the screen.
 
-![](./images/distance-number-two-tools.gif)
+![demo of distance between tools moving around in 3D](./images/distance-number-two-tools.gif)
 
 ### Reacting to the positions of multiple tools
 
@@ -257,7 +257,7 @@ There's a problem in our current implementation if there are more than two of th
 at the same time – they'll all compete to send each other their position information, and you'll
 likely see the values flicker between all of the possible distance combinations.
 
-![](./images/distance-bug-three-tools.gif)
+![bug flickering distance between three tools](./images/distance-bug-three-tools.gif)
 
 You'll have to decide how to resolve these conflicts, but a few options include: 
 
@@ -278,9 +278,9 @@ called `realityObject.frame` – this variable holds a unique ID for this tool.
 
 ```javascript
 let messageToSend = {
-		messageType: 'contextDependentDemo',
-		senderId: realityObject.frame,
-		position: thisToolPosition
+    messageType: 'contextDependentDemo',
+    senderId: realityObject.frame,
+    position: thisToolPosition
 };
 ```
 
@@ -331,7 +331,7 @@ function receivedToolPosition(otherToolPosition, senderId) {
 
 Now open your app and try to add three or more tools to the space – it should work!
 
-![](./images/average-distance-five-tools.gif)
+![correctly working average distance demo](./images/average-distance-five-tools.gif)
 
 You can view and download the full index.html file for Demo 3
 [on GitHub](https://gist.github.com/benptc/c2d12cba69ea8b26a9c60b50adc2a19c).
