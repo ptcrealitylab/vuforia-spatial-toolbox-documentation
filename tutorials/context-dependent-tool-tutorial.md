@@ -1,6 +1,6 @@
 ---
 layout: doc
-title: Intermediate Tool Tutorial: Context-dependent Tools
+title: Creating Context-Dependent Tools
 permalink: /docs/tutorials/context-dependent-tools
 ---
 
