@@ -1,0 +1,3 @@
+[submodule "vuforia-spatial-robotic-addon"]
+	path = vuforia-spatial-robotic-addon
+	url = https://github.com/ptcrealitylab/vuforia-spatial-robotic-addon/
