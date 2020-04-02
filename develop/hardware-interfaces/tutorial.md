@@ -188,3 +188,6 @@ http://localhost:8080 and click "Add Object." Give this new object the name you
 chose in your hardware interface ("myHardwareObject" above) then drag and drop
 an image to use as a marker. Now if you look at this marker you can see and
 position your object's nodes in space.
+
+For more information about creating objects, check out the [How to create an
+Object tutorial](../../use/connect-to-the-physical-world/create-object).
