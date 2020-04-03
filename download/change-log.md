@@ -6,7 +6,7 @@ permalink: /docs/download/change-log
 
 ## Change Log
 
-###  v0.1.0 - 2020-04-06
+###  v1.0.0 - 2020-04-06
 
 #### Vuforia Spatial Toolbox
 

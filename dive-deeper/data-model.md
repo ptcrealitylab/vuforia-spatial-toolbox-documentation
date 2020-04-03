@@ -35,7 +35,7 @@ There is also a certain type of Object called a **World Object** which doesn't r
 and instead remains visible as you move around a space.
 
 Objects are stored in the userinterface in the `objects` global variable. Objects are stored on
-edge servers in the `objects` variable in the server.js file.
+edge servers in the `objects` variable in the index.js file.
 
 - Each object can have 0, 1, or many tools...
 

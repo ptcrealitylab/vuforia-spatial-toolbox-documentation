@@ -120,7 +120,7 @@ so it only knows how to "stick" to objects on this edge server. Creating a world
 server sort of "blankets" your space with an invisible object that your custom tools will know
 how to attach to.
 
-To add a world object to your server, run your server (`node server.js` in the terminal in your
+To add a world object to your server, run your server (`node index.js` in the terminal in your
 vuforia-spatial-edge-server directory), and then visit http://localhost:8080 in a web browser.
 If you've added objects before, you'll see them listed. If you haven't it'll be empty and look
 something like this:

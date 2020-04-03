@@ -34,7 +34,7 @@ cd addons/vuforia-spatial-core-addon; npm install
 cd ../../; npm install
 
 ## Run
-node server.js
+node index.js
 ```
 
 To learn how to configure this server, read the [Web Interface Manager instructions](./web-interface-manager).
