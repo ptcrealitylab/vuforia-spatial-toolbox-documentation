@@ -12,5 +12,4 @@ have questions, ideas want to collaborate or just say hi.
 
 Please visit https://spatialtoolbox.vuforia.com for Documentation about the Vuforia Spatial Toolbox and Vuforia Edge Server.
 
-
-Content in this Repo is optimized for serving the content in the Webpage. 
+Content in this Repo is optimized for serving the content in the Webpage.
