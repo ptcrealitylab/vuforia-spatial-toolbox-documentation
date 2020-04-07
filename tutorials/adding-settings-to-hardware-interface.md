@@ -8,7 +8,7 @@ permalink: /docs/tutorials/adding-settings-to-hardware-interface
 
 When you run your server at least once, there will be a settings.json file generated to hold any
 settings of your hardware interface. It goes at the path
-`~/Documents/realityobjects/.identity/[hardware-interface-name]/settings.json`
+`~/Documents/spatialToolbox/.identity/[hardware-interface-name]/settings.json`
 
 By default, it will be generated to look like this:
 
