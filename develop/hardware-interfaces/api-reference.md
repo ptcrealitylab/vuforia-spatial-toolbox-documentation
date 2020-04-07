@@ -213,7 +213,7 @@ var outputValue = server.addReadListener(scaleValue, 0.0, 1.0, 0.0, 10.0);
 PublicData is a JSON object that contains data objects specified by the node definition. You need to finetune your Tool via specific node types. publicData allows you to handle complex data among the server-side node program and the Spatial Tool. The Value can contain any JSON encoded data.
 
 ```javascript
-spatialTool. writePublicData("feederStation", "scale", "measurement", "lastMeasurements", [0, 1, 0.1, 0, 2]);
+spatialInterface.writePublicData("feederStation", "scale", "measurement", "lastMeasurements", [0, 1, 0.1, 0, 2]);
 ```
 
 <a id="addPublicDataListener"></a>
@@ -228,7 +228,7 @@ spatialTool. writePublicData("feederStation", "scale", "measurement", "lastMeasu
 Add a read listener for publicData to read value changes for a defined Key. These changes are synchronized with the Edge Server and any Spatial Toolbox interacting with the Tool.
 
 ```javascript
-spatialTool.addReadPublicDataListener("feederStation", "scale", "measurement", "lastMeasurements", function(value){
+spatialInterface.addReadPublicDataListener("feederStation", "scale", "measurement", "lastMeasurements", function(value){
     var publicDataValue = value;
 });
 ```

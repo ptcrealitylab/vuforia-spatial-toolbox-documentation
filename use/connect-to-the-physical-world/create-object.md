@@ -140,7 +140,7 @@ following:
 <title>Default UI</title>
 	<script src="object.js"></script>
 	<script>
-		var reality = new RealityInterface();
+		var reality = new SpatialInterface();
         reality.setMoveDelay(10);
 	</script>
 	<style>

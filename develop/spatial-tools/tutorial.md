@@ -71,8 +71,8 @@ Edit the index.html file and replace its contents with the following. I'll expla
 <div id="container"></div>
 
 <script>
-    // 3. Try to load the RealityInterface APIs.
-    let realityInterface = new RealityInterface();
+    // 3. Try to load the SpatialInterface APIs.
+    let spatialInterface = new SpatialInterface();
 
     // 4. When we tap on the container, change the color
     let container = document.getElementById('container');
@@ -96,7 +96,7 @@ Edit the index.html file and replace its contents with the following. I'll expla
 2. The width and height of the body will define the size of the tool. Any HTML contents outside
    of the width and height will be cropped.
 3. Because we have included the `object.js` script, we can access the APIs it provides by
-   creating a new RealityInterface instance. We aren't using it for anything yet (we will by the
+   creating a new SpatialInterface instance. We aren't using it for anything yet (we will by the
    end of this tutorial), but you should instantiate it anyways so that the tool properly loads.
 4. Here we can add any behavior to this tool, as if it were an ordinary HTML page. We add a
    pointerup event so that if the user taps on the tool, it will pick a random color and change its
@@ -200,14 +200,14 @@ afterwards.
 <div id="container"></div>
 
 <script>
-    // 3. Try to load the RealityInterface APIs.
-    let realityInterface = new RealityInterface();
+    // 3. Try to load the SpatialInterface APIs.
+    let spatialInterface = new SpatialInterface();
 
     // 5. This attaches a programmable node to your tool
-    realityInterface.initNode('hue', 'node', 0, 0);
+    spatialInterface.initNode('hue', 'node', 0, 0);
 
     // 6. Whenever data arrives at the node, update the color of this tool
-    realityInterface.addReadListener('hue', function(event) {
+    spatialInterface.addReadListener('hue', function(event) {
         let newHue = Math.round(event.value * 255);
         setColor(newHue);
     });
@@ -219,7 +219,7 @@ afterwards.
         setColor(newHue);
 
         // 7. Whenever we tap, emit the new hue from the node
-        realityInterface.write('hue', newHue/255);
+        spatialInterface.write('hue', newHue/255);
     });
 
     function setColor(hue) {
