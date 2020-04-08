@@ -6,6 +6,20 @@ permalink: /docs/download/change-log
 
 ## Change Log
 
+
+###  v0.1.1 - 2020-04-15
+
+#### Vuforia Spatial Toolbox
+
+|Bugfix / Features | |
+|---|---|
+|iOS |
++ Vuforia Engine 9 Support
++ Vuforia Area Target Support
+|
+|Android| N/A|
+
+
 ###  v0.1.0 - 2020-04-06
 
 #### Vuforia Spatial Toolbox
