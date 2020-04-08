@@ -11,12 +11,11 @@ permalink: /docs/download/change-log
 
 #### Vuforia Spatial Toolbox
 
-|Bugfix / Features | |
-|---|---|
-|iOS |
-+ Vuforia Engine 9 Support
-+ Vuforia Area Target Support
-|
+|Bugfix / Features  |             |
+|-------------------|-------------|
+|iOS                | - Vuforia Engine 9 Support    |   
+|                   | - Vuforia Area Target Support |
+|-------------------|-------------|
 |Android| N/A|
 
 
