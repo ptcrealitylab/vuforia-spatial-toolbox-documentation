@@ -52,9 +52,9 @@ permalink: /docs/download
 
 #### Vuforia Engine SDK Version
 
-|8.x|9.x|
-|---|---|
-|Yes|Coming Soon|
+|9.0.x|
+|---|
+|yes|
 
 ### Vuforia Spatial Edge Server
 
