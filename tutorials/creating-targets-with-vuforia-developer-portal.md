@@ -1,7 +1,7 @@
 ---
 layout: doc
 title: Attaching Targets to your Objects
-permalink: /docs/tutorials/creating-targets-with-vuforia-developer-portal
+permalink: /docs/tutorials/attaching-targets-to-objects
 ---
 
 ## Attaching Targets to your Objects
