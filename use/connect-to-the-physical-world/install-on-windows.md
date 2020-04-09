@@ -46,7 +46,7 @@ Documents directory:
 Track down the Edge Server directory from the previous step in Command Prompt
 or PowerShell. If you put the edge server in your Documents directory and kept
 the default name `vuforia-spatial-edge-server`, you can get to it with the
-command `cd C:\Users\{your username}\Documents/vuforia-spatial-edge-server`.
+command `cd C:\Users\{your username}\Documents\vuforia-spatial-edge-server`.
 
 Once you're in the correct directory, you can confirm this with the command
 `dir` which should output something close to the following:
