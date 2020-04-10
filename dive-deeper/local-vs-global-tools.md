@@ -21,7 +21,7 @@ code or documentation are referring to the same thing.*
 
 A **local** tool is an AR interface for a specific object. A tool with a specific name can be
 created for a specific object through the web dashboard, which will create the
-`realityobjects/[object-name]/[local-tool-name]/index.html` directories and default HTML contents.
+`spatialToolbox/[object-name]/[local-tool-name]/index.html` directories and default HTML contents.
 This piece of AR content will appear when a client looks at the object. Local tools cannot be
 deleted by clients. They can only be deleted through the web dashboard. They also cannot be moved
 by clients from one object to another; they are tied to the object they were written for. Local
@@ -29,7 +29,7 @@ tools can be accessed by hardware interface APIs, for instance to connect nodes 
 stream of data from connected hardware.
 
 > To create a new **local** tool, you need to click on the "Add Tool" button on the web
-dashboard, and edit the default files that get generated in your realityobjects directory.
+dashboard, and edit the default files that get generated in your spatialToolbox directory.
 
 ### Global Tools
 

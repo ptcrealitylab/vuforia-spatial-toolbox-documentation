@@ -27,9 +27,9 @@ edge server hosting that Object, and rendered in the app.
 
 Objects are identified by a human readable *name*, as well as a unique *objectId* (
 `{object name}+{random 12 character string}`). Objects are stored in the user's local
-`~/Documents/realityobjects` directory, which is loaded when an edge server is started on the
+`~/Documents/spatialToolbox` directory, which is loaded when an edge server is started on the
 machine. The full properties of an Object are stored in
-`~Documents/realityobjects/{object name}/.identity/object.json`.
+`~Documents/spatialToolbox/{object name}/.identity/object.json`.
 
 There is also a certain type of Object called a **World Object** which doesn't require a target
 and instead remains visible as you move around a space.
@@ -50,7 +50,7 @@ content can interact with AR capabilities using a JavaScript API. A tool can be 
 to another).
 
 Like objects, tools also have a *name* and a unique ID. Each local tool has a directory located
-at `realityobjects/{object name}/{tool name}`, which contains an index.html that is loaded into
+at `spatialToolbox/{object name}/{tool name}`, which contains an index.html that is loaded into
 the tool. Each global tool is stored by name in the object.json file, and its name is resolved
 into an index.html src by the edge server it belongs to.
 

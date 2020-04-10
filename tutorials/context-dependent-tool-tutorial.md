@@ -8,7 +8,7 @@ permalink: /docs/tutorials/context-dependent-tools
 
 Pre-req: [Creating a Simple Tool](../develop/spatial-tools/tutorial)
 
-Now that you know how to create a tool and interact with some basic RealityInterface APIs,
+Now that you know how to create a tool and interact with some basic SpatialInterface APIs,
 we're going to explore some more interesting things you can do with tools. This tutorial gets a
 bit complicated, but as always please [use the forum](https://forum.spatialtoolbox.vuforia.com) if
 you have any questions.
@@ -50,7 +50,7 @@ In this first example, we continuously adjust the color of the tool as you move 
 meters away from the tool to about 1 meter away from the tool:
 
 ```javascript
-realityInterface.addMatrixListener(function(modelView, _projection) {
+spatialInterface.addMatrixListener(function(modelView, _projection) {
     // convert the scary matrix into easy-to-use values
     let scaleFactor = Math.abs(modelView[0]);
     let zDistance = Math.abs(modelView[14]);
@@ -86,7 +86,7 @@ we cross the "close" threshold. This is a nice way to hide details when you get 
 something, and show them again when you get closer.
 
 ```javascript
-realityInterface.addMatrixListener(function(modelView, _projection) {
+spatialInterface.addMatrixListener(function(modelView, _projection) {
     let scaleFactor = Math.abs(modelView[0]);
     let zDistance = Math.abs(modelView[14]);
 
@@ -167,14 +167,14 @@ this method, so that we explore more of the APIs:
 let thisToolPosition = { x: 0, y: 0, z: 0 }; // placeholder value
 
 // this subscribes the API to always have up-to-date position values
-realityInterface.subscribeToMatrix();
+spatialInterface.subscribeToMatrix();
 
 // create a loop
 setInterval(function() {
     thisToolPosition = {
-        x: realityInterface.getPositionX(),
-        y: realityInterface.getPositionY(),
-        z: realityInterface.getPositionZ()
+        x: spatialInterface.getPositionX(),
+        y: spatialInterface.getPositionY(),
+        z: spatialInterface.getPositionZ()
     };
 }, 100); // update 10 times per second (you can change this for smoother results)
 ```
@@ -196,16 +196,16 @@ identify these messages in the next step.
 ```javascript
 setInterval(function() {
     thisToolPosition = {
-        x: realityInterface.getPositionX(),
-        y: realityInterface.getPositionY(),
-        z: realityInterface.getPositionZ()
+        x: spatialInterface.getPositionX(),
+        y: spatialInterface.getPositionY(),
+        z: spatialInterface.getPositionZ()
     };
     let messageToSend = {
         messageType: 'contextDependentDemo',
         position: thisToolPosition
     };
     // make sure to stringify the message
-    realityInterface.sendGlobalMessage(JSON.stringify(messageToSend));
+    spatialInterface.sendGlobalMessage(JSON.stringify(messageToSend));
 }, 100);
 ```
 
@@ -221,7 +221,7 @@ position with the positions of other tools it hears about.
 
 ```javascript
 // listen for every global message broadcasted in this scene
-realityInterface.addGlobalMessageListener(function(messageString) {
+spatialInterface.addGlobalMessageListener(function(messageString) {
     try {
         let message = JSON.parse(messageString);
         // ignore all messages except the 'contextDependentDemo' ones

@@ -122,8 +122,8 @@ before being able to customize your tool. The more web development you know, the
 do with the tool.
 
 First, you need to find the tool on your filesystem. When you ran your edge server and created an
-object, it automatically created a folder called `realityobjects` in your `~/Documents` directory.
-Open up `~/Documents/realityobjects/book` to see all the contents of your object named "book."
+object, it automatically created a folder called `spatialToolbox` in your `~/Documents` directory.
+Open up `~/Documents/spatialToolbox/book` to see all the contents of your object named "book."
 There will be a directory in here for each custom frame we added using the web interface. If you
 named everything the same as I did, you'll see a directory called `interface`.  Open that up and
 there is an `index.html` file that you can edit, as if it were a standard web page. The contents
@@ -140,7 +140,7 @@ following:
 <title>Default UI</title>
 	<script src="object.js"></script>
 	<script>
-		var reality = new RealityInterface();
+		var reality = new SpatialInterface();
         reality.setMoveDelay(10);
 	</script>
 	<style>
