@@ -243,7 +243,7 @@ future – for now, if you questions please ask them in the [forum](https://foru
 
 When associating target data with an object, you can see what’s happening behind the scenes by
 looking at your local filesystem. Your objects and their target data get stored in your
-`~/Documents/realityobjects` directory (this will be automatically generated when you run the
+`~/Documents/spatialToolbox` directory (this will be automatically generated when you run the
 Spatial Edge Server).
 
 Inside that, there will be a directory for each of the objects you have created on the edge server
