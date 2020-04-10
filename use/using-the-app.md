@@ -1,4 +1,10 @@
-# Getting Started
+---
+layout: doc
+title: Getting Started
+permalink: /docs/use/using-the-app
+---
+
+## Getting Started
 
 ## An illustrated guide to using the Vuforia Spatial Toolbox
 

@@ -1,5 +1,11 @@
+---
+layout: doc
+title: Develop
+permalink: /docs/develop
+---
+
 <a name="intro"></a>
-# Introduction
+## Introduction
 
 <!---<img align="right" width="150" height="400" src="folder.svg">--->
 

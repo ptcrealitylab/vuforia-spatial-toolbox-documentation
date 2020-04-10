@@ -1,3 +1,9 @@
+---
+layout: doc
+title: Create New Interfaces
+permalink: /docs/develop/hardware-interfaces
+---
+
 <a name="newInterface"></a>
 ## Create new Interfaces
 
@@ -7,3 +13,6 @@ Interfaces are plugins that allow you to connect any hardware or build out any s
 Your interface-addon should be stored in the addons/interfaces/[yourInterfaceAddon]/ folder, and it requires the following file:
 
 - `index.js` this file defines the entry point for your spatial edge server interface.
+
+Next: [Hardware Interface API Reference](./hardware-interfaces/api-reference) or [Hardware Interface
+ Tutorial](./hardware-interfaces/tutorial).

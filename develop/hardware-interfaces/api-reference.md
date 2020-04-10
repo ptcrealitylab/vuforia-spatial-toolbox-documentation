@@ -1,7 +1,13 @@
-<a name="interfaceApi"></a>
-### API Reference
+---
+layout: doc
+title: API Reference
+permalink: /docs/develop/hardware-interfaces/api-reference
+---
 
-##### Initialize the interface
+<a name="interfaceApi"></a>
+## API Reference
+
+### Initialize the interface
 
 ```js
 //Enable this hardware interface
@@ -19,7 +25,8 @@ if (exports.enabled) {
 
 ```
 
-##### loadHardwareInterface(`_dirName`)
+<a id="loadHardwareInterface"></a>
+### loadHardwareInterface(`_dirName`)
 - `_dirName` _(String)_ Must use string `_dirName` and returns the path to executed file
 - **Returns** _(Object)_ Returns content of the settings json file stored for this interface
 
@@ -29,7 +36,8 @@ Returns access to the stored settings for this Interface
 var settings = server.loadHardwareInterface(__dirname);
 ```
 
-##### addNode(object, tool, node, type, position) 
+<a id="addNode"></a>
+### addNode(object, tool, node, type, position) 
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -42,8 +50,8 @@ Adds a new node to a Tool. If the Tool does not exist, it automatically generate
 server.addNode("feederStation", "scale", "scaleValue", "node", {x: 1, y: 1})
 ```
 
-
-##### renameNode(object, tool, oldNode, newNode)
+<a id="renameNode"></a>
+### renameNode(object, tool, oldNode, newNode)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `oldNode ` _(String)_ Name of existing Node
@@ -55,8 +63,8 @@ Rename an existing node
 ```javascript
 server.renameNode("feederStation", "scale", "scaleValue", "measurement");
 ```
-
-##### moveNode(object, tool, node, x, y, scale, matrix, loyalty) 
+<a id="moveNode"></a>
+### moveNode(object, tool, node, x, y, scale, matrix, loyalty) 
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -73,7 +81,8 @@ Move a node to a new possition.
 server.moveNode("feederStation", "scale", "measurement", 1, 1, 1, identityMatrix, "object"); 
 ```
 
-##### removeNode(object, tool, node)
+<a id="removeNode"></a>
+### removeNode(object, tool, node)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -84,7 +93,8 @@ Remove node from a Tool.
 server.removeNode("feederStation", "scale", "measurement");
 ```
 
-##### attachNodeToGroundPlane(object, tool, node, shouldAttachToGroundPlane)
+<a id="attachNodeToGroundPlane"></a>
+### attachNodeToGroundPlane(object, tool, node, shouldAttachToGroundPlane)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -96,8 +106,8 @@ Lets you attach your Node to the ground plane. This is similar to loyalty, and e
 server.attachNodeToGroundPlane("feederStation", "scale", "measurement", true)
 ```
 
-
-##### clearObject(object, tool)
+<a id="clearObject"></a>
+### clearObject(object, tool)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 
@@ -108,7 +118,8 @@ In case your Object handles a lot of changes to the nodes, use this function to 
 server.clearObject("feederStation", "scale");
 ```
 
-##### removeAllNodes(objectName, tool)
+<a id="removeAllNodes"></a>
+### removeAllNodes(objectName, tool)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 
@@ -118,7 +129,8 @@ Remove all nodes from your Tool.
 server.removeAllNodes("feederStation", "scale");
 ```
 
-##### reloadNodeUI(objectName)
+<a id="reloadNodeUI"></a>
+### reloadNodeUI(objectName)
 - `object` _(String)_ Name of Object
 
 Force every Spatial Toolbox that has access to your spatial Tool to refresh its data about your Spatial Tool.
@@ -127,8 +139,8 @@ Force every Spatial Toolbox that has access to your spatial Tool to refresh its 
 server.reloadNodeUI("feederStation");
 ```
 
-
-##### write(object, tool, node, value, mode, unit, unitMin, unitMax)
+<a id="write"></a>
+### write(object, tool, node, value, mode, unit, unitMin, unitMax)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -144,7 +156,8 @@ Write flow data to a node owned by the Spatial Tool within your Object. This flo
 server.write("feederStation", "scale", "measurement", 0.5, "f", "kg", 0, 10);
 ```
 
-##### addReadListener(object, tool, node, callBack)
+<a id="addReadListener"></a>
+### addReadListener(object, tool, node, callBack)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -161,7 +174,8 @@ server.addReadListener("feederStation", "scale", "measurement", function(flowDat
 
 ```
 
-##### removeReadListeners(object, tool)
+<a id="removeReadListeners"></a>
+### removeReadListeners(object, tool)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 
@@ -172,7 +186,8 @@ server.addReadListener("feederStation", "scale");
 
 ```
 
-##### map(x, in_min, in_max, out_min, out_max)
+<a id="map"></a>
+### map(x, in_min, in_max, out_min, out_max)
 - `x` _(Number)_ Input Value
 - `in_min` _(Number)_ Input Minimum
 - `in_max` _(Number)_ Input Maximum
@@ -187,7 +202,8 @@ var scaleValue = 0.5
 var outputValue = server.addReadListener(scaleValue, 0.0, 1.0, 0.0, 10.0);
 ```
 
-##### writePublicData(object, tool, node, dataObject, data) 
+<a id="writePublicData"></a>
+### writePublicData(object, tool, node, dataObject, data) 
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -197,10 +213,11 @@ var outputValue = server.addReadListener(scaleValue, 0.0, 1.0, 0.0, 10.0);
 PublicData is a JSON object that contains data objects specified by the node definition. You need to finetune your Tool via specific node types. publicData allows you to handle complex data among the server-side node program and the Spatial Tool. The Value can contain any JSON encoded data.
 
 ```javascript
-spatialTool. writePublicData("feederStation", "scale", "measurement", "lastMeasurements", [0, 1, 0.1, 0, 2]);
+spatialInterface.writePublicData("feederStation", "scale", "measurement", "lastMeasurements", [0, 1, 0.1, 0, 2]);
 ```
 
-##### addPublicDataListener(object, tool, node, dataObject, callBack) 
+<a id="addPublicDataListener"></a>
+### addPublicDataListener(object, tool, node, dataObject, callBack) 
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -211,12 +228,13 @@ spatialTool. writePublicData("feederStation", "scale", "measurement", "lastMeasu
 Add a read listener for publicData to read value changes for a defined Key. These changes are synchronized with the Edge Server and any Spatial Toolbox interacting with the Tool.
 
 ```javascript
-spatialTool.addReadPublicDataListener("feederStation", "scale", "measurement", "lastMeasurements", function(value){
+spatialInterface.addReadPublicDataListener("feederStation", "scale", "measurement", "lastMeasurements", function(value){
     var publicDataValue = value;
 });
 ```
 
-##### addConnectionListener(object, tool, node, callBack)
+<a id="addConnectionListener"></a>
+### addConnectionListener(object, tool, node, callBack)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - `node ` _(String)_ Name of Node
@@ -231,7 +249,8 @@ server.addConnectionListener("feederStation", "scale", "measurement", function(l
 });
 ```
 
-##### getAllObjects()
+<a id="getAllObjects"></a>
+### getAllObjects()
 - **Returns** _(Object)_ returns all objects.
 
 Returns a pointer to all known objects
@@ -240,7 +259,8 @@ Returns a pointer to all known objects
 server.getAllObjects();
 ```
 
-##### getKnownObjects()
+<a id="getKnownObjects"></a>
+### getKnownObjects()
 - **Returns** _(Object)_ returns all known objects in the format `{uuid : {version:"", protocol:"", ip:""}, ...}`
 
 Get all known objects among the entire known network.
@@ -249,7 +269,8 @@ Get all known objects among the entire known network.
 var knownObjects = server.getKnownObjects();
 ```
 
-##### getAllFrames(object) // should be renamed to getAllTools
+<a id="getAllFrames"></a>
+### getAllFrames(object) // should be renamed to getAllTools
 - `object` _(String)_ Name of Object
 - **Returns** _(Object)_ returns an object with all tools for a single object
 
@@ -259,7 +280,8 @@ Return all tools attached to an object.
 var allTools = server.getAllFrames("feederStation");
 ```
 
-##### getAllNodes(object, tool)
+<a id="getAllNodes"></a>
+### getAllNodes(object, tool)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - **Returns** _(Object)_ returns an object with all nodes for a single tool
@@ -270,7 +292,8 @@ Return all nodes attached to a tool.
 var allNodesForTool = server.getAllNodes("feederStation", "scale");
 ```
 
-##### getAllLinksToNodes(object, tool)
+<a id="getAllLinksToNodes"></a>
+### getAllLinksToNodes(object, tool)
 - `object` _(String)_ Name of Object
 - `tool` _(String)_ Name of Tool
 - **Returns** _(Object)_ returns an object with all links stored with a single tool
@@ -281,7 +304,8 @@ Return all nodes attached to a tool.
 var allLinksStoredWithTool = server.getAllLinksToNodes("feederStation", "scale");
 ```
 
-##### subscribeToNewFramesAdded(objectName, callback)  // should be tools
+<a id="subscribeToNewFramesAdded"></a>
+### subscribeToNewFramesAdded(objectName, callback)  // should be tools
 - `object` _(String)_ Name of Object
 - `callback` _(Function)_
 - **Returns** tool _(Object)_ returns reference to the Tool added
@@ -294,7 +318,8 @@ server.subscribeToNewFramesAdded("feederStation", function(tool){
 });
 ```
 
-##### subscribeToReset(objectName, callback)
+<a id="subscribeToReset"></a>
+### subscribeToReset(objectName, callback)
 - `object` _(String)_ Name of Object
 - `callback` _(Function)_
 
@@ -306,8 +331,8 @@ server.subscribeToReset("feederStation", function(){
 });
 ```
 
-
-##### subscribeToUDPMessages(callback)
+<a id="subscribeToUDPMessages"></a>
+### subscribeToUDPMessages(callback)
 - `callback` _(String)_
 - **Returns** _(Object)_ UDP messages
 
@@ -320,7 +345,8 @@ server.subscribeToNewFramesAdded("feederStation", function(udpMsg){
 });
 ```
 
-##### pushUpdatesToDevices(object)
+<a id="pushUpdatesToDevices"></a>
+### pushUpdatesToDevices(object)
 - `object` _(String)_ Name of Object
 
 Force all Spatial Toolbox Applications to reload this Object.
@@ -329,7 +355,8 @@ Force all Spatial Toolbox Applications to reload this Object.
 server.pushUpdatesToDevices("feederStation");
 ```
 
-##### activate(object)
+<a id="activate"></a>
+### activate(object)
 - `object` _(String)_ Name of Object
 
 Activate an Object. It will be visible to the Spatial Toolbox. By default, all new Objects are active.
@@ -338,7 +365,8 @@ Activate an Object. It will be visible to the Spatial Toolbox. By default, all n
 server.activate("feederStation");
 ```
 
-##### deactivate(object)
+<a id="deactivate"></a>
+### deactivate(object)
 - `object` _(String)_ Name of Object
 
 Deactivate an Object. It will be visible to the Spatial Toolbox. By default, all new Objects are active.
@@ -347,7 +375,8 @@ Deactivate an Object. It will be visible to the Spatial Toolbox. By default, all
 server.deactivate("feederStation");
 ```
 
-##### getObjectIdFromObjectName(object)
+<a id="getObjectIdFromObjectName"></a>
+### getObjectIdFromObjectName(object)
 - `object` _(String)_ Name of Object
 - **Returns** _(Object)_ Object UUID
 
@@ -357,7 +386,7 @@ Get UUID of Object via Name
 var ObjectUuid = server.getObjectIdFromObjectName("feederStation");
 ```
 
-<!--- ##### getMarkerSize
+<!--- ### getMarkerSize
 objectName return getMarkerSize
 
 ```javascript
@@ -370,7 +399,8 @@ server.
 ```
 --->
 
-##### addEventListener(option, callBack)
+<a id="addEventListener"></a>
+### addEventListener(option, callBack)
 - `option` _(String)_ Options for System. Use any of these strings `reset`, `shutdown`, `initialize`
 - `callback` _(Function)_
 
@@ -383,7 +413,7 @@ server.addEventListener("reset", function(){
 ```
 
 <!---
-##### advertiseConnection
+### advertiseConnection
 (describe this later on.) Cool functionality but maybe overwelming for now
 
 ```javascript

@@ -1,6 +1,12 @@
-# Logic Node Example Programs
+---
+layout: doc
+title: Logic Node Example Programs
+permalink: /docs/use/spatial-programming/example-programs
+---
 
-This is a curated set of useful programs that can be constructed in Logic Nodes. Read through the examples to see how logic node programming works and how it can be used for a variety of tasks. For full documentation on what each block does, visit the [Logic Blocks](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/use/toolboxBlocks.md) page.
+## Logic Node Example Programs
+
+This is a curated set of useful programs that can be constructed in Logic Nodes. Read through the examples to see how logic node programming works and how it can be used for a variety of tasks. For full documentation on what each block does, visit the [Logic Blocks](./logic-blocks) page.
 
 ## Start and Stop
 

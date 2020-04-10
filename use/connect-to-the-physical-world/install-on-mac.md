@@ -1,9 +1,16 @@
-# Starting the Vuforia Spatial Edge Server on Mac
+---
+layout: doc
+title: Starting the Vuforia Spatial Edge Server on Mac
+permalink: /docs/use/connect-to-the-physical-world/install-on-mac
+---
+
+## Starting the Vuforia Spatial Edge Server on Mac
 
 ## Install Node
 
 Follow the instructions on Node's website to install `node` and `npm`:
-https://nodejs.org/en/. If installing succeeding, you'll be able to open terminal and run `node --version`:
+[https://nodejs.org/en/](https://nodejs.org/en/). If installation succeeded,
+you'll be able to open Terminal and run `node --version`:
 
 ![Terminal with the command node --version run, it outputs v13.5.0 without errors](./images/terminal-node-version.png)
 
@@ -16,7 +23,10 @@ Follow the [instructions on GitHub's website](https://help.github.com/en/desktop
 ### Download Edge Server
 
 #### With GitHub Desktop
-In GitHub Desktop select Clone Repository (under the "Add" menu if the button isn't immediately visible). Once there, paste the edge server's repository url, https://github.com/ptcrealitylab/vuforia-spatial-edge-server/ and click Clone.
+In GitHub Desktop select Clone Repository (under the "Add" menu if the button
+isn't immediately visible). Once there, paste the edge server's repository url,
+[https://github.com/ptcrealitylab/vuforia-spatial-edge-server/](https://github.com/ptcrealitylab/vuforia-spatial-edge-server/)
+and click Clone.
 
 ![GitHub desktop with Clone menu open and edge server url filled in](./images/gh-desktop-edge-server-clone.png)
 
@@ -33,7 +43,8 @@ Documents directory:
 
 #### With GitHub Desktop
 Open GitHub Desktop and use the same Clone Repository dialog to clone
-https://github.com/ptcrealitylab/vuforia-spatial-core-addon/ to the addons
+[https://github.com/ptcrealitylab/vuforia-spatial-core-addon/](https://github.com/ptcrealitylab/vuforia-spatial-core-addon/)
+to the addons
 subdirectory of vuforia-spatial-edge-server. Note that in the "Choose Folder"
 dialog you will have to create a new folder named "addons."
 
@@ -84,7 +95,7 @@ the core add-on's specific dependencies.
 
 Now, return to the edge server's directory by running `cd ../../`. You can
 confirm you're in the correct directory by running `ls` again. Now you're here,
-you can run `node server.js` to start the server.
+you can run `npm start` to start the server.
 
 ![Terminal showing returning to the edge server directory and running node](./images/terminal-gh-edge-server-start-server.png)
 

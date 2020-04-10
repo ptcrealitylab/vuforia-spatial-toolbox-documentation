@@ -1,4 +1,10 @@
-# Logic Blocks
+---
+layout: doc
+title: Logic Blocks
+permalink: /docs/use/spatial-programming/logic-blocks
+---
+
+## Logic Blocks
 
 Reference documentation about the functionality of each block in the system.
 

@@ -1,4 +1,10 @@
-# Creating a Simple Tool
+---
+layout: doc
+title: Creating a Simple Tool
+permalink: /docs/develop/spatial-tools/tutorial
+---
+
+## Creating a Simple Tool
 
 In this tutorial, you will learn how to build a tool that can be placed in space and change color
 in response to other tools:
@@ -17,20 +23,19 @@ experiments. If you already have an addon, feel free to add this to that one.
 
 First, navigate to your `vuforia-spatial-edge-server/addons` directory. If you don't already have
 a Vuforia Spatial Edge Server installed, refer to the installation instructions
-[here](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/blob/master/startSystem/startSystem.md)
-before you continue.
+[here](../../use/connect-to-the-physical-world/startSystem) before you continue.
 
 In that directory, you will likely see the `vuforia-spatial-core-addon`, but rather than add our
-new tool to the core-addon, create a new directory next to it called `my-addon`. Inside `my
--addon`, create a new directory called `tools`. This will hold all of the new tools you develop
-that will get added to this edge server.
+new tool to the core-addon, create a new directory next to it called `my-addon`. Inside `my-addon`,
+create a new directory called `tools`. This will hold all of the new tools you develop that will
+get added to this edge server.
 
 ### Create the index.html file
 
-and then within that create a directory with the name of the tool you want to create, which in
-this case will be called `randomColor`. Finally, inside that directory create a new HTML file
-called `index.html`. The resulting path of that file should be `vuforia-spatial-core-addon
-/addons/my-addon/tools/randomColor/index.html`.
+Now, within the `tools` directory create a directory with the name of the tool you want to create,
+which in this case will be called `randomColor`. Finally, inside that directory create a new HTML
+file called `index.html`. The resulting path of that file should be
+`vuforia-spatial-edge-server/addons/my-addon/tools/randomColor/index.html`.
 
 The resulting directories should look like:
 
@@ -66,8 +71,8 @@ Edit the index.html file and replace its contents with the following. I'll expla
 <div id="container"></div>
 
 <script>
-    // 3. Try to load the RealityInterface APIs.
-    let realityInterface = new RealityInterface();
+    // 3. Try to load the SpatialInterface APIs.
+    let spatialInterface = new SpatialInterface();
 
     // 4. When we tap on the container, change the color
     let container = document.getElementById('container');
@@ -91,7 +96,7 @@ Edit the index.html file and replace its contents with the following. I'll expla
 2. The width and height of the body will define the size of the tool. Any HTML contents outside
    of the width and height will be cropped.
 3. Because we have included the `object.js` script, we can access the APIs it provides by
-   creating a new RealityInterface instance. We aren't using it for anything yet (we will by the
+   creating a new SpatialInterface instance. We aren't using it for anything yet (we will by the
    end of this tutorial), but you should instantiate it anyways so that the tool properly loads.
 4. Here we can add any behavior to this tool, as if it were an ordinary HTML page. We add a
    pointerup event so that if the user taps on the tool, it will pick a random color and change its
@@ -195,14 +200,14 @@ afterwards.
 <div id="container"></div>
 
 <script>
-    // 3. Try to load the RealityInterface APIs.
-    let realityInterface = new RealityInterface();
+    // 3. Try to load the SpatialInterface APIs.
+    let spatialInterface = new SpatialInterface();
 
     // 5. This attaches a programmable node to your tool
-    realityInterface.initNode('hue', 'node', 0, 0);
+    spatialInterface.initNode('hue', 'node', 0, 0);
 
     // 6. Whenever data arrives at the node, update the color of this tool
-    realityInterface.addReadListener('hue', function(event) {
+    spatialInterface.addReadListener('hue', function(event) {
         let newHue = Math.round(event.value * 255);
         setColor(newHue);
     });
@@ -214,7 +219,7 @@ afterwards.
         setColor(newHue);
 
         // 7. Whenever we tap, emit the new hue from the node
-        realityInterface.write('hue', newHue/255);
+        spatialInterface.write('hue', newHue/255);
     });
 
     function setColor(hue) {
