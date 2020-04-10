@@ -95,7 +95,9 @@ the core add-on's specific dependencies.
 
 Now, return to the edge server's directory by running `cd ../../`. You can
 confirm you're in the correct directory by running `ls` again. Now you're here,
+
 you can run `npm start` to start the server.
+
 
 ![Terminal showing returning to the edge server directory and running node](./images/terminal-gh-edge-server-start-server.png)
 
