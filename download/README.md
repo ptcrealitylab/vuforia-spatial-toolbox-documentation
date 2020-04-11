@@ -9,7 +9,7 @@ permalink: /docs/download
 ### Vuforia Spatial Toolbox
 <div class="buttons">
     <button class="button is-medium is-light"
-            onclick="location.href='#todo-add-this-link';">
+            onclick="location.href='https://apps.apple.com/us/app/vuforia-spatial-toolbox/id1506071001';">
     <span class="icon is-medium">
       <i class="fab fa-app-store-ios"></i>
     </span>
