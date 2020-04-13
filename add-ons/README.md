@@ -4,7 +4,6 @@ title: Add-ons
 permalink: /docs/add-ons
 ---
 
- <link rel="stylesheet" href="bulma.css">
 <style>
     .box:hover {background: rgba(0.9,0.9,0.9,0.04);}
 </style>
