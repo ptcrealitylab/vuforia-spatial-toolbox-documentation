@@ -8,14 +8,14 @@ permalink: /docs/download
 
 ### Vuforia Spatial Toolbox
 <div class="buttons">
-    <button class="button is-medium is-light"
+    <button class="button is-outlined  is-medium is-dark"
             onclick="location.href='https://apps.apple.com/us/app/vuforia-spatial-toolbox/id1506071001';">
     <span class="icon is-medium">
       <i class="fab fa-app-store-ios"></i>
     </span>
         <span>Download on the iOS App Store</span>
     </button>
-    <button class="button is-medium is-light"
+    <button class="button  is-outlined  is-medium is-dark"
             onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-toolbox-ios';">
     <span class="icon is-medium">
         <i class="fab fa-github"></i>
@@ -26,7 +26,7 @@ permalink: /docs/download
 
 ### Vuforia Spatial Edge Server
 
-  <button class="button is-light is-medium"  
+  <button class="button  is-outlined  is-medium is-dark"  
     onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server';">
     <span class="icon is-medium">
       <i class="fab fa-github"></i>
