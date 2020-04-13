@@ -13,7 +13,7 @@ permalink: /docs/add-ons
     <div class="container">
         <div class="columns is-vcentered is-centered is-multiline ">
             <div class="tile">
-            <a href="test.html" style="text-decoration: none; color: #0a0a0a;">
+            <a href="https://github.com/ptcrealitylab/vuforia-spatial-core-addon/" style="text-decoration: none; color: #0a0a0a;">
                     <div class="tile is-parent">
                         <article class="tile is-child box">
                             <p class="title">Core</p>
@@ -24,7 +24,7 @@ permalink: /docs/add-ons
                         </article>
                     </div>
             </a>
-            <a href="test.html" style="text-decoration: none; color: #0a0a0a;">
+            <a href="https://github.com/ptcrealitylab/vuforia-spatial-robotic-addon" style="text-decoration: none; color: #0a0a0a;">
                     <div class="tile is-parent">
                         <article class="tile is-child box">
                             <p class="title">Robotic</p>
@@ -34,7 +34,7 @@ permalink: /docs/add-ons
                         </article>
                     </div>
             </a>
-            <a href="test.html" style="text-decoration: none; color: #0a0a0a;">
+            <a href="https://github.com/ptcrealitylab/vuforia-spatial-basic-interfaces-addon" style="text-decoration: none; color: #0a0a0a;">
                     <div class="tile is-parent">
                     <article class="tile is-child box">
                         <p class="title">Basic</p>
