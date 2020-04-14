@@ -76,3 +76,5 @@ tools from all the edge servers in the network. Public global tools have none of
 
 > To create a new **public** global tool, you need to add an addon to any edge server, and run
 that edge server from your computer.
+
+<img src="resources/toolbox_OG.jpg" width="0" height="0" style="visibility: hidden"/>
