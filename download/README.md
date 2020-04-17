@@ -48,7 +48,7 @@ permalink: /docs/download
 
 |iOS|Android|
 |---|---|
-|11–13|10|
+|12.x - 13.x| N/A|
 
 #### Vuforia Engine SDK Version
 
