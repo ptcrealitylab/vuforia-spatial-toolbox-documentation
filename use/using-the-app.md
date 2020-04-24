@@ -142,7 +142,9 @@ Tapping on a logic node opens its programming grid, where you can construct a pr
 
 The top row has an input spot for each color, corresponding to the colors of links connecting to this logic node.
 
-The bottom row has an output spot for each color.<p style = "clear: left;"></p>
+The bottom row has an output spot for each color.
+
+<p style = "clear: left;"></p>
 
 ### Add Logic Block from Menu
 
