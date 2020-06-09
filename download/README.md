@@ -51,7 +51,7 @@ permalink: /docs/download
 
 |iPhone|iPad|Android|Head Mounted Displays|
 |---|---|---|---|
-|iPhone SE 4.7"<br>iPhone 11 Pro<br>iPhone 11 Pro Max<br>iPhone 11<br>iPhone XS<br>iPhone XS Max<br>iPhone XR<br>iPhone X<br>iPhone 8<br>iPhone 8 Plus<br>iPhone 7<br>iPhone 7 Plus<br>iPhone 6s<br> iPhone 6s Plus<br>iPhone SE<br>|In development, coming soon|In development, coming soon|No plans yet for supporting|
+|iPhone SE 4.7"<br>iPhone 11 Pro<br>iPhone 11 Pro Max<br>iPhone 11<br>iPhone XS<br>iPhone XS Max<br>iPhone XR<br>iPhone X<br>iPhone 8<br>iPhone 8 Plus<br>iPhone 7<br>iPhone 7 Plus<br>iPhone 6s<br> iPhone 6s Plus<br>iPhone SE<br>| iPad Pro<br>iPad Air 3rd gen.<br>iPad 5th gen.<br>iPad mini 5th gen.<br>|In development, coming soon|No plans yet for supporting|
 
 #### OS Version
 
