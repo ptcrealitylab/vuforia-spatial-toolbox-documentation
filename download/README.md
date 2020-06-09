@@ -26,13 +26,22 @@ permalink: /docs/download
 
 ### Vuforia Spatial Edge Server
 
-  <button class="button  is-outlined  is-medium is-dark"  
-    onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server';">
+<div class="buttons">
+    <button class="button is-outlined  is-medium is-dark"
+            onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server/releases/tag/v3.2.0';">
     <span class="icon is-medium">
       <i class="fab fa-github"></i>
     </span>
-    <span>Download or clone from GitHub</span>
-  </button>
+        <span>Download v3.2.0</span>
+    </button>
+    <button class="button  is-outlined  is-medium is-dark"
+            onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server';">
+    <span class="icon is-medium">
+        <i class="fab fa-github"></i>
+            </span>
+        <span>Source Code on GitHub</span>
+    </button>
+</div>
   
 ## Compatibility
 
