@@ -131,12 +131,21 @@ Now click on the "Add World Object" button and type in a name, such as "test":
 
 ![dashboard typing in world object named test](./images/edge-server-dashboard-add-world-object.png)
 
-Click the big green "Add" button and you'll see your new world object pop up. If the button on
-the right edge says "On", you should be all set. You can ignore the other buttons for now:
+Click the big green "Add" button and you'll see your new world object pop up. Like with regular
+objects, it'll begin in an inactive state, and you'll have to attach a target to it to activate it.
 
-![dashboard with world object](./images/edge-server-dashboard-world-object.png)
+![dashboard with inactive world object](./images/edge-server-world-object-inactive.png)
 
-We can check that your server has successfully found your tool from the adddon you built by
+You can refer to [this tutorial](../../tutorials/attaching-targets-to-objects) for how to attach
+different types of target data to your object. I used one of the
+[sample image targets](https://developer.vuforia.com/sites/default/files/sample-apps/targets/imagetargets_targets.pdf)
+from the Vuforia developer portal but you can use a different target if you want. When you're done,
+the server interface will reload and the button on the right edge will change to "On", you should be
+all set. You can ignore the other buttons for now:
+
+![dashboard with active object](./images/edge-server-world-object-active.png)
+
+We can check that your server has successfully found your tool from the addon you built by
 clicking on the "Spatial Tools" tab near the top center of the dashboard. This will bring you to
 a different view that lists all of the tools that this server can provide to clients in the
 network:
