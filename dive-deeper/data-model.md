@@ -31,8 +31,8 @@ Objects are identified by a human readable *name*, as well as a unique *objectId
 machine. The full properties of an Object are stored in
 `~Documents/spatialToolbox/{object name}/.identity/object.json`.
 
-There is also a certain type of Object called a **World Object** which doesn't require a target
-and instead remains visible as you move around a space.
+There is also a certain type of Object called a **World Object** that remains visible as you move
+around a space. The target attached to a World Object is used to localize the origin for your space.
 
 Objects are stored in the userinterface in the `objects` global variable. Objects are stored on
 edge servers in the `objects` variable in the server.js file.
