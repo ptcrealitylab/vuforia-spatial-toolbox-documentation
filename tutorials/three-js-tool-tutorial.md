@@ -22,11 +22,18 @@ app, we'll create this tool as a **custom** tool attached to a specific object, 
 Create an Object](../use/connect-to-the-physical-world/create-object) tutorial. Follow that tutorial to create a
 new object, attach an image target to it, and add a tool to it using the web interface. The tool will default to
 looking like a blue square.
+
+You can either follow along, or
+[download this object](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/raw/master/tutorials/downloads/threejsTestObject.zip)
+and unzip it into your `spatialTools` directory. Restart your server and app and the new object should appear when you
+look at this image:
+
+![target image for three.js demo](./images/three-js-tool/threejsTestObject-target-image.jpg)
  
-Let's start out with the final code, and explain everything afterwards step-by-step. Find your object in your
-`spatialTools` directory, and locate the `index.html` file for the custom tool you just added. Replace the contents
-with the following code. Each noteworthy block of code has been commented with a step number. Each of these steps
-is explained in detail afterwards.
+Let's look at the final code, and explain everything afterwards step-by-step. If you didn't download the zip of the
+finished product, and are instead building this from scratch, find your object in your `spatialTools` directory, and
+locate the `index.html` file for the custom tool you just added. Replace the contents with the following code. Each
+noteworthy block of code has been commented with a step number. Each of these steps is explained in detail afterwards.
 
 ```html
 <!DOCTYPE html>
