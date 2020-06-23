@@ -65,7 +65,7 @@ noteworthy block of code has been commented with a step number. Each of these st
     renderer.setSize(rendererWidth, rendererHeight);
     document.body.appendChild(renderer.domElement);
 
-    // 5. Initialize the three.js scene with a camera, contents, and lighting
+    // 5. Initialize the three.js scene with a camera and contents
     camera = new THREE.PerspectiveCamera(70, rendererWidth / rendererHeight, 1, 1000);
     scene = new THREE.Scene();
     containerObj = new THREE.Object3D();
@@ -192,7 +192,7 @@ For more documentation on setting up a basic three.js scene, you can read the of
 ### Step 5.
 
 ```javascript
-// 5. Initialize the three.js scene with a camera, contents, and lighting
+// 5. Initialize the three.js scene with a camera and contents
 camera = new THREE.PerspectiveCamera(70, rendererWidth / rendererHeight, 1, 1000);
 scene = new THREE.Scene();
 containerObj = new THREE.Object3D();
