@@ -225,7 +225,8 @@ this scene run, but this step is where we put the 3D contents into the scene. To
 scene. You can [download the crate.gif](https://github.com/mrdoob/three.js/blob/master/examples/textures/crate.gif)
 file from the three.js examples and add it to a new directory in your tool called `textures`.
 
-Feel free to play around with this step and swap out the crate with other 3D content.
+Feel free to play around with this step and swap out the crate with other 3D content. Be aware that many of the other
+three.js examples will require you to include additional scripts - try the crate first to make sure it works.
 
 ### Step 7.
 
