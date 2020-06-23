@@ -112,7 +112,7 @@ noteworthy block of code has been commented with a step number. Each of these st
 
   // 12. Make sure the 3d renderer always has the right aspect ratio of the screen
   window.addEventListener('resize', function() {
-    rendererWidth = window.innerWidth;
+    rendererWidth = window.innerWidth; // unlike screen.width, this isn't inverted for landscape
     rendererHeight = window.innerHeight;
 
     if (camera) {
@@ -240,7 +240,7 @@ Here are the two key lines where we use the Spatial Toolbox APIs to make this 3D
 
 `setFullScreenOn` makes this tool ignore the regular Spatial Toolbox rendering, which normally tries to render this
 tool as a 2D panel floating somewhere in 3D space. When we call this, the tool instead "sticks" to the screen and
-resizes to fill the full width and height of the screen. On it's own, this breaks the AR behavior of this tool.
+resizes to fill the full width and height of the screen. On its own, this would break the AR behavior of this tool.
 
 `addMatrixListener` lets us fix the AR behavior by subscribing to the 3D position in space that the Spatial Toolbox
 would normally have placed this tool. We can then give this 3D position to the three.js scene so that it renders
@@ -331,10 +331,10 @@ using the data in the format provided by the Spatial Toolbox APIs.
 
 ### Step 12.
 
-```
+```javascript
 // 12. Make sure the 3d renderer always has the right aspect ratio of the screen
 window.addEventListener('resize', function() {
-  rendererWidth = window.innerWidth;
+  rendererWidth = window.innerWidth; // unlike screen.width, this isn't inverted for landscape
   rendererHeight = window.innerHeight;
 
   if (camera) {
