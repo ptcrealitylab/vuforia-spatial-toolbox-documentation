@@ -31,7 +31,7 @@ A simple envelope is included in the default set of tools. This is the simplest 
 
 ### The structure of an envelope
 
-A envelope is really a "system" composed of two different types of tools:
+An envelope is really a "system" composed of two different types of tools:
 
 **Envelope Containers** and **Envelope Contents**
 
@@ -43,11 +43,11 @@ An envelope container gets to choose which tools can go inside it. In the above 
 
 ### Example Code 1: simple-envelope-container
 
-Explaining everything about envelopes on a conceptual level without looking at any code examples can be confusing. Let's build a some envelope tools in a new add-on to explore how they work.
+Explaining everything about envelopes on a conceptual level without looking at any code examples can be confusing. Let's build some envelope tools in a new add-on to explore how they work.
 
 Start out by creating a new add-on called `envelope-tutorial-addon` and creating a `tools` directory in it for the tools we're about to build. If you have any trouble setting it up, refer back to the [Creating a Simple Tool](../develop/spatial-tools/tutorial) tutorial for more detailed instructions.
 
-Create a new tool there named `simple-envelope-container`. The resulting file path that should should end up with for your tool's HTML is `vuforia-spatial-edge-server/addons/envelope-tutorial-addon/tools/simple-envelope-container/index.html`
+Create a new tool there named `simple-envelope-container`. The resulting file path that should end up with your tool's HTML is `vuforia-spatial-edge-server/addons/envelope-tutorial-addon/tools/simple-envelope-container/index.html`
 
 Copy-and-paste these contents into that index.html:
 
@@ -202,7 +202,7 @@ rootElementWhenClosed.addEventListener('pointerup', function() {
 });
 ```
 
-Lastly, we add a touch event listener to the div that's visible when the envelope is closed. When we tap on it, we used one of the envelope APIs (`envelope.open()`) to open the envelope. Doing this hides rootElementWhenClosed, shows rootElementWhenOpen, and makes visible any tools contained by this envelope.
+Lastly, we add a touch event listener to the div that's visible when the envelope is closed. When we tap on it, we use one of the envelope APIs (`envelope.open()`) to open the envelope. Doing this hides rootElementWhenClosed, shows rootElementWhenOpen, and makes visible any tools contained by this envelope.
 
 Notice that we don't need to add a touch event listener to close the envelope. By default, all envelopes automatically include an "X" button that shows in the upper left corner when they are open. Tapping on that will close them.
 
