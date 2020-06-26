@@ -142,7 +142,7 @@ Copy-and-paste these contents into that index.html:
 
 ```
 
-1. **Import the Envelope Container APIs**
+**Step 1. Import the Envelope Container APIs**
 ``` html
 <script src="objectDefaultFiles/envelope.js"></script>
 ```
@@ -151,7 +151,7 @@ There is a javascript file called `envelope.js` in the vuforia-spatial-edge-serv
 the APIs related to envelopes. Import it with this exact path so that the server can properly inject the script into
 your tool when it runs.
 
-2. **Create the rootElementWhenOpen**
+**Step 2. Create the rootElementWhenOpen**
 
 ```html
 <div id="rootElementWhenOpen">Open</div>
@@ -178,7 +178,7 @@ background (so we can tell that it's open).
 }
 ```
 
-3. **Create the rootElementWhenClosed**
+**Step 3. Create the rootElementWhenClosed**
 
 ```html
 <div id="rootElementWhenClosed">Closed</div>
@@ -204,7 +204,7 @@ In addition to the CSS, this div will automatically have `display: none` applied
 open, so that it becomes hidden. Likewise, the rootElementWhenOpen will have `display: none` applied when the
 envelope is closed.
 
-4. **Define the compatibleToolTypes**
+**Step 4. Define the compatibleToolTypes**
 
 ```javascript
 let compatibleToolTypes = ['simple-envelope-contents'];
@@ -220,7 +220,7 @@ compatible with the envelope, so it isn't affected by anything the envelope does
 In the example code, we add a single type of tool to the list called **simple-envelope-contents**. We haven't built
 that tool yet, so keep reading until we get to that part of the tutorial.
 
-5. **Initialize the envelope container**
+**Step 5. Initialize the envelope container**
 
 ```javascript
 let envelope = new Envelope(spatialInterface, compatibleToolTypes, rootElementWhenOpen, rootElementWhenClosed);
@@ -236,7 +236,7 @@ covered in a following tutorial for more advanced behavior.*
 Basically, everything we did in the previous steps lets us create the Envelope with the right properties so that it
 looks and behaves how we want it to.
 
-6. **Add a touch event to switch between open and closed states**
+**Step 6. Add a touch event to switch between open and closed states**
 
 ```javascript
 rootElementWhenClosed.addEventListener('pointerup', function() {
@@ -327,7 +327,7 @@ Copy-and-paste these contents into the index.html:
 
 ```
 
-1. **Import the Envelope Contents API**
+**Step 1. Import the Envelope Contents API**
 
 ```html
 <script src="objectDefaultFiles/envelopeContents.js"></script>
@@ -336,7 +336,7 @@ Copy-and-paste these contents into the index.html:
 The envelope container needs to import a script called envelope.js, but there's a different script that envelope
 contents use called **envelopeContents.js**.
 
-2. **Initialize the envelope contents**
+**Step 2. Initialize the envelope contents**
 
 ```javascript
 let envelopeContents = new EnvelopeContents(spatialInterface, document.getElementById('container'));
