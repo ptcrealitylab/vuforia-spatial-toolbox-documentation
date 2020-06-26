@@ -258,7 +258,7 @@ your server and app to see it appear in the Spatial Toolbox pocket.
 Tap on it to open the envelope and see the fullscreen semi-transparent div that we created. Tap the X button to close
 it again.
 
-![simple-envelope-container](/Users/Benjamin/Desktop/Envelope Tutorials/simple-envelope-container.gif)
+![simple-envelope-container](./images/envelope-tool/simple-envelope-container.gif)
 
 If you add two of these envelopes to the scene and try to open them both at once, opening the second one will
 automatically close the first. By default, only one envelope can be open at a time. There are APIs to change that,
