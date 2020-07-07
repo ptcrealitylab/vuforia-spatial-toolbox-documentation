@@ -28,11 +28,11 @@ permalink: /docs/download
 
 <div class="buttons">
     <button class="button is-outlined  is-medium is-dark"
-            onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server/releases/tag/v3.2.0';">
+            onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server/releases/tag/v3.2.2';">
     <span class="icon is-medium">
       <i class="fab fa-github"></i>
     </span>
-        <span>Download v3.2.0</span>
+        <span>Download v3.2.2</span>
     </button>
     <button class="button  is-outlined  is-medium is-dark"
             onclick="location.href='https://github.com/ptcrealitylab/vuforia-spatial-edge-server';">

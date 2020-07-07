@@ -6,9 +6,33 @@ permalink: /docs/download/change-log
 
 ## Change Log
 
-###  v1.2.2 - 2020-06-25
+#### Spatial Edge Server v3.2.2 - 2020-07-06
 
-#### Vuforia Spatial Toolbox
+<table>
+  <tr>
+    <th>
+      Platform
+    </th>
+    <th>
+      &#128030;Bugfix / &#x1F4A1;Features
+    </th>
+  </tr>
+  <tr>
+    <td>
+      Mac OS
+    </td>
+    <td>
+      <ul>
+      <li class="feature">General Improvements</li>
+      <li class="bug">Improves Lego Boost discovery issues</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+
+
+#### Spatial Toolbox v1.2.2 - 2020-06-25
 
 <table>
   <tr>
@@ -44,9 +68,7 @@ permalink: /docs/download/change-log
 </table>
 
 
-###  v1.2.1 - 2020-06-13
-
-#### Vuforia Spatial Toolbox
+#### Spatial Toolbox v1.2.1 - 2020-06-13
 
 <table>
   <tr>
@@ -79,9 +101,7 @@ permalink: /docs/download/change-log
 </table>
 
 
-###  v1.2.0 - 2020-06-09
-
-#### Vuforia Spatial Toolbox
+#### Spatial Toolbox v1.2.0 - 2020-06-09
 
 <table>
   <tr>
@@ -120,7 +140,7 @@ permalink: /docs/download/change-log
 </table>
 
 
-#### Vuforia Spatial Edge Server V3.2.0
+#### Spatial Edge Server V3.2.0
 
 <table>
   <tr>
@@ -147,9 +167,7 @@ permalink: /docs/download/change-log
   </tr>
 </table>
 
-###  v1.1.1 - 2020-04-15
-
-#### Vuforia Spatial Toolbox
+####  Spatial Toolbox v1.1.1 - 2020-04-15
 
 <table>
   <tr>
@@ -178,10 +196,8 @@ permalink: /docs/download/change-log
   </tr>
 </table>
 
-###  v1.1.0 - 2020-04-06
-
-#### Vuforia Spatial Toolbox
-
+#### Spatial Toolbox v1.1.0 - 2020-04-06
+ 
 <table>
   <tr>
     <th>
@@ -211,7 +227,7 @@ permalink: /docs/download/change-log
   </tr>
 </table>
 
-#### Vuforia Spatial Edge Server
+#### Spatial Edge Server  v3.2.0 - 2020-04-06
 
 <table>
   <tr>
