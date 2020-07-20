@@ -10,8 +10,8 @@ Pre-reqs: [Creating a Simple Tool](../develop/spatial-tools/tutorial) and
 [How to Create an Object](../use/connect-to-the-physical-world/create-object)
 
 In this tutorial we'll take a basic a-frame scene and turn it into a spatial
-tool with a couple minor modifications. [A-Frame]() is a framework that allows
-us to write simple HTML to generate 3D scenes.
+tool with a couple minor modifications. [A-Frame](https://aframe.io/) is a
+framework that allows us to write simple HTML to generate 3D scenes.
 
 
 <video controls width="640">
@@ -24,22 +24,26 @@ us to write simple HTML to generate 3D scenes.
     Sorry, your browser doesn't support embedded videos.
 </video>
 
-Whereas in some other tutorials we've created **global** tools in a new add-on, which get added to the pocket in the
-app, we'll create this tool as a **custom** tool attached to a specific object, as shown at the end of the [How to
-Create an Object](../use/connect-to-the-physical-world/create-object) tutorial. Follow that tutorial to create a
-new object, attach an image target to it, and add a tool to it using the web interface. The tool will default to
+Whereas in some other tutorials we've created **global** tools in a new add-on,
+which get added to the pocket in the app, we'll create this tool as a
+**custom** tool attached to a specific object, as shown at the end of the [How
+to Create an Object](../use/connect-to-the-physical-world/create-object)
+tutorial. Follow that tutorial to create a new object, attach an image target
+to it, and add a tool to it using the web interface. The tool will default to
 looking like a blue square.
 
 You can either follow along or
 [download the completed object](https://github.com/ptcrealitylab/vuforia-spatial-toolbox-documentation/raw/master/tutorials/downloads/aframeTestObject.zip)
-and unzip it into your `spatialTools` directory. Restart your server and app and the new object should appear when you
-look at this image:
+and unzip it into your `spatialTools` directory. Restart your server and app
+and the new object should appear when you look at this image:
 
 ![target image for aframe demo](./images/aframe-tool/aframeTestObject-target-image.jpg)
 
-Let's look at the final code line-by-line to see hwat's going on. If you didn't download the zip of the
-finished product and are instead building this from scratch, find your object in your `spatialTools` directory, and
-locate the `index.html` file for the custom tool you just added. Replace the contents with the following code.
+Let's look at the final code line-by-line to see what's going on. If you didn't
+download the zip of the finished product and are instead building this from
+scratch, find your object in your `spatialTools` directory, and locate the
+`index.html` file for the custom tool you just added. Replace the contents with
+the following code.
 
 ```html
 <!DOCTYPE html>
@@ -105,8 +109,8 @@ and wasd controls on the camera so that the spatial tool component can have
 complete control.
 
 If you make note of the differences between this scene and the [A-Frame starter
-scene]() you should be able to convert just about any A-Frame example into a
-Spatial Tool.
+scene](https://aframe.io/examples/showcase/helloworld/) you should be able to
+convert just about any A-Frame example into a Spatial Tool.
 
 Did you get this working? Are you looking for next steps? Share your progress
 and ideas on the [forum](https://forum.spatialtoolbox.vuforia.com)!
