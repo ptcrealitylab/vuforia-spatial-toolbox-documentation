@@ -37,7 +37,7 @@ You can either follow along or
 and unzip it into your `spatialTools` directory. Restart your server and app
 and the new object should appear when you look at this image:
 
-![target image for aframe demo](./images/aframe-tool/aframeTestObject-target-image.jpg)
+<img src="images/aframe-tool/aframeTestObject-target-image.jpg" alt="target image for aframe demo" style="max-width: 480px;">
 
 Let's look at the final code line-by-line to see what's going on. If you didn't
 download the zip of the finished product and are instead building this from
