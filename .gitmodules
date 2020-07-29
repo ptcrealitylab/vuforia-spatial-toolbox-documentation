@@ -4,3 +4,6 @@
 [submodule "vuforia-spatial-basic-interfaces-addon"]
 	path = vuforia-spatial-basic-interfaces-addon
 	url = https://github.com/ptcrealitylab/vuforia-spatial-basic-interfaces-addon
+[submodule "vuforia-spatial-edge-server"]
+	path = vuforia-spatial-edge-server
+	url = https://github.com/ptcrealitylab/vuforia-spatial-edge-server
