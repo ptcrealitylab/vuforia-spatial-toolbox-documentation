@@ -33,6 +33,16 @@ permalink: /docs/add-ons
                         </article>
                     </div>
             </a>
+            <a href="https://github.com/ptcrealitylab/vuforia-spatial-motion-addon" style="text-decoration: none; color: #0a0a0a;">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title">Motion</p>
+                            <p class="subtitle">The Motion add-on provides user interfaces for spatial robotic programming focused on motion paths.</p>
+                            <p class="content" ><br>Maintained by <a href="https://github.com/ptcrealitylab" style="text-decoration: underline;">PTC Reality
+                                Lab</a></p>
+                        </article>
+                    </div>
+            </a>
             <a href="https://github.com/ptcrealitylab/vuforia-spatial-basic-interfaces-addon" style="text-decoration: none; color: #0a0a0a;">
                     <div class="tile is-parent">
                     <article class="tile is-child box">

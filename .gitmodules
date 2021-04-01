@@ -7,3 +7,6 @@
 [submodule "vuforia-spatial-edge-server"]
 	path = vuforia-spatial-edge-server
 	url = https://github.com/ptcrealitylab/vuforia-spatial-edge-server
+[submodule "vuforia-spatial-motion-addon"]
+	path = vuforia-spatial-motion-addon
+	url = https://github.com/ptcrealitylab/vuforia-spatial-motion-addon
